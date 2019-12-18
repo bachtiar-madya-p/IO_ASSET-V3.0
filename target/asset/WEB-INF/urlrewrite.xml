@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <!DOCTYPE urlrewrite
+        PUBLIC "-//tuckey.org//DTD UrlRewrite 3.0//EN"
+        "http://www.tuckey.org/res/dtds/urlrewrite3.0.dtd">
+<urlrewrite>
+	<rule>
+		<from>^/login$</from>
+		<to>/login.jsp</to>
+	</rule>
+
+	<rule>
+		<from>^/index$</from>
+		<to>/WEB-INF/index.jsp</to>
+	</rule>
+
+	<rule>
+		<from>^/rules$</from>
+		<to>/WEB-INF/ruleManagement.jsp</to>
+	</rule>
+
+	<rule>
+		<from>^/executions$</from>
+		<to>/WEB-INF/executionHistory.jsp</to>
+	</rule>
+
+	<rule>
+		<from>^/executions/report$</from>
+		<to>/WEB-INF/executionReport.jsp</to>
+	</rule>
+
+	<rule>
+		<from>^/applications$</from>
+		<to>/WEB-INF/applicationManagement.jsp</to>
+	</rule>
+
+	<rule>
+		<from>^/whitelists$</from>
+		<to>/WEB-INF/whitelistManagement.jsp</to>
+	</rule>
+
+	<rule>
+		<from>^/configurations/global$</from>
+		<to>/WEB-INF/configurationSetting.jsp</to>
+	</rule>
+
+	<rule>
+		<from>^/configurations/application$</from>
+		<to>/WEB-INF/configurationApplication.jsp</to>
+	</rule>
+
+
+</urlrewrite>
