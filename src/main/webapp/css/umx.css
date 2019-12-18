@@ -1,0 +1,631 @@
+/* =========================================
+    custom property values:
+============================================ */
+
+:root {
+  --blue-link: #0645ad;
+  --dark-blue-link: #0b0080;
+
+  --length-of-longest-statusText: 11em;
+
+  --bootstrap-primary-background: #3072b4;
+  --bootstrap-primary-border: #3072b4;
+  --bootstrap-primary-hover: #3072b4;
+  --bootstrap-secondary-background: #6c757d;
+  --bootstrap-secondary-border: #6c757d;
+  --bootstrap-secondary-hover: #6c757d;
+  --bootstrap-success-background: #26b99a;
+  --bootstrap-success-border: #169f85;
+  --bootstrap-success-hover: #169f85;
+  --bootstrap-danger-background: #f24333;
+  --bootstrap-danger-border: #f24333;
+  --bootstrap-danger-hover: #f24333;
+  --bootstrap-warning-background: #fed766;
+  --bootstrap-warning-border: #fed766;
+  --bootstrap-warning-hover: #fed766;
+  --bootstrap-info-background: #3498dbe0;
+  --bootstrap-info-border: #3498dbe0;
+  --bootstrap-info-hover: #3498db;
+  --bootstrap-light-background: #f8f9fa;
+  --bootstrap-light-border: #f8f9fa;
+  --bootstrap-light-hover: #f8f9fa;
+  --bootstrap-dark-background: #343a40;
+  --bootstrap-dark-border: #343a40;
+  --bootstrap-dark-hover: #343a40;
+  --bootstrap-white-background: #ffffff;
+  --bootstrap-white-border: #ffffff;
+  --bootstrap-white-hover: #ffffff;
+  --bootstrap-default-background: var(--bootstrap-secondary-background);
+  --bootstrap-default-border: var(--bootstrap-secondary-border);
+  --bootstrap-default-hover: var(--bootstrap-secondary-hover);
+
+  --button-padding-top: 6px;
+  --button-padding-right: 12px;
+  --button-padding-bottom: 6px;
+  --button-padding-left: 12px;
+  --button-padding-horizontal-shift: 2px;
+  --button-sm-padding-top: 5px;
+  --button-sm-padding-right: 10px;
+  --button-sm-padding-bottom: 5px;
+  --button-sm-padding-left: 10px;
+  --button-sm-padding-horizontal-shift: 2px;
+}
+
+/* =========================================
+    theme colors on btn, label and progress-bar classes
+============================================ */
+
+.label {
+  color: #ffffff;
+  display: inline-block;
+}
+
+.label-long {
+  width: var(--length-of-longest-statusText);
+}
+
+.btn-primary,
+.label-primary,
+.progress-bar-primary {
+  background-color: var(--bootstrap-primary-background);
+  border-color: var(--bootstrap-primary-border);
+}
+
+.btn-secondary,
+.label-secondary,
+.progress-bar-secondary {
+  background-color: var(--bootstrap-secondary-background);
+  border-color: var(--bootstrap-secondary-border);
+}
+
+.btn-success,
+.label-success,
+.progress-bar-success {
+  background-color: var(--bootstrap-success-background);
+  border-color: var(--bootstrap-success-border);
+}
+
+.btn-danger,
+.label-danger,
+.progress-bar-danger {
+  background-color: var(--bootstrap-danger-background);
+  border-color: var(--bootstrap-danger-border);
+}
+
+.btn-warning,
+.label-warning,
+.progress-bar-warning {
+  color: #585d62;
+  background-color: var(--bootstrap-warning-background);
+  border-color: var(--bootstrap-warning-border);
+}
+
+.btn-info,
+.label-info,
+.progress-bar-info {
+  background-color: var(--bootstrap-info-background);
+  border-color: var(--bootstrap-info-border);
+}
+
+.btn-light,
+.label-light,
+.progress-bar-light {
+  background-color: var(--bootstrap-light-background);
+  border-color: var(--bootstrap-light-border);
+}
+
+.btn-dark,
+.label-dark,
+.progress-bar-dark {
+  background-color: var(--bootstrap-dark-background);
+  border-color: var(--bootstrap-dark-border);
+}
+
+.btn-white,
+.label-white,
+.progress-bar-white {
+  background-color: var(--bootstrap-dark-background);
+  border-color: var(--bootstrap-dark-border);
+}
+
+.label-default,
+.progress-bar-default {
+  background-color: var(--bootstrap-default-background);
+  border-color: var(--bootstrap-default-border);
+}
+
+.btn-grey,
+.label-grey,
+.progress-bar-grey {
+  color: #585d62;
+  background-color: lightgrey;
+  border-color: lightgrey;
+}
+
+.label-warning.faded {
+  background-color: #feecb9;
+  border-color: #feecb9;
+}
+
+button[disabled] {
+  background-color: #696969 !important;
+  border-color: #343434 !important;
+}
+
+button[disabled]:hover {
+  background-color: #3f3f3f !important;
+  border-color: #343434 !important;
+}
+
+/* =========================================
+    Buttons with Font Awesome Icon Content (iconed-button class)
+============================================ */
+
+.iconed-button {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0.25em 0 0;
+  padding-top: var(--button-padding-top);
+  padding-right: calc(
+    var(--button-padding-right) + var(--button-padding-horizontal-shift)
+  );
+  padding-bottom: var(--button-padding-bottom);
+  padding-left: calc(
+    var(--button-padding-left) - var(--button-padding-horizontal-shift)
+  );
+}
+
+.btn.iconed-button > i.fa.fa-fw {
+  padding-right: 1em;
+}
+
+.btn.btn-sm.iconed-button {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0.25em 0 0;
+  padding-top: var(--button-sm-padding-top);
+  padding-right: calc(
+    var(--button-sm-padding-right) + var(--button-sm-padding-horizontal-shift)
+  );
+  padding-bottom: var(--button-sm-padding-bottom);
+  padding-left: calc(
+    var(--button-sm-padding-left) - var(--button-sm-padding-horizontal-shift)
+  );
+}
+
+.btn.btn-sm.iconed-button > i.fa.fa-fw {
+  padding-right: 0.25em;
+}
+
+/* =========================================
+    Styles for specific icons / buttons
+============================================ */
+
+.btn.iconed-button > i.fa.fa-fw.fa-plus {
+  padding-top: 0.025em;
+}
+
+.btn.iconed-button > i.fa.fa-fw.fa-paper-plane {
+  padding-right: 1.5em;
+  font-size: 80%;
+  padding-bottom: 0.125em;
+}
+
+/* =========================================
+    flexdatalist listed items
+============================================ */
+
+li.item > span.item {
+  font-size: 12px;
+  color: gray;
+}
+
+li.item:hover > span.item:not(:first-child) {
+  color: white;
+}
+
+li.item > span.item:first-child {
+  font-size: 15px;
+  color: black;
+}
+
+/* =========================================
+    Hides Vue template strings while loading
+============================================ */
+
+[v-cloak] {
+  display: none;
+}
+
+/* =========================================
+    Remove border (shows when browser size is small)
+============================================ */
+
+.table-responsive {
+  border: none;
+}
+
+/* =========================================
+    Progress bars
+============================================ */
+.progress {
+  display: inline-block;
+  width: 60%;
+  height: 1.25em;
+  border-radius: 10px;
+  margin-bottom: 0;
+}
+
+.progress-text {
+  margin-left: 1em;
+  display: inline-block;
+  height: 1em;
+  vertical-align: top;
+}
+
+/* =========================================
+    Header Style
+============================================ */
+/* for the subtitle under the reviwer's name */
+.x_title h3 {
+  color: grey;
+}
+
+/* =========================================
+    Remove breadcrumb default style
+============================================ */
+ol.breadcrumb {
+  padding: 0;
+  margin-bottom: 0px;
+  background-color: inherit;
+  float: right;
+}
+
+/* =========================================
+    Define a element (hyperlink) behaviour
+============================================ */
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* =========================================
+    Remove breadcrumb default style
+============================================ */
+ol.breadcrumb {
+  padding: 0;
+  margin-bottom: 0px;
+  background-color: inherit;
+  float: right;
+}
+
+/* =========================================
+    Card
+============================================ */
+
+.email-preview-container:before {
+  content: "Click to edit";
+  position: absolute;
+  top: 5px;
+  right: 2em;
+}
+
+.email-preview-container {
+  border-style: solid;
+  border-color: var(--blue-link);
+  border-radius: 3px;
+  border-width: 2px;
+  padding: 5px 5px 5px 15px;
+  color: var(--blue-link);
+}
+
+.email-preview-container:hover {
+  background-color: lightgrey;
+  border-color: var(--dark-blue-link);
+  cursor: pointer;
+  text-decoration: underline;
+  color: var(--dark-blue-link);
+}
+
+.email-recipients:before {
+  font-style: normal;
+}
+
+.email-cc:before {
+  font-style: normal;
+}
+
+.email-cc,
+.email-recipients {
+  font-weight: 450;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.email-subject {
+  padding-right: 5em;
+  font-weight: bold;
+  font-size: 1.4em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.email-content {
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+a.see-more {
+  cursor: pointer;
+}
+
+/* =========================================
+    Header Style
+============================================ */
+/* for the subtitle under the reviwer's name */
+
+.x_title > .panel {
+  width: 100%;
+}
+
+.x_title > .panel span:not(.label) {
+  color: var(--subtitle-text-color);
+}
+
+.x_title > h1.campaignName {
+  margin: 0.25em 0 0.25em 0;
+  padding: 0;
+  order: -1;
+  width: auto;
+}
+
+.x_title > h2.campaignDescription {
+  margin: 0 0 0.35em 0;
+  padding: 0;
+  width: 100%;
+  color: var(--subtitle-text-color);
+  font-size: 28px;
+}
+
+.campaignDetails {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.detailsPanel label.campaign-detail-label {
+  text-align: right;
+  width: 11em;
+}
+
+.detailsPanel {
+  margin-top: 1em;
+}
+
+.detailsPanel > .panel-heading {
+  background-color: #34495ef0;
+  color: #ecf0f1;
+}
+
+.detailsPanel > .panel-heading:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.campaignDetails .campaign-detail-label:after {
+  content: ": ";
+  margin-right: 1em;
+}
+
+/* =========================================
+    Form Elements
+============================================ */
+textarea {
+  resize: none;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.25);
+  -ms-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  -webkit-transform: scale(1.25);
+  -o-transform: scale(1.25);
+  margin-top: 8px;
+}
+
+/* =========================================
+    Layout
+============================================ */
+
+.x_panel {
+  border: none;
+}
+
+.table.dataTable {
+  width: 100%;
+  table-layout:fixed;
+}
+
+.myfilter {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: start;
+
+  /* align "Search:" with "Department" */
+  margin-left: 8px;
+}
+
+.dataTables_length,
+.dataTables_filter {
+  clear: both;
+  width: auto;
+  text-align: justify;
+}
+
+.dataTables_length label,
+.dataTables_filter label {
+  margin: 0 0.25em 0 0;
+}
+
+table.summary td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px 20px;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 35px;
+}
+
+table.summary th {
+  text-align: center;
+  vertical-align: middle;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 12px;
+  padding: 3px 10px;
+}
+
+table.highlight tr:hover td {
+  background-color: #eee;
+}
+
+table.highlight th {
+  padding: 5px 7px;
+  text-align: center;
+  border: 1px dotted #eee;
+}
+
+table.highlight td {
+  padding: 5px 7px;
+  text-align: center;
+  border: 1px dotted #eee;
+}
+
+.vertically-centered-label {
+  margin-bottom: 0;
+}
+
+.row {
+  margin-top: 15px;
+}
+
+.application-selection-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.dataTables_wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dataTables_wrapper .table {
+  margin-top: 1em !important;
+  margin-bottom: 1em !important;
+}
+
+.row {
+  margin: 0;
+  padding: 0;
+}
+
+.x_title h2 {
+  color: grey;
+  margin-bottom: 0;
+  font-size: 22px;
+}
+
+.x_title h1 {
+  margin-top: 5px;
+  font-size: 25px;
+}
+
+/* =========================================
+    Quick link Cards
+============================================ */
+
+.quicklink-body {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.quicklink-body > span.fa-stack {
+  padding-top: 5px;
+  font-size: 1.84em;
+}
+
+.quicklink-body > span.fa-stack > i.fa-stack-1x {
+  color: white;
+}
+
+.quicklink-body > span:nth-child(2) {
+  padding-top: 15px;
+  color: #808080;
+  min-width: 0;
+}
+
+.quicklinks .x_content div:nth-child(1) .fa-stack-2x {
+  color: #26b99a;
+}
+
+.quicklinks .x_content div:nth-child(2) .fa-stack-2x {
+  color: #fed766;
+}
+
+.quicklinks .x_content div:nth-child(3) .fa-stack-2x {
+  color: #3072b4;
+}
+
+.quicklinks .x_content div:nth-child(4) .fa-stack-2x {
+  color: #f24333;
+}
+
+.table > tbody > tr > td {
+  vertical-align: baseline;
+}
+
+.badge-danger {
+  background-color: #fa7070;
+  text-align: left;
+}
+
+.badge-warning {
+  background-color: yellow;
+  text-align: left;
+}
+
+.badge-primary {
+  background-color: blue;
+  text-align: left;
+}
+
+.badge-success {
+  background-color: green;
+  text-align: left;
+}
+
+.badge-info {
+  background-color: #07b8dc;
+  text-align: left;
+}
+
+.tab {
+  padding-left: 30px;
+}
+
+.table.table.dataTable th {
+  text-transform: capitalize;
+}
+
+.pointerCursor {
+	cursor:pointer;
+}
