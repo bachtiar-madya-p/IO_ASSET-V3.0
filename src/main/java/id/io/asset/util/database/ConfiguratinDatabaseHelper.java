@@ -5,19 +5,15 @@
  */
 package id.io.asset.util.database;
 
-import id.io.asset.controller.ConfigurationController;
 import id.io.asset.manager.EncryptionManager;
 import id.io.asset.util.configuration.Configuration;
 import id.io.asset.util.constant.ConstantHelper;
-import id.io.asset.util.log.AppLogger;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.jdbi.v3.core.Handle;
-import org.json.JSONObject;
+import org.jdbi.v3.core.statement.Update;
 
 /**
  *
@@ -70,11 +66,11 @@ public class ConfiguratinDatabaseHelper extends BaseDatabaseHelper {
                 row = handle.createUpdate(sql).bind("key", key).bind("value", value).execute();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ConfiguratinDatabaseHelper.class.getName()).log(Level.SEVERE, null, ex);
             log.error(ConfiguratinDatabaseHelper.class.getName(), " - errorUpdateConfiguration " + ex);
         }
         return row;
     }
+
     public int addConfig(String key, String value) {
 
         log.debug(ConfiguratinDatabaseHelper.class.getName(), "- createConfiguration");
@@ -83,7 +79,7 @@ public class ConfiguratinDatabaseHelper extends BaseDatabaseHelper {
         int row = 0;
         try (Handle handle = getHandle()) {
             String encryptedPassword;
-            if (ConstantHelper.EMAIL_PASSWORD.equals(key)) {
+            if (key.contains("PASSWORD")) {
                 EncryptionManager.init();
                 encryptedPassword = EncryptionManager.encrypt(value);
                 row = handle.createUpdate(sql).bind("key", key).bind("value", encryptedPassword).execute();
@@ -91,10 +87,25 @@ public class ConfiguratinDatabaseHelper extends BaseDatabaseHelper {
                 row = handle.createUpdate(sql).bind("key", key).bind("value", value).execute();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ConfiguratinDatabaseHelper.class.getName()).log(Level.SEVERE, null, ex);
             log.error(ConfiguratinDatabaseHelper.class.getName(), " - errorCreateConfiguration " + ex);
         }
         return row;
+    }
+
+    public int removeConfig(String key) {
+
+        log.debug(ConfiguratinDatabaseHelper.class.getName(), "- deleteConfiguration");
+
+        final String sql = "DELETE FROM configuration WHERE `key` = :key;";
+        int result = 0;
+        try (Handle handle = getHandle()) {
+
+            result = handle.createUpdate(sql).bind("key", key).execute();
+
+        } catch (SQLException ex) {
+            log.error(ConfiguratinDatabaseHelper.class.getName(), " - errorDeleteConfiguration " + ex);
+        }
+        return result;
     }
 
 }
