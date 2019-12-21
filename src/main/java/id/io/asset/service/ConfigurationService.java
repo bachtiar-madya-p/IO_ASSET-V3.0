@@ -53,8 +53,8 @@ public class ConfigurationService extends BaseService {
             response.put(ConstantHelper.HTTP_MESSAGE, "Error Create Configuration cause :" + ex.getMessage());
         }
 
-        return Response.status((!response.has(ConstantHelper.HTTP_STATUS_CODE))
-                ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_STATUS_CODE)).entity(response.toString()).build();
+        return Response.status((!response.has(ConstantHelper.HTTP_CODE))
+                ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
     }
 
     @PUT
@@ -68,8 +68,8 @@ public class ConfigurationService extends BaseService {
             response.put(ConstantHelper.HTTP_REASON, "error_create_configuration");
             response.put(ConstantHelper.HTTP_MESSAGE, "Error Create Configuration cause :" + ex.getMessage());
 
-            return Response.status((!response.has(ConstantHelper.HTTP_STATUS_CODE))
-                    ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_STATUS_CODE)).entity(response.toString()).build();
+            return Response.status((!response.has(ConstantHelper.HTTP_CODE))
+                    ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
         }
 
     }
@@ -80,8 +80,8 @@ public class ConfigurationService extends BaseService {
     public Response deleteConfig(@PathParam("key") String key) {
 
         JSONObject response = configurationController.removeConfig(key);
-        return Response.status((!response.has(ConstantHelper.HTTP_STATUS_CODE))
-                ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_STATUS_CODE)).entity(response.toString()).build();
+        return Response.status((!response.has(ConstantHelper.HTTP_CODE))
+                ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
 
     }
 
