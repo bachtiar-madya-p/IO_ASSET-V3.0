@@ -12,20 +12,20 @@ package id.io.asset.service.model;
 public class UserLevelModel {
     
     private String levelid;
-    private String levelCode;
-    private String levelName;
+    private String levelcode;
+    private String levelname;
     private String description;
-    private boolean isActive;
+    private boolean isactive;
 
     public UserLevelModel() {
     }
 
-    public UserLevelModel(String levelid, String levelCode, String levelName, String description, boolean isActive) {
+    public UserLevelModel(String levelid, String levelcode, String levelname, String description, boolean isactive) {
         this.levelid = levelid;
-        this.levelCode = levelCode;
-        this.levelName = levelName;
+        this.levelcode = levelcode;
+        this.levelname = levelname;
         this.description = description;
-        this.isActive = isActive;
+        this.isactive = isactive;
     }
 
     public String getLevelid() {
@@ -36,20 +36,20 @@ public class UserLevelModel {
         this.levelid = levelid;
     }
 
-    public String getLevelCode() {
-        return levelCode;
+    public String getLevelcode() {
+        return levelcode;
     }
 
-    public void setLevelCode(String levelCode) {
-        this.levelCode = levelCode;
+    public void setLevelcode(String levelcode) {
+        this.levelcode = levelcode;
     }
 
-    public String getLevelName() {
-        return levelName;
+    public String getLevelname() {
+        return levelname;
     }
 
-    public void setLevelName(String levelName) {
-        this.levelName = levelName;
+    public void setLevelname(String levelname) {
+        this.levelname = levelname;
     }
 
     public String getDescription() {
@@ -60,13 +60,11 @@ public class UserLevelModel {
         this.description = description;
     }
 
-    public boolean isIsActive() {
-        return isActive;
+    public boolean isIsactive() {
+        return isactive;
     }
 
-    public void setIsActive(boolean isActive) {
-        this.isActive = isActive;
+    public void setIsactive(boolean isactive) {
+        this.isactive = isactive;
     }
-    
-    
 }

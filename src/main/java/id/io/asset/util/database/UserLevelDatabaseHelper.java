@@ -5,14 +5,10 @@
  */
 package id.io.asset.util.database;
 
-import id.io.asset.manager.EncryptionManager;
 import id.io.asset.service.model.UserLevelModel;
-import id.io.asset.util.constant.ConstantHelper;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.jdbi.v3.core.Handle;
 
 /**
@@ -21,11 +17,8 @@ import org.jdbi.v3.core.Handle;
  */
 public class UserLevelDatabaseHelper extends BaseDatabaseHelper {
 
-    private UUIDGeneratorHelper uuidGenerator;
-
     public UserLevelDatabaseHelper() {
         log = getLogger(this.getClass());
-        uuidGenerator = new UUIDGeneratorHelper();
     }
 
     public List<UserLevelModel> levelList() {
@@ -60,28 +53,75 @@ public class UserLevelDatabaseHelper extends BaseDatabaseHelper {
         return userLevel;
     }
 
-    public int addConfig(UserLevelModel model) {
-        log.debug(UserLevelDatabaseHelper.class.getName(), "- createConfiguration");
+    public int create(UserLevelModel model) {
+        log.debug(UserLevelDatabaseHelper.class.getName(), "- createMemberLevel");
 
-        final String sql = "INSERT INTO configuration (`key`, value) VALUES (:key, :value);";
+        final String sql = "INSERT INTO user_level (levelid, levelcode, levelname, description, isactive) VALUES( :levelid, :levelcode, :levelname, :description, :isactive);";
         int row = 0;
         try (Handle handle = getHandle()) {
-//            String encryptedPassword;
-//            if (ConstantHelper.EMAIL_PASSWORD.equals(key)) {
-//                EncryptionManager.init();
-//                encryptedPassword = EncryptionManager.encrypt(value);
-//                row = handle.createUpdate(sql).bind("key", key).bind("value", encryptedPassword).execute();
-//            } else {
-//                row = handle.createUpdate(sql).bind("key", key).bind("value", value).execute();
-//            }
+
+            row = handle.createUpdate(sql)
+                    .bind("levelid", model.getLevelid())
+                    .bind("levelcode", model.getLevelcode())
+                    .bind("levelname", model.getLevelname())
+                    .bind("description", model.getDescription())
+                    .bind("isactive", false).execute();
+
         } catch (SQLException ex) {
-            log.error(UserLevelDatabaseHelper.class.getName(), " - errorCreateConfiguration " + ex);
+            log.error(UserLevelDatabaseHelper.class.getName(), " - errorCreateMemberLevel " + ex);
         }
         return row;
     }
 
-    public int updateConfig(String key, String value) {
-        return 0;
+    public int update(String levelId, UserLevelModel model) {
+        log.debug(UserLevelDatabaseHelper.class.getName(), "- updateMemberLevel");
+
+        final String sql = "UPDATE user_level SET levelname = :levelname, description = :description WHERE levelid = :levelid ;";
+        int row = 0;
+        try (Handle handle = getHandle()) {
+
+            row = handle.createUpdate(sql)
+                    .bind("levelid", levelId)
+                    .bind("levelname", model.getLevelname())
+                    .bind("description", model.getDescription()).execute();
+
+        } catch (SQLException ex) {
+            log.error(UserLevelDatabaseHelper.class.getName(), " - errorUpdateMemberLevel " + ex);
+        }
+        return row;
+    }
+
+    public int activate(String levelId, boolean isActive) {
+        log.debug(UserLevelDatabaseHelper.class.getName(), "- activateMemberLevel");
+
+        final String sql = "UPDATE user_level SET isactive = :isactive WHERE levelid = :levelid ;";
+        int row = 0;
+        try (Handle handle = getHandle()) {
+
+            row = handle.createUpdate(sql)
+                    .bind("levelid", levelId)
+                    .bind("isactive", isActive).execute();
+
+        } catch (SQLException ex) {
+            log.error(UserLevelDatabaseHelper.class.getName(), " - errorActivateMemberLevel " + ex);
+        }
+        return row;
+    }
+
+    public int remove(String levelId) {
+
+        log.debug(ConfiguratinDatabaseHelper.class.getName(), "- deleteMemberLevel");
+
+        final String sql = "DELETE FROM user_level WHERE levelId = :levelId;";
+        int result = 0;
+        try (Handle handle = getHandle()) {
+
+            result = handle.createUpdate(sql).bind("levelId", levelId).execute();
+
+        } catch (SQLException ex) {
+            log.error(ConfiguratinDatabaseHelper.class.getName(), " - errorDeleteMemberLevel " + ex);
+        }
+        return result;
     }
 
 }
