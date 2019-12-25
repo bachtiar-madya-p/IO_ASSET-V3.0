@@ -5,7 +5,7 @@
  */
 package id.io.asset.service;
 
-import id.io.asset.controller.UserLevelController;
+import id.io.asset.controller.MemberLevelController;
 import id.io.asset.util.constant.ConstantHelper;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -25,14 +25,14 @@ import org.json.JSONObject;
  *
  * @author permadi
  */
-@Path("userlevel")
+@Path("member-level")
 @Produces(MediaType.APPLICATION_JSON)
-public class UserLevelService extends BaseService {
+public class MemberLevelService extends BaseService {
 
-    private UserLevelController userLevelController;
+    private MemberLevelController userLevelController;
 
-    public UserLevelService() {
-        this.userLevelController = new UserLevelController();
+    public MemberLevelService() {
+        this.userLevelController = new MemberLevelController();
     }
 
     @GET

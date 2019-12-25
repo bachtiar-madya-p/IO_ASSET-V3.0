@@ -80,7 +80,7 @@ public class DepartmentService extends BaseService {
 
     }
 
-    @PUT
+    @POST
     @Path("/activate/{departmentId}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response activate(@PathParam("departmentId") String departmentId, String jsonRequest) {

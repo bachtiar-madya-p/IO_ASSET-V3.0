@@ -77,14 +77,14 @@ public class DepartmentDatabaseHelper extends BaseDatabaseHelper {
     public DepartmentModel findById(String departmentId) {
         DepartmentModel department = new DepartmentModel();
 
-        log.debug(UserLevelDatabaseHelper.class.getName(), " - getListUserLevel");
+        log.debug(MemberLevelDatabaseHelper.class.getName(), " - getListUserLevel");
 
         final String sql = "SELECT departmentid, departmentcode, departmentname, description, IF(isactive, 'true', 'false') isactive FROM department WHERE departmentid = :departmentid;";
 
         try (Handle h = getHandle()) {
             department = h.createQuery(sql).bind("departmentid", departmentId).mapToBean(DepartmentModel.class).first();
         } catch (Exception ex) {
-            log.error(UserLevelDatabaseHelper.class.getName(), " - errorGetListUserLevel " + ex);
+            log.error(MemberLevelDatabaseHelper.class.getName(), " - errorGetListUserLevel " + ex);
         }
         return department;
 
@@ -93,14 +93,14 @@ public class DepartmentDatabaseHelper extends BaseDatabaseHelper {
     public List<DepartmentModel> getList() {
         List<DepartmentModel> departmentList = new ArrayList<>();
 
-        log.debug(UserLevelDatabaseHelper.class.getName(), " - getListDepartment");
+        log.debug(MemberLevelDatabaseHelper.class.getName(), " - getListDepartment");
 
         final String sql = "SELECT departmentid, departmentcode, departmentname, description, IF(isactive, 'true', 'false') isactive FROM department;";
 
         try (Handle h = getHandle()) {
             departmentList = h.createQuery(sql).mapToBean(DepartmentModel.class).list();
         } catch (Exception ex) {
-            log.error(UserLevelDatabaseHelper.class.getName(), " - errorGetListDepartment " + ex);
+            log.error(MemberLevelDatabaseHelper.class.getName(), " - errorGetListDepartment " + ex);
         }
         return departmentList;
     }

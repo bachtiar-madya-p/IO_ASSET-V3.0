@@ -9,7 +9,7 @@ package id.io.asset.model;
  *
  * @author permadi
  */
-public class UserLevelModel {
+public class MemberLevelModel {
     
     private String levelid;
     private String levelcode;
@@ -17,10 +17,10 @@ public class UserLevelModel {
     private String description;
     private boolean isactive;
 
-    public UserLevelModel() {
+    public MemberLevelModel() {
     }
 
-    public UserLevelModel(String levelid, String levelcode, String levelname, String description, boolean isactive) {
+    public MemberLevelModel(String levelid, String levelcode, String levelname, String description, boolean isactive) {
         this.levelid = levelid;
         this.levelcode = levelcode;
         this.levelname = levelname;

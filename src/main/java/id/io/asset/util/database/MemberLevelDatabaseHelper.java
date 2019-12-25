@@ -5,7 +5,7 @@
  */
 package id.io.asset.util.database;
 
-import id.io.asset.model.UserLevelModel;
+import id.io.asset.model.MemberLevelModel;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,46 +15,46 @@ import org.jdbi.v3.core.Handle;
  *
  * @author permadi
  */
-public class UserLevelDatabaseHelper extends BaseDatabaseHelper {
+public class MemberLevelDatabaseHelper extends BaseDatabaseHelper {
 
-    public UserLevelDatabaseHelper() {
+    public MemberLevelDatabaseHelper() {
         log = getLogger(this.getClass());
     }
 
-    public List<UserLevelModel> levelList() {
-        List<UserLevelModel> userLevelList = new ArrayList<>();
+    public List<MemberLevelModel> levelList() {
+        List<MemberLevelModel> userLevelList = new ArrayList<>();
 
-        log.debug(UserLevelDatabaseHelper.class.getName(), " - getListUserLevel");
+        log.debug(MemberLevelDatabaseHelper.class.getName(), " - getListUserLevel");
 
         final String sql = "SELECT levelid, levelcode, levelname, description, IF(isactive, 'true', 'false') isactive FROM user_level;";
 
         try (Handle h = getHandle()) {
-            userLevelList = h.createQuery(sql).mapToBean(UserLevelModel.class).list();
+            userLevelList = h.createQuery(sql).mapToBean(MemberLevelModel.class).list();
         } catch (Exception ex) {
-            log.error(UserLevelDatabaseHelper.class.getName(), " - errorGetListUserLevel " + ex);
+            log.error(MemberLevelDatabaseHelper.class.getName(), " - errorGetListUserLevel " + ex);
         }
         return userLevelList;
     }
 
-    public UserLevelModel getLevelById(String levelId) {
+    public MemberLevelModel getLevelById(String levelId) {
 
-        UserLevelModel userLevel = new UserLevelModel();
+        MemberLevelModel userLevel = new MemberLevelModel();
 
-        log.debug(UserLevelDatabaseHelper.class.getName(), " - getListUserLevel");
+        log.debug(MemberLevelDatabaseHelper.class.getName(), " - getListUserLevel");
 
         final String sql = "SELECT levelid, levelcode, levelname, description, IF(isactive, 'true', 'false') isactive FROM user_level WHERE levelid = :levelId;";
 
         try (Handle h = getHandle()) {
-            userLevel = h.createQuery(sql).bind("levelId", levelId).mapToBean(UserLevelModel.class).first();
+            userLevel = h.createQuery(sql).bind("levelId", levelId).mapToBean(MemberLevelModel.class).first();
         } catch (Exception ex) {
-            log.error(UserLevelDatabaseHelper.class.getName(), " - errorGetListUserLevel " + ex);
+            log.error(MemberLevelDatabaseHelper.class.getName(), " - errorGetListUserLevel " + ex);
         }
 
         return userLevel;
     }
 
-    public int create(UserLevelModel model) {
-        log.debug(UserLevelDatabaseHelper.class.getName(), "- createMemberLevel");
+    public int create(MemberLevelModel model) {
+        log.debug(MemberLevelDatabaseHelper.class.getName(), "- createMemberLevel");
 
         final String sql = "INSERT INTO user_level (levelid, levelcode, levelname, description, isactive) VALUES( :levelid, :levelcode, :levelname, :description, :isactive);";
         int row = 0;
@@ -68,13 +68,13 @@ public class UserLevelDatabaseHelper extends BaseDatabaseHelper {
                     .bind("isactive", false).execute();
 
         } catch (SQLException ex) {
-            log.error(UserLevelDatabaseHelper.class.getName(), " - errorCreateMemberLevel " + ex);
+            log.error(MemberLevelDatabaseHelper.class.getName(), " - errorCreateMemberLevel " + ex);
         }
         return row;
     }
 
-    public int update(String levelId, UserLevelModel model) {
-        log.debug(UserLevelDatabaseHelper.class.getName(), "- updateMemberLevel");
+    public int update(String levelId, MemberLevelModel model) {
+        log.debug(MemberLevelDatabaseHelper.class.getName(), "- updateMemberLevel");
 
         final String sql = "UPDATE user_level SET levelname = :levelname, description = :description WHERE levelid = :levelid ;";
         int row = 0;
@@ -86,13 +86,13 @@ public class UserLevelDatabaseHelper extends BaseDatabaseHelper {
                     .bind("description", model.getDescription()).execute();
 
         } catch (SQLException ex) {
-            log.error(UserLevelDatabaseHelper.class.getName(), " - errorUpdateMemberLevel " + ex);
+            log.error(MemberLevelDatabaseHelper.class.getName(), " - errorUpdateMemberLevel " + ex);
         }
         return row;
     }
 
     public int activate(String levelId, boolean isActive) {
-        log.debug(UserLevelDatabaseHelper.class.getName(), "- activateMemberLevel");
+        log.debug(MemberLevelDatabaseHelper.class.getName(), "- activateMemberLevel");
 
         final String sql = "UPDATE user_level SET isactive = :isactive WHERE levelid = :levelid ;";
         int row = 0;
@@ -103,7 +103,7 @@ public class UserLevelDatabaseHelper extends BaseDatabaseHelper {
                     .bind("isactive", isActive).execute();
 
         } catch (SQLException ex) {
-            log.error(UserLevelDatabaseHelper.class.getName(), " - errorActivateMemberLevel " + ex);
+            log.error(MemberLevelDatabaseHelper.class.getName(), " - errorActivateMemberLevel " + ex);
         }
         return row;
     }

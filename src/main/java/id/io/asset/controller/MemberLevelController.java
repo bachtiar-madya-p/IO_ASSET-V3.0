@@ -5,10 +5,10 @@
  */
 package id.io.asset.controller;
 
-import id.io.asset.model.UserLevelModel;
+import id.io.asset.model.MemberLevelModel;
 import id.io.asset.util.constant.ConstantHelper;
 import id.io.asset.util.database.UUIDGeneratorHelper;
-import id.io.asset.util.database.UserLevelDatabaseHelper;
+import id.io.asset.util.database.MemberLevelDatabaseHelper;
 import java.util.List;
 import java.util.UUID;
 import org.apache.http.HttpStatus;
@@ -18,24 +18,24 @@ import org.json.JSONObject;
  *
  * @author permadi
  */
-public class UserLevelController extends BaseController {
+public class MemberLevelController extends BaseController {
 
-    private UserLevelDatabaseHelper userLevelDatabaseHelper;
+    private MemberLevelDatabaseHelper userLevelDatabaseHelper;
     private UUIDGeneratorHelper uuidGenerator;
 
-    public UserLevelController() {
-        this.userLevelDatabaseHelper = new UserLevelDatabaseHelper();
+    public MemberLevelController() {
+        this.userLevelDatabaseHelper = new MemberLevelDatabaseHelper();
         this.uuidGenerator = new UUIDGeneratorHelper();
     }
 
-    public List<UserLevelModel> userLevelList() {
-        List<UserLevelModel> levelList = userLevelDatabaseHelper.levelList();
+    public List<MemberLevelModel> userLevelList() {
+        List<MemberLevelModel> levelList = userLevelDatabaseHelper.levelList();
         return levelList;
     }
 
-    public UserLevelModel userLevelById(String levelId) {
+    public MemberLevelModel userLevelById(String levelId) {
 
-        UserLevelModel level = userLevelDatabaseHelper.getLevelById(levelId);
+        MemberLevelModel level = userLevelDatabaseHelper.getLevelById(levelId);
         return level;
     }
 
@@ -44,7 +44,7 @@ public class UserLevelController extends BaseController {
         if (json.length() != 0) {
             UUID uuid = uuidGenerator.generateUUID(json.getString("levelcode"));
 
-            UserLevelModel model = new UserLevelModel();
+            MemberLevelModel model = new MemberLevelModel();
             model.setLevelid(uuid.toString());
             model.setLevelcode(json.getString("levelcode"));
             model.setLevelname(json.getString("levelname"));
@@ -67,7 +67,7 @@ public class UserLevelController extends BaseController {
         JSONObject response = new JSONObject();
         if (json.length() != 0) {
 
-            UserLevelModel model = new UserLevelModel();
+            MemberLevelModel model = new MemberLevelModel();
             model.setLevelcode(json.getString("levelcode"));
             model.setLevelname(json.getString("levelname"));
             model.setDescription(json.getString("description"));
