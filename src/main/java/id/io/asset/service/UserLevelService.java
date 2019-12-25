@@ -7,7 +7,6 @@ package id.io.asset.service;
 
 import id.io.asset.controller.UserLevelController;
 import id.io.asset.util.constant.ConstantHelper;
-import java.sql.SQLException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
