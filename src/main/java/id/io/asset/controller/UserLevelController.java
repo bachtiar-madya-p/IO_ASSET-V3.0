@@ -5,7 +5,7 @@
  */
 package id.io.asset.controller;
 
-import id.io.asset.service.model.UserLevelModel;
+import id.io.asset.model.UserLevelModel;
 import id.io.asset.util.constant.ConstantHelper;
 import id.io.asset.util.database.UUIDGeneratorHelper;
 import id.io.asset.util.database.UserLevelDatabaseHelper;

@@ -6,7 +6,6 @@
 package id.io.asset.util.database;
 
 import id.io.asset.model.DepartmentModel;
-import id.io.asset.service.model.UserLevelModel;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
