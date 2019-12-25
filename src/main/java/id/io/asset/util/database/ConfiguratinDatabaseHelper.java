@@ -59,7 +59,6 @@ public class ConfiguratinDatabaseHelper extends BaseDatabaseHelper {
         try (Handle handle = getHandle()) {
             String encryptedPassword;
             if (ConstantHelper.EMAIL_PASSWORD.equals(key)) {
-                EncryptionManager.init();
                 encryptedPassword = EncryptionManager.encrypt(value);
                 row = handle.createUpdate(sql).bind("key", key).bind("value", encryptedPassword).execute();
             } else {
