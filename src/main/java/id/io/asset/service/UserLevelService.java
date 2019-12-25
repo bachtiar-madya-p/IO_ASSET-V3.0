@@ -80,7 +80,7 @@ public class UserLevelService extends BaseService {
 
     }
 
-    @PUT
+    @POST
     @Path("/activate/{levelid}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response activateMemberLevel(@PathParam("levelid") String levelId, String jsonRequest) {
