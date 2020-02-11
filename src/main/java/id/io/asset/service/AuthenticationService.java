@@ -17,9 +17,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import id.io.asset.filter.SessionFilter;
-import id.io.asset.model.Principal;
-import id.io.asset.service.model.AuthenticationRequest;
+import id.io.asset.util.constant.ConstantHelper;
+import org.apache.http.HttpStatus;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  *
@@ -39,21 +40,35 @@ public class AuthenticationService extends BaseService {
     @POST
     @Path("login")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response login(AuthenticationRequest authRequest) {
+    public Response login(String authRequest) {
+        JSONObject response = new JSONObject();
+        try {
+            return Response.ok(authenticationController.authenticate(new JSONObject(authRequest)).toString()).build();
+        } catch (JSONException ex) {
+            response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_UNAUTHORIZED);
+            response.put(ConstantHelper.HTTP_REASON, "wrong_username_or_password");
+            response.put(ConstantHelper.HTTP_MESSAGE, "Wrong Username or Password");
 
-        boolean isAuth = authenticationController.authenticate(authRequest.getUsername(), authRequest.getPassword());
+            return Response.status((!response.has(ConstantHelper.HTTP_CODE))
+                    ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
+        }
+    }
 
-        if (isAuth) {
+    @POST
+    @Path("/password")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response createPassword(String jsonRequest) {
+        JSONObject response = new JSONObject();
+        try {
 
-            clearSession();
-            HttpSession session = request.getSession(true);
-            Principal principal = new Principal(authRequest.getUsername());
-            session.setAttribute(Principal.class.getCanonicalName(), principal);
-            session.setAttribute(SessionFilter.SESSION_KEY, principal);
-            return getSuccessResponse();
+            return Response.ok(authenticationController.createPassword(new JSONObject(jsonRequest)).toString()).build();
+        } catch (JSONException ex) {
+            response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_INTERNAL_SERVER_ERROR);
+            response.put(ConstantHelper.HTTP_REASON, "error_create_password");
+            response.put(ConstantHelper.HTTP_MESSAGE, "Error Create Password");
 
-        } else {
-            return Response.status(Response.Status.UNAUTHORIZED).build();
+            return Response.status((!response.has(ConstantHelper.HTTP_CODE))
+                    ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
         }
     }
 

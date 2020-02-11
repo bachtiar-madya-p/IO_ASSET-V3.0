@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap -->
+        <link href="./lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="./lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <!-- NProgress -->
+        <link href="./lib/nprogress/css/nprogress.css" rel="stylesheet">
+        <!-- Animate.css -->
+        <link href="./lib/animate.css/animate.min.css" rel="stylesheet">
+
+        <!-- Custom Theme Style -->
+        <link href="./css/custom.css" rel="stylesheet">
+        <link href="./css/style.css" rel="stylesheet">
+
+        <!-- title -->
+        <link rel="icon" href="images/sample.png" type="image/png" />
+        <title>IOT | Login</title>
+        <!-- /title -->
+    </head>
+
+    <body class="login">
+        <!-- Loading Screen -->
+        <div class="loader"></div>
+
+        <div class="login_wrapper">
+
+            <!-- Login Form-->
+            <div class="animate form login_form">
+                <section class="login_content">
+                    <img src="images/sample.png">          
+
+                    <form >
+                        <h1>IO Teknologi</h1>	
+
+                        <div class="form-group">
+                            <input  type="text" id="Username" class="form-control" placeholder="Username" required="" />
+                            <input  type="password" id="Password" class="form-control" placeholder="Password" required="" /> 
+                            <button id="btn" class="form-control btn-default loginButton" type="button" onclick="login()">Log in</button>
+                            <div class="alert alert-danger fade" id="allow" >
+                                <button type="button" class="close" data-dismiss="alert">×</button>		
+                            </div>	
+                        </div> 
+
+                    </form>
+                </section>
+            </div>
+            <!-- /Login Form-->	
+        </div>
+
+        <!-- jQuery -->
+        <script src="./lib/jquery/dist/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/./libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="./lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- Custom Theme Scripts -->
+        <script src="./js/custom.js"></script>
+        <!-- Login Scripts -->
+        <script src="./js/login.js"></script>
+        <!-- Additional Scripts -->
+        <script>
+                                //start - Loading Screen
+                                $(window).load(function () {
+                                    $(".loader").fadeOut("slow");
+                                });
+                                //end - Loading Screen
+        </script>
+        <!-- /Additional Scripts -->
+
+    </body>
+</html>

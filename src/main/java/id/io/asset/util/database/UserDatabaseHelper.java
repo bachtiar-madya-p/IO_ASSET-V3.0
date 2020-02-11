@@ -21,6 +21,27 @@ public class UserDatabaseHelper extends BaseDatabaseHelper {
         log = getLogger(this.getClass());
     }
 
+    public UserModel login(String username, String password) {
+        log.debug(UserDatabaseHelper.class.getName(), "- login");
+
+        UserModel user = new UserModel();
+        final String sql = "SELECT user.userid, user.username, user.alias, departmentmember.memberid, departmentmember.membercode, departmentmember.membername, departmentmember.email, departmentmember.imageaddress, departmentmember.description, departmentmember.levelid, departmentmember.departmentid, IF(departmentmember.isadmin , 'true', 'false') isadmin, IF(departmentmember.isactive ,'true','false') isactive\n"
+                + "FROM user \n"
+                + "INNER JOIN departmentmember ON user.memberid = departmentmember.memberid\n"
+                + "WHERE user.username = :username AND user.password = :password;";
+        int row = 0;
+        try (Handle handle = getHandle()) {
+
+            user = handle.createQuery(sql)
+                    .bind("username", username)
+                    .bind("password", password).mapToBean(UserModel.class).first();
+
+        } catch (SQLException ex) {
+            log.error(UserDatabaseHelper.class.getName(), " - failedLogin " + ex);
+        }
+        return user;
+    }
+
     public List<UserModel> list() {
         List<UserModel> list = new ArrayList<>();
 
@@ -44,13 +65,37 @@ public class UserDatabaseHelper extends BaseDatabaseHelper {
 
         log.debug(UserDatabaseHelper.class.getName(), " - getUser");
 
-        final String sql = "SELECT user.userid, user.username, user.password, user.alias, departmentmember.memberid, departmentmember.membercode, departmentmember.membername, departmentmember.email, departmentmember.imageaddress, departmentmember.description, departmentmember.levelid, departmentmember.departmentid, departmentmember.isadmin, IF(departmentmember.isactive , 'true', 'false') isactive "
+        final String sql = "SELECT user.userid, user.username, user.password, user.alias, departmentmember.memberid, departmentmember.membercode, departmentmember.membername, departmentmember.email, departmentmember.imageaddress, departmentmember.description, departmentmember.levelid, departmentmember.departmentid, IF(departmentmember.isadmin ,\n"
+                + "	'true',\n"
+                + "	'false') isadmin, IF(departmentmember.isactive , 'true', 'false') isactive "
                 + "FROM user "
                 + "INNER JOIN departmentmember ON user.memberid = departmentmember.memberid "
                 + "WHERE user.userid = :userid;";
 
         try (Handle h = getHandle()) {
             user = h.createQuery(sql).bind("userid", userId).mapToBean(UserModel.class).first();
+        } catch (Exception ex) {
+            log.error(UserDatabaseHelper.class.getName(), " - errorGetUser " + ex);
+        }
+
+        return user;
+    }
+
+    public UserModel getByUsername(String username) {
+
+        UserModel user = new UserModel();
+
+        log.debug(UserDatabaseHelper.class.getName(), " - getUser");
+
+        final String sql = "SELECT user.userid, user.username, user.password, user.alias, departmentmember.memberid, departmentmember.membercode, departmentmember.membername, departmentmember.email, departmentmember.imageaddress, departmentmember.description, departmentmember.levelid, departmentmember.departmentid, IF(departmentmember.isadmin ,\n"
+                + "	'true',\n"
+                + "	'false') isadmin, IF(departmentmember.isactive , 'true', 'false') isactive "
+                + "FROM user "
+                + "INNER JOIN departmentmember ON user.memberid = departmentmember.memberid "
+                + "WHERE user.username = :username;";
+
+        try (Handle h = getHandle()) {
+            user = h.createQuery(sql).bind("username", username).mapToBean(UserModel.class).first();
         } catch (Exception ex) {
             log.error(UserDatabaseHelper.class.getName(), " - errorGetUser " + ex);
         }

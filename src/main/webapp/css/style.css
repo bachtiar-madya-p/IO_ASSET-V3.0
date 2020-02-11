@@ -1,0 +1,260 @@
+.full-width {
+	width: 100% !important;
+}
+
+.full-height {
+	height: 100% !important;
+}
+
+.hidden {
+	display: none;
+}
+
+/*************************************
+ * General Page Style
+ ************************************/
+.left_col {
+	background: #212121;
+}
+
+.nav_title {
+	background: #212121;
+}
+
+body {
+	background: #212121;
+}
+
+.sidebar-footer {
+	background: #212121;
+}
+
+.sidebar-footer a {
+	background: #212121;
+}
+
+.top_nav_toggle {
+	margin-bottom: 10px;
+}
+
+.profile_info span {
+	color: #FFF;
+}
+
+/*************************************
+ * Side Nav Style
+ ************************************/
+.nav-sm .nav.child_menu li.active, .nav-sm .nav.side-menu li.active-sm {
+	border-right: 5px solid #DB1B1E;
+}
+
+/*Remove child_menu list style*/
+.nav-md ul.nav.child_menu li:after {
+	border-left: none;
+}
+
+.nav-md ul.nav.child_menu li:before {
+	z-index: -1;
+}
+
+/*Nav Current Page Style*/
+.nav.side-menu>li.current-page {
+	border-right: 5px solid #DB1B1E;
+}
+
+/*Child_menu style*/
+.nav.side-menu>li.active, .nav-sm .nav.side-menu li.active-sm {
+	border-right: 5px solid #E0E0E0;
+}
+
+.nav.side-menu>li.active>a {
+	background: #DB1B1E;
+}
+
+.nav.child_menu>li.current-page {
+	border-right: 5px solid #DB1B1E;
+}
+
+/*Collasped Child_menu style*/
+.nav-sm ul.nav.child_menu {
+	background: #DB1B1E;
+}
+
+/*************************************
+ * Login Page Style
+ ************************************/
+.login {
+	background-color: #17202A;
+}
+
+.login_wrapper {
+	margin-top: 0px;
+}
+
+.login_form {
+	margin-top: 50px;
+}
+
+.login_content a {
+	text-decoration: none;
+	color: #EEE;
+}
+
+.login_content h1 {
+	color: #EEE;
+}
+
+.login_content h1:after, .login_content h1:before {
+	background: #EEEE;
+}
+
+.loginButton{
+	background: #DB1B1E;
+	color: #E0E0E0;
+	border: none;
+}
+
+.loginButton:hover{
+	background: #B71C1C;
+	color: #E0E0E0;
+}
+/*************************************
+ * Basic lightbox styles
+ ************************************/
+.lightbox {
+	/** Hide the lightbox */
+	display: none;
+	/** Apply basic lightbox styling */
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	top: 0;
+	left: 0;
+	background: black;
+	background: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-content {
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+	margin-top: 300px
+}
+
+#showpw:target ~ .lightbox {
+	/** Show lightbox when it is target */
+	display: block;
+	z-index: 5;
+	/** Remove default browser outline style */
+	outline: none;
+}
+
+/*************************************
+ * Basic overlay styles
+ ************************************/
+.overlay {
+	height: 100vh;
+	width: 0%;
+	position: fixed;
+	z-index: 5;
+	top: 0;
+	right: 0;
+	overflow-x: hidden;
+	background-color: rgba(255, 255, 255, 0.8);
+	transition: 0.5s;
+}
+
+.overlay-content {
+	position: relative;
+	top: 0px;
+	width: 100%;
+}
+
+.overlay a {
+	padding: 8px;
+	text-decoration: none;
+	font-size: 12px;
+	color: #000000;
+	display: block;
+	transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+	color: #000000;
+}
+
+.overlay .closebtn {
+	position: absolute;
+	top: -15px;
+	right: -5px;
+	font-size: 30px;
+}
+
+@media screen and (max-height: 450px) {
+	.overlay a {
+		font-size: 20px
+	}
+	.overlay .closebtn {
+		font-size: 40px;
+		top: 15px;
+		right: 35px;
+	}
+}
+
+.overlay-accordion {
+	background-color: #eee;
+	color: #444;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 15px;
+	transition: 0.4s;
+}
+
+.accordion-panel {
+	padding: 0 18px;
+	display: none;
+	background-color: white;
+	overflow: hidden;
+}
+
+.overlay-right {
+	height: 100vh;
+	padding: 10px;
+	background-color: rgba(255, 255, 255, 1);
+}
+
+.overlay-left {
+	height: 100vh;
+	padding: 10px;
+}
+
+.loader {
+	display: none;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url('../images/loading.gif') 50% 50% no-repeat
+		rgb(240, 240, 240, 0.7);
+	position: fixed;
+}
+
+/*************************************
+ * Datatables styles
+ ************************************/
+.dataTables_filter {
+	width: auto;
+	float: none;
+}
+
+.dataTables_info {
+	width: auto;
+}

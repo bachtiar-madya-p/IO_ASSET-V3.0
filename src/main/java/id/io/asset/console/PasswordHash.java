@@ -16,8 +16,8 @@ public class PasswordHash {
     public static void main(String[] args) {
 
         EncryptionManager.init();
-        System.out.println(EncryptionManager.encrypt("iot_asset"));
-        System.out.println(EncryptionManager.decrypt("UZSwzJ/QF9hUgBs49Iw+4Q=="));
+        System.out.println(EncryptionManager.encrypt("V1m@n@l0gy123!"));
+        System.out.println(EncryptionManager.decrypt("PGca9WaveULlmpQ8AjOHhQ=="));
         EncryptionManager.shutdown();
     }
         

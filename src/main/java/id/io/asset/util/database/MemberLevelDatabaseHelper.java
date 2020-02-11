@@ -110,7 +110,7 @@ public class MemberLevelDatabaseHelper extends BaseDatabaseHelper {
 
     public int remove(String levelId) {
 
-        log.debug(ConfiguratinDatabaseHelper.class.getName(), "- deleteMemberLevel");
+        log.debug(ConfigurationDatabaseHelper.class.getName(), "- deleteMemberLevel");
 
         final String sql = "DELETE FROM user_level WHERE levelId = :levelId;";
         int result = 0;
@@ -119,7 +119,7 @@ public class MemberLevelDatabaseHelper extends BaseDatabaseHelper {
             result = handle.createUpdate(sql).bind("levelId", levelId).execute();
 
         } catch (SQLException ex) {
-            log.error(ConfiguratinDatabaseHelper.class.getName(), " - errorDeleteMemberLevel " + ex);
+            log.error(ConfigurationDatabaseHelper.class.getName(), " - errorDeleteMemberLevel " + ex);
         }
         return result;
     }

@@ -5,8 +5,12 @@
  */
 package id.io.asset.controller;
 
-import java.time.LocalDateTime;
-import org.jdbi.v3.core.Handle;
+import id.io.asset.manager.EncryptionManager;
+import id.io.asset.model.UserModel;
+import id.io.asset.util.constant.ConstantHelper;
+import id.io.asset.util.database.UserDatabaseHelper;
+import org.apache.http.HttpStatus;
+import org.json.JSONObject;
 
 /**
  *
@@ -14,44 +18,55 @@ import org.jdbi.v3.core.Handle;
  */
 public class AuthenticationController extends BaseController {
 
+    private UserDatabaseHelper userDatabaseHelper;
+
     public AuthenticationController() {
         log = getLogger(this.getClass());
+        this.userDatabaseHelper = new UserDatabaseHelper();
     }
 
-    public boolean authenticate(String username, String password) {
-        boolean isAuth = false;
+    public JSONObject authenticate(JSONObject jsonRequest) {
+        JSONObject json = new JSONObject();
 
-        final String methodName = "create";
-        start(methodName);
-        final String sql = "SELECT COUNT(1) FROM MasterUser WHERE username = :username AND password = md5(:password)";
+        String decrypPassword = EncryptionManager.encrypt(jsonRequest.getString("password"));
+        UserModel user = userDatabaseHelper.login(jsonRequest.getString("username"), decrypPassword);
+        json.put(ConstantHelper.USER_USERID, user.getUserid());
+        json.put(ConstantHelper.USER_USERNAME, user.getUsername());
+        json.put(ConstantHelper.USER_MEMBERID, user.getMemberid());
+        json.put(ConstantHelper.USER_MEMBERCODE, user.getMembercode());
+        json.put(ConstantHelper.USER_MEMBERNAME, user.getMembername());
+        json.put(ConstantHelper.USER_EMAIL, user.getEmail());
+        json.put(ConstantHelper.USER_IMAGEADDRESSES, user.getImageaddress());
+        json.put(ConstantHelper.USER_LEVELID, user.getLevelid());
+        json.put(ConstantHelper.USER_DEPARTMENTID, user.getDepartmentid());
+        json.put(ConstantHelper.USER_DESCRIPTION, user.getDescription());
+        json.put(ConstantHelper.USER_ISADMIN, user.isIsadmin());
 
-        try (Handle h = getHandle()) {
-            int count = h.createQuery(sql).bind("username", username).bind("password", password).mapTo(Integer.class).findOnly();
-            if (count > 0) {
-                isAuth = true;
-            }
-        } catch (Exception ex) {
-            log.error(methodName, ex);
+        return json;
+    }
+
+    public JSONObject createPassword(JSONObject jsonRequest) {
+
+        JSONObject json = new JSONObject();
+
+        String username = jsonRequest.getString("username");
+        String password = jsonRequest.getString("password");
+
+        UserModel user = userDatabaseHelper.getByUsername(username);
+
+        if (user.getUserid() != null) {
+            String encryptedPassword = EncryptionManager.encrypt(password);
+            userDatabaseHelper.changePassword(username, encryptedPassword);
+
+            json.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
+            json.put(ConstantHelper.HTTP_REASON, "create_passwordt_successful");
+            json.put(ConstantHelper.HTTP_MESSAGE, "Create Password Successful!");
+
+        } else {
+            json.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_BAD_REQUEST);
+            json.put(ConstantHelper.HTTP_REASON, "error_create_passwoed");
+            json.put(ConstantHelper.HTTP_MESSAGE, "Error Create Password");
         }
-        completed(methodName);
-        return isAuth;
+        return json;
     }
-
-    public String getRole(String username) {
-        String output = null;
-
-        final String methodName = "create";
-        start(methodName);
-        final String sql = "SELECT role FROM MasterUser WHERE username = ':username' ";
-
-        try (Handle h = getHandle()) {
-//
-        } catch (Exception ex) {
-            log.error(methodName, ex);
-        }
-        completed(methodName);
-
-        return output;
-    }
-
 }

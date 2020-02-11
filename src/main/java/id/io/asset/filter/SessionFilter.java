@@ -26,16 +26,13 @@ import javax.servlet.http.HttpSession;
 
 public class SessionFilter implements Filter {
 
-    public static final String SESSION_KEY = "session-key";
+    public static final String SESSION_KEY = "asset-session-key";
 
     private List<String> unprotectedList;
 
     public void init(FilterConfig config) throws ServletException {
         unprotectedList = new ArrayList<>();
-        unprotectedList.add("/login");
-        unprotectedList.add("/forgotpassword");
-        unprotectedList.add("/resetpassword");
-        unprotectedList.add("/validate");
+        unprotectedList.add("/login.html");
     }
 
     public void destroy() {
@@ -62,8 +59,7 @@ public class SessionFilter implements Filter {
 
         String path = request.getRequestURI().substring(request.getContextPath().length());
 
-        if (path.contains("/lib/") || path.contains("/js/") || path.contains("/css/") || path.contains("/images/")
-                || path.contains("/asset/")) {
+        if (path.contains("/lib/") || path.contains("/js/") || path.contains("/css/") || path.contains("/images/")) {
             chain.doFilter(servletRequest, servletResponse);
         } else if (path.contains("/system/")) {
             chain.doFilter(servletRequest, servletResponse);
@@ -79,7 +75,7 @@ public class SessionFilter implements Filter {
                 chain.doFilter(servletRequest, servletResponse);
             } else {
                 HttpServletResponse response = (HttpServletResponse) servletResponse;
-                response.sendRedirect(request.getContextPath() + "/login");
+                response.sendRedirect(request.getContextPath() + "/login.html");
             }
         }
     }

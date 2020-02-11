@@ -5,8 +5,10 @@
  */
 package id.io.asset.service;
 
+import id.io.asset.controller.OtpController;
 import id.io.asset.controller.UserController;
 import id.io.asset.util.constant.ConstantHelper;
+import id.io.asset.util.database.ConfigurationDatabaseHelper;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -28,9 +30,13 @@ import org.json.JSONObject;
 public class UserService extends BaseService {
 
     private UserController userController;
+    private ConfigurationDatabaseHelper configurationDatabaseHelper;
+    private OtpController otpController;
 
     public UserService() {
         this.userController = new UserController();
+        this.configurationDatabaseHelper = new ConfigurationDatabaseHelper();
+        this.otpController = new OtpController();
     }
 
     @GET
@@ -54,6 +60,10 @@ public class UserService extends BaseService {
         if (validateUsername) {
             try {
                 response = userController.create(new JSONObject(jsonRequest));
+                JSONObject otpConfig = configurationDatabaseHelper.getOtpEmailConfiguration();
+                String otp = otpController.generateOtp(Integer.parseInt(otpConfig.getString(ConstantHelper.OTP_LENGTH)));
+                otpController.saveOtpLog(json.getString("email"), otp);
+
             } catch (JSONException ex) {
                 response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_INTERNAL_SERVER_ERROR);
                 response.put(ConstantHelper.HTTP_REASON, "error_create_user");
@@ -74,6 +84,7 @@ public class UserService extends BaseService {
     public Response activateUser(@PathParam("userId") String userId, String jsonRequest) {
         JSONObject response = new JSONObject();
         try {
+
             return Response.ok(userController.activateUser(userId, new JSONObject(jsonRequest)).toString()).build();
         } catch (JSONException ex) {
             response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_INTERNAL_SERVER_ERROR);

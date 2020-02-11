@@ -6,7 +6,7 @@
 package id.io.asset.controller;
 
 import id.io.asset.util.constant.ConstantHelper;
-import id.io.asset.util.database.ConfiguratinDatabaseHelper;
+import id.io.asset.util.database.ConfigurationDatabaseHelper;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 import org.apache.http.HttpStatus;
@@ -18,11 +18,11 @@ import org.json.JSONObject;
  */
 public class ConfigurationController extends BaseController {
 
-    private ConfiguratinDatabaseHelper configDatabaseHelper;
+    private ConfigurationDatabaseHelper configDatabaseHelper;
 
     public ConfigurationController() {
         log = getLogger(this.getClass());
-        this.configDatabaseHelper = new ConfiguratinDatabaseHelper();
+        this.configDatabaseHelper = new ConfigurationDatabaseHelper();
     }
 
     public JSONObject getListConfiguration() {

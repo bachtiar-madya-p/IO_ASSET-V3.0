@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap -->
+        <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <!-- bootstrap-daterangepicker -->
+        <link href="lib/bootstrap-daterangepicker/css/daterangepicker.css" rel="stylesheet">
+        <!-- bootstrap-datetimepicker -->
+        <link href="lib/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" rel="stylesheet">
+        <!-- NProgress -->
+        <link href="lib/nprogress/css/nprogress.css" rel="stylesheet">
+        <!-- iCheck -->
+        <link href="lib/iCheck/js/skins/flat/green.css" rel="stylesheet">
+
+        <!-- Custom Theme Style -->
+        <link href="css/custom.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+
+        <!-- title -->
+        <link rel="icon" href="images/azlabs.png" type="image/png" />
+        <title>Help Scout Report</title>
+        <!-- /title -->
+    </head>
+
+    <body class="nav-md">
+        <!-- Loading Screen -->
+        <div class="loader"></div>
+
+        <div class="container body">
+            <div class="main_container">
+
+                <!-- side nav -->
+                <div class="col-md-3 left_col menu_fixed">
+                    <div class="left_col scroll-view">
+
+                        <!-- site title -->
+                        <div class="navbar nav_title clearfix">
+                            <a href="index.html" class="site_title">
+                                <img src="images/azlabs.png">
+                                <span>Azimuth Labs</span>
+                            </a>
+                        </div>
+                        <!-- /site title -->
+\
+                        <div class="clearfix"></div>
+                        <!-- /menu profile quick info -->
+
+                        <!-- sidebar menu -->
+                        <div id="sidebar-menu" class="main_menu_side main_menu">
+                            <div class="menu_section">
+                                <ul class="nav side-menu">
+                                    <li>
+                                        <a href="index.html"><i class="fa fa-list-alt"></i> Help Scout Report </a>
+                                    </li>
+                                    <li>
+                                        <a onclick="logout()"><i  class="fa fa-sign-out"></i> Logout </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /sidebar menu -->
+
+                    </div>
+                </div>
+                <!-- /side nav -->
+
+                <!-- top navigation -->
+                <div class="top_nav">
+                    <div class="nav_menu">
+                        <nav>
+                            <!-- collaspe link -->
+                            <div class="nav toggle top_nav_toggle">
+                                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                            </div>
+                            <!--/ collaspe link -->
+                        </nav>
+                    </div>
+                </div>
+                <!-- /top navigation -->
+
+                <!-- page content -->
+                <div class="right_col" role="main">
+
+                    <!-- content title -->
+                    <div class="page-title">
+                        <div class="title_left">
+                            <h3>Help Scout Report</h3>
+                        </div>
+                    </div>
+                    <!-- /content title -->
+
+                    <div class="col-xs-12">
+                        <!-- content panel -->
+                        <div class="x_panel">
+                            <!-- panel title -->
+                            <div class="x_title">
+                                <h2></h2>
+                                <div class="clearfix"></div>
+                            </div>
+                            <!-- /panel title -->
+
+                            <!-- content -->
+                            <div class="x_content">
+                                <div class="col-xs-5">
+                                    <label class="control-label ">Help Scout Mailboxes</label>
+                                    <select id="mailboxes" class="form-control"></select>
+                                </div>
+
+                                <div class="col-xs-4">
+                                    <label class="control-label ">Ticket Creation Date Range</label>
+                                    <div class="input-group ">
+                                        <span class="add-on input-group-addon">
+                                            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                                        </span>
+                                        <input type="text" style="width: 250px" name="reservation" id="reservation" class="form-control" value="" />
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-3">
+                                    <label class="control-label ">Ticket Status</label> 
+                                    <select id="ticketStt" class="form-control">
+
+                                        <option value="open" selected>Open (Active + Pending)</option>
+                                        <option value="active">Active</option>
+                                        <option value="closed">Closed</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="spam">Spam</option>
+                                        <option value="all" >All</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-xs-12">
+                                    <button class="btn btn-primary" type="button" onclick="generateCsvReport()">
+                                        <i class="fa fa-download"></i> Download CSV Report
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- /content -->
+
+                        </div>
+                        <!-- /content panel -->
+                    </div>
+                </div>
+                <!-- /page content -->
+
+                <!-- footer content -->
+                <footer>
+                    <div class="pull-right footer">
+                        <a href="index.html"><img src="images/logo.png" width="100" height="25"></a>
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
+            </div>
+        </div>
+
+        <!-- jQuery -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="lib/jquery/js/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+        <!-- FastClick -->
+        <script src="lib/fastclick/js/fastclick.js"></script>
+        <!-- NProgress -->
+        <script src="lib/nprogress/js/nprogress.js"></script>
+        <!-- bootstrap-daterangepicker -->
+        <script src="lib/moment/js/moment.min.js"></script>
+        <script src="lib/bootstrap-daterangepicker/js/daterangepicker.js"></script>
+        <!-- bootstrap-datetimepicker -->
+        <script src="lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+        <!-- Datatables -->
+        <script src="lib/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="lib/datatables.net/js/dataTables.bootstrap.min.js"></script>
+        <script src="lib/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="lib/datatables.net-buttons/js/buttons.bootstrap.min.js"></script>
+        <script src="lib/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+        <script src="lib/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+        <script src="lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="lib/datatables.net-responsive/js/responsive.bootstrap.js"></script>
+        <script src="lib/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+        <script src="lib/jszip/js/jszip.min.js"></script>
+        <script src="lib/datatables.net-buttons/js/buttons.flash.min.js"></script>
+        <script src="lib/datatables.net-buttons/js/buttons.html5.min.js"></script>
+        <script src="lib/datatables.net-buttons/js/buttons.print.min.js"></script>
+
+        <!-- Custom Theme Scripts -->
+        <script src="js/custom.js"></script>
+        <script src="js/logout.js"></script>
+    </body>
+</html>

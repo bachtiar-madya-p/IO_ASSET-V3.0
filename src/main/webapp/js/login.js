@@ -1,61 +1,33 @@
-$(document).ready(function () {
-    initVue();
-});
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+function hsRestUrl() {
+    return "/asset/system";
+}
+function login() {
 
-function initVue() {
-    main = new Vue({
-        el: '#vue',
-        data: {
-            username: null,
-            password: null,
-            authenticated: null
-        },
-        mounted: function () {
-            this.session();
-        },
-        methods: {
-            session: function () {
-                const vm = this;
-                axios.get('/umx/system/authentication/session')
-                    .then(function (response) {
-                        location.href = 'index';
-                    }).catch(function (error) {
-                        vm.authenticated = false;
-                        console.log(error);
-                    });
-            },
-            login: function () {
-                const vm = this;
-                axios.post(
-                    '/umx/system/authentication/login?random=' + Math.random(), {
-                    username: vm.username,
-                    password: vm.password
-                }).then(function (response) {
-                    location.href = 'index';
-                }).catch(function (error) {
-                    notifyError('Failed login', 'Wrong username and/or password');
-                    console.log(error);
-                });
+    var url = hsRestUrl() + "/authentication/login";
 
-                vm.password = "";
-
-                if (vm.$refs.username.value == "") {
-                    vm.$refs.username.focus();
-                } else {
-                    vm.$refs.password.focus();
-                }
-            },
-            logout: function () {
-                const vm = this;
-                axios.get('/umx/system/authentication/logout')
-                    .then(function (response) {
-                        vm.session();
-                    }).catch(function (error) {
-                        vm.session();
-                        notifyError('Network Error', 'Logout failed');
-                        console.log(error);
-                    });
-            }
-        }
-    });
+    var uname = document.getElementById("Username").value;
+    var pwd = document.getElementById("Password").value;
+    if (uname === "" && pwd === "")
+    {
+        window.alert("Empty username or password");
+    } else
+    {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            username: uname,
+            password: pwd
+        }));
+        xhr.onload = function () {
+            window.location.href = 'index.html';
+            var data = JSON.parse(this.responseText);
+            console.log(data);
+        };
+    }
 }

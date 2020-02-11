@@ -21,14 +21,7 @@ language governing permissions and limitations under the License. -->
            id.io.asset.init.ContextListener 
         </listener-class>
     </listener>
-    <filter>
-        <filter-name>session</filter-name>
-        <filter-class>id.io.asset.filter.SessionFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>session</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
+   
     <filter>
         <filter-name>CorsFilter</filter-name>
         <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
@@ -37,16 +30,7 @@ language governing permissions and limitations under the License. -->
         <filter-name>CorsFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    <filter>
-        <filter-name>UrlRewriteFilter</filter-name>
-        <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>UrlRewriteFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-        <dispatcher>REQUEST</dispatcher>
-        <dispatcher>FORWARD</dispatcher>
-    </filter-mapping>
+    
     <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>
