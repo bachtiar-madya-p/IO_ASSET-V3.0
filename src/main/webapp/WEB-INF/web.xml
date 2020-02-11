@@ -13,12 +13,11 @@ language governing permissions and limitations under the License. -->
     <display-name>ASSET</display-name>
     <description>IOT-ASSET</description>
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
     <listener>
         <listener-class>
-           id.io.asset.init.ContextListener 
+            id.io.asset.init.ContextListener 
         </listener-class>
     </listener>
    
@@ -29,6 +28,17 @@ language governing permissions and limitations under the License. -->
     <filter-mapping>
         <filter-name>CorsFilter</filter-name>
         <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>UrlRewriteFilter</filter-name>
+        <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>UrlRewriteFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
     
     <jsp-config>
