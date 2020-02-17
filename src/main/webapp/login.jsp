@@ -59,7 +59,7 @@
             <!-- Login Block -->
             <div class="block push-bit">
                 <!-- Login Form -->
-                <form action="index" method="post" id="form-login" class="form-horizontal form-bordered form-control-borderless">
+                <form action="index-admin" method="post" id="form-login" class="form-horizontal form-bordered form-control-borderless">
                     <div class="form-group">
                         <div class="col-xs-12">
                             <div class="input-group">
