@@ -5,7 +5,8 @@
  */
 package id.io.asset.util.database;
 
-import id.io.asset.console.UUIDGenerator;
+
+import id.io.asset.helper.UUIDGenerator;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
