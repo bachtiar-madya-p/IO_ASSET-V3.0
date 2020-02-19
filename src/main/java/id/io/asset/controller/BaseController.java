@@ -75,4 +75,6 @@ public class BaseController {
     protected boolean getBoolProperty(String key) {
         return PropertyManager.getInstance().getBoolProperty(key);
     }
+    
+    
 }
