@@ -32,10 +32,10 @@ import org.json.JSONObject;
 public class AuthenticationService extends BaseService {
 
     private AuthenticationController authenticationController;
-
-    public AuthenticationService() {
-        this.authenticationController = new AuthenticationController();
-    }
+    
+//    public AuthenticationService() {
+//        this.authenticationController = new AuthenticationController();
+//    }
 
     @POST
     @Path("login")
