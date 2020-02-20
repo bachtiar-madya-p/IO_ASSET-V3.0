@@ -5,6 +5,7 @@
  */
 package id.io.asset.controller;
 
+
 import id.io.asset.manager.EncryptionManager;
 import id.io.asset.model.UserModel;
 import id.io.asset.util.constant.ConstantHelper;
@@ -18,17 +19,27 @@ import org.json.JSONObject;
  * @author permadi
  */
 public class AuthenticationController extends BaseController {
-
+    private String id;
+    private String issuer;
+    private String subject;
+    private  long ttlMillis;
     private UserDatabaseHelper userDatabaseHelper;
+    
 
-    public AuthenticationController() {
+    public AuthenticationController(String id, String issuer, String subject, long ttlMillis) {
         log = getLogger(this.getClass());
         this.userDatabaseHelper = new UserDatabaseHelper();
+        this.createJWT(id, issuer, subject, ttlMillis);
+        this.id = id;
+        this.issuer = issuer;
+        this.subject = subject;
+        this.ttlMillis= ttlMillis;
+        
     }
 
     public JSONObject authenticate(JSONObject jsonRequest) {
         JSONObject json = new JSONObject();
-
+        json.getString(SECRET_KEY);
         String decrypPassword = EncryptionManager.encrypt(jsonRequest.getString("password"));
 
         UserModel user = new UserModel();
@@ -46,6 +57,7 @@ public class AuthenticationController extends BaseController {
             json.put(ConstantHelper.USER_DEPARTMENTID, user.getDepartmentid());
             json.put(ConstantHelper.USER_DESCRIPTION, user.getDescription());
             json.put(ConstantHelper.USER_ISADMIN, user.isIsadmin());
+            json.put(ConstantHelper.USER_SESSION_JWT, createJWT(id, issuer, subject, ttlMillis));
         } catch (Exception ex) {
             json.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_UNAUTHORIZED);
             json.put(ConstantHelper.HTTP_REASON, "wrong_username_or_password");
