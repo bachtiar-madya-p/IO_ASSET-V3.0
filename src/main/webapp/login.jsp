@@ -5,7 +5,7 @@
 
         <title>IO-T - Governor</title>
 
-        <form action="AuthenticationService.java" method="POST" align="center">
+        <form action="AuthenticationService.java" method="POST" align="right">
             
 
         <meta name="description" content="ProUI is a Responsive Bootstrap Admin Template created by pixelcave and published on Themeforest.">
