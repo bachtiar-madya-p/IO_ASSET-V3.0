@@ -5,6 +5,9 @@
 
         <title>IO-T - Governor</title>
 
+        <form action="AuthenticationService.java" method="POST" align="center">
+            
+
         <meta name="description" content="ProUI is a Responsive Bootstrap Admin Template created by pixelcave and published on Themeforest.">
         <meta name="author" content="pixelcave">
         <meta name="robots" content="noindex, nofollow">
@@ -43,6 +46,21 @@
         <script src="assets/js/vendor/modernizr.min.js"></script>
     </head>
     <body>
+              <title>Login</title>
+    </head>
+
+    <body>
+
+    <form action="AuthenticationService.java" method="POST" align="center">
+    <br>
+    Username:<input type="text" name="username"><br><br><br>
+    Password :<input type="text" name="password"><br><br>
+
+    <input type="Submit"  value="Submit">
+
+ </form>
+ </body>
+
         <!-- Login Full Background -->
         <!-- For best results use an image with a resolution of 1280x1280 pixels (prefer a blurred image for smaller file size) -->
         <img src="assets/img/placeholders/backgrounds/login_full_bg.jpg" alt="Login Full Background" class="full-bg animation-pulseSlow">
