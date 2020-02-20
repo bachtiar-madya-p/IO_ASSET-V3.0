@@ -19,14 +19,16 @@ import org.json.JSONObject;
  * @author permadi
  */
 public class DepartmentController extends BaseController {
-
+    
     private DepartmentDatabaseHelper departmentDatabaseHelper;
     private UUIDGeneratorHelper uuidGenerator;
-
+    
     public DepartmentController() {
         departmentDatabaseHelper = new DepartmentDatabaseHelper();
         this.uuidGenerator = new UUIDGeneratorHelper();
+        
     }
+     
 
     public List<DepartmentModel> departmentList() {
         List<DepartmentModel> departmentList = departmentDatabaseHelper.getList();
