@@ -5,6 +5,7 @@
  */
 package id.io.asset.controller;
 
+
 import id.io.asset.util.constant.ConstantHelper;
 import id.io.asset.util.database.ConfigurationDatabaseHelper;
 import java.util.Iterator;
@@ -19,10 +20,11 @@ import org.json.JSONObject;
 public class ConfigurationController extends BaseController {
 
     private ConfigurationDatabaseHelper configDatabaseHelper;
-
+    
     public ConfigurationController() {
         log = getLogger(this.getClass());
         this.configDatabaseHelper = new ConfigurationDatabaseHelper();
+        
     }
 
     public JSONObject getListConfiguration() {
@@ -57,7 +59,7 @@ public class ConfigurationController extends BaseController {
         }
         return response;
     }
-
+ 
     public JSONObject updateConfig(JSONObject json) {
 
         JSONObject response = new JSONObject();
