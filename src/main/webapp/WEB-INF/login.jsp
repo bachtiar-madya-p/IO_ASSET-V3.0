@@ -13,12 +13,12 @@ JOConnection.rslt = JOConnection.stmt.executeQuery(selectquery);
 if (JOConnection.rslt.next()) {
 %>
 <script>
-alert("Record Found");
+alert("Sucsess Found");
 window.location.href="http://localhost:8084/WebApplication9/index.html";
 </script>
 <%} else {%>
 <script>
-alert("No Record Found, Try again");
+alert("Wrong Username or Password, Try again");
 window.location.href="http://localhost:8084/WebApplication9/login.html";
 </script>
 <%}%>
