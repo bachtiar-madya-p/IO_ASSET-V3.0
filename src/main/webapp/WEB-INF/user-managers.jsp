@@ -36,7 +36,7 @@
                             <li><a href="">User Manager</a></li>
                         </ul>
                         <!-- END Page Header -->
-
+                        
                         <!-- Working Tabs Block -->
                         <div class="block full">
                             <!-- Working Tabs Title -->
@@ -70,11 +70,26 @@
                                                 <li><a href="#example-tabs2-profile">Profile</a></li>
                                                 <li><a href="#example-tabs2-options" data-toggle="tooltip" title="Settings"><i class="fa fa-cogs"></i></a></li>
                                             </ul>
+                                           
                                         </div>
                                         <!-- END Block Tabs Title -->
 
                                         <!-- Tabs Content -->
                                         <div class="tab-content">
+                                            <table border="1" cellspacing="10px" width="300">
+                                                <tr height="50">
+                                                    <td align="center" width="50">User Id</td>
+                                                    <td align="center" width="50">Username</td>
+                                                    <td align="center">Alias</td>
+                                                    <td align="center">Member Id</td>
+                                                    <td align="center">Member Code</td>
+                                                    <td align="center">Email</td>
+                                                    <td align="center">Image Address</td>
+                                                    <td align="center">Description</td>
+                                                    <td align="center">Level Id</td>
+                                                    <td align="center">Departement Id</td>
+                                                </tr>
+                                            </table>
                                             <div class="tab-pane active" id="example-tabs2-activity">Block tabs..</div>
                                             <div class="tab-pane" id="example-tabs2-profile">Profile..</div>
                                             <div class="tab-pane" id="example-tabs2-options">Settings..</div>
