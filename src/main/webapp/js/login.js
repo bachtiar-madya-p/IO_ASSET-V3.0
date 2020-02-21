@@ -4,30 +4,35 @@
  * and open the template in the editor.
  */
 function hsRestUrl() {
-    return "/asset/system";
+    return "/asset/system/";
 }
-function login() {
+$('#login-form').submit(function (event) {
+    event.preventDefault();
 
-    var url = hsRestUrl() + "/authentication/login";
+    const loginUrl = hsRestUrl() + 'authentication/login';
+    const loginData = {
+        username: $('#login-form input[name="username"]').val(),
+        password: $('#login-form input[name="password"]').val()
+    };
 
-    var uname = document.getElementById("Username").value;
-    var pwd = document.getElementById("Password").value;
-    if (uname === "" && pwd === "")
-    {
-        window.alert("Empty username or password");
-    } else
-    {
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", url, true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify({
-            username: uname,
-            password: pwd
-        }));
-        xhr.onload = function () {
-            window.location.href = 'index.html';
-            var data = JSON.parse(this.responseText);
-            console.log(data);
-        };
-    }
-}
+    $.ajax({
+        method: 'POST',
+        url: loginUrl,
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify(loginData),
+        success: function (response) {
+
+                window.location.replace('index-admin');
+        },
+        error: function (error) {
+            // clear fields
+            $('#login-form input[name="password"]').val('');
+
+            // show error message
+            notify('alert-danger', "login failed");
+            console.warn(error);
+        }
+    });
+});
+

@@ -3,10 +3,7 @@
     <head>
         <meta charset="utf-8">
 
-        <title>IO-T - Governor</title>
-
-        <form action="AuthenticationService.java" method="POST" align="right">
-            
+        <title>IO-T - Governor</title>            
 
         <meta name="description" content="ProUI is a Responsive Bootstrap Admin Template created by pixelcave and published on Themeforest.">
         <meta name="author" content="pixelcave">
@@ -46,20 +43,6 @@
         <script src="assets/js/vendor/modernizr.min.js"></script>
     </head>
     <body>
-              <title>Login</title>
-    </head>
-
-    <body>
-
-    <form action="AuthenticationService.java" method="POST" align="center">
-    <br>
-    Username:<input type="text" name="username"><br><br><br>
-    Password :<input type="text" name="password"><br><br>
-
-    <input type="Submit"  value="Submit">
-
- </form>
- </body>
 
         <!-- Login Full Background -->
         <!-- For best results use an image with a resolution of 1280x1280 pixels (prefer a blurred image for smaller file size) -->
@@ -77,12 +60,12 @@
             <!-- Login Block -->
             <div class="block push-bit">
                 <!-- Login Form -->
-                <form action="index-admin" method="post" id="form-login" class="form-horizontal form-bordered form-control-borderless">
+                <form id="login-form" class="form-horizontal form-bordered form-control-borderless login-form">
                     <div class="form-group">
                         <div class="col-xs-12">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" id="login-username" name="login-username" class="form-control input-lg" placeholder="Username">
+                                <input type="text" id="username" name="username" class="form-control input-lg" placeholder="Username">
                             </div>
                         </div>
                     </div>
@@ -90,7 +73,7 @@
                         <div class="col-xs-12">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
-                                <input type="password" id="login-password" name="login-password" class="form-control input-lg" placeholder="Password">
+                                <input type="password" id="password" name="password" class="form-control input-lg" placeholder="Password">
                             </div>
                         </div>
                     </div>
@@ -102,7 +85,7 @@
                             </label>
                         </div>
                         <div class="col-xs-8 text-right">
-                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Login to Dashboard</button>
+                            <button type="submit" class="btn btn-sm btn-primary" onclick="login();"><i class="fa fa-angle-right"></i> Login to Dashboard</button>
                         </div>
                     </div>
                     <div class="form-group">
@@ -146,10 +129,6 @@
         <script src="assets/js/plugins.js"></script>
         <script src="assets/js/app.js"></script>
 
-        <!-- Load and execute javascript code used only in this page -->
-        <script src="assets/js/pages/login.js"></script>
-        <script>$(function () {
-                Login.init();
-            });</script>
+        <script type="text/javascript" src="js/login.js"></script>
     </body>
 </html>
