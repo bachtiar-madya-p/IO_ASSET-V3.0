@@ -26,7 +26,7 @@ public class AssetDbHelper extends BaseDatabaseHelper{
     public int create(AssetModel asset) {
         log.debug(AssetDbHelper.class.getName(), "- createAsset");
          
-        final String sql = "INSERT INTO asset_master (assetid, assetcode, assetname, typeid, manufacture, model, vendorid, note, createdt) VALUES(:assetid, :assetcode, :assetname, :typeid, :manufacture, :model, :vendorid, :note, :createdt);";
+        final String sql = "INSERT INTO asset_master (assetid, assetcode, assetname, typeid, manufacture, model, vendorid, note) VALUES(:assetid, :assetcode, :assetname, :typeid, :manufacture, :model, :vendorid, :note);";
         int row = 0;
         try (Handle handle = getHandle()) {
 
@@ -37,9 +37,8 @@ public class AssetDbHelper extends BaseDatabaseHelper{
                     .bind("typeid", asset.getTypeid())
                     .bind("manufacture", asset.getManufacture())
                     .bind("model", asset.getModel())
-                    .bind("vendroid", asset.getVendorid())
-                    .bind("note", asset.getNote())
-                    .bind("createdt", false).execute();
+                    .bind("vendorid", asset.getVendorid())
+                    .bind("note", asset.getNote()).execute();
 
         } catch (SQLException ex) {
             log.error(AssetDbHelper.class.getName(), " - errorCreateAsset " + ex);
@@ -120,24 +119,4 @@ public class AssetDbHelper extends BaseDatabaseHelper{
         return assetList;
     }
 
-    //activate
-    
-    public int activate(String levelId, String createdt) {
-        log.debug(AssetDbHelper.class.getName(), "- activateAsset");
-
-        final String sql = "UPDATE asset_master SET createdt = :createdt WHERE assetid = :assetid ;";
-        int row = 0;
-        try (Handle handle = getHandle()) {
-
-            row = handle.createUpdate(sql)
-                    .bind("assetid", levelId)
-                    .bind("createdt", createdt).execute();
-
-        } catch (SQLException ex) {
-            log.error(AssetDbHelper.class.getName(), " - errorActivateAsset " + ex);
-        }
-        return row;
-    }
-
-    
 }

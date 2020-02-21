@@ -52,6 +52,7 @@ public class AssetsController extends BaseController{
             model.setAssetname(json.getString("assetname"));
             model.setTypeid(json.getString("typeid"));
             model.setManufacture(json.getString("manufacture"));
+            model.setModel(json.getString("model"));
             model.setVendorid(json.getString("vendorid"));
             model.setNote(json.getString("note"));
             
@@ -93,25 +94,6 @@ public class AssetsController extends BaseController{
         }
         return response;
     }
-    
-    //activate
-    
-    public JSONObject activate(String assetId, JSONObject json) {
-        JSONObject response = new JSONObject();
-        if (json.length() != 0) {
-            assetDbHelper.activate(assetId, json.getString("createdt"));
-
-            response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
-            response.put(ConstantHelper.HTTP_REASON, "activate/inactivate_asset_successful");
-            response.put(ConstantHelper.HTTP_MESSAGE, "Activate/Inactivate Asset Successful!");
-        } else {
-            response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_BAD_REQUEST);
-            response.put(ConstantHelper.HTTP_REASON, "error_activate/inactivate_asset");
-            response.put(ConstantHelper.HTTP_MESSAGE, "Error Activate/Inactivate Asset : No such Asset");
-        }
-        return response;
-    }
-    
     //delete
     
     public JSONObject delete(String assetId) {
