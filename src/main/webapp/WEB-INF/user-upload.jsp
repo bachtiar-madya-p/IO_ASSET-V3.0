@@ -12,6 +12,18 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+    <%
+        String nama=request.getParameter("user");
+        String pass=request.getParameter("pswd");
+        
+        if(nama.equals("Jsmith"))&&(pass.equals("P@ssw0rd"))
+            {
+        
+               session.SetAttribute("username", nama); |
+        
+            }
+     %>
+    
+                
     </body>
 </html>
