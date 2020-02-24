@@ -36,88 +36,32 @@
                             <li><a href="">User Manager</a></li>
                         </ul>
                         <!-- END Page Header -->
-                        
-                        <!-- Working Tabs Block -->
+
+                        <!-- Datatables Content -->
                         <div class="block full">
-                            <!-- Working Tabs Title -->
                             <div class="block-title">
-                                <h2>Working Tabs <small>Block and Simple</small></h2>
+                                
                             </div>
-                            <!-- END Working Tabs Title -->
 
-                            <!-- Working Tabs Content -->
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <!-- Block Tabs -->
-                                    <div class="block full">
-                                        <!-- Block Tabs Title -->
-                                        <div class="block-title">
-                                            <div class="block-options pull-right">
-                                                <div class="btn-group">
-                                                    <a class="btn btn-alt btn-sm btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"><i class="fa fa-angle-down"></i></a>
-                                                    <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
-                                                        <li>
-                                                            <a href="javascript:void(0)">Action</a>
-                                                            <a href="javascript:void(0)">Action 2</a>
-                                                        </li>
-                                                        <li class="divider"></li>
-                                                        <li><a href="javascript:void(0)">Another Action</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <ul class="nav nav-tabs" data-toggle="tabs">
-                                                <li class="active"><a href="#example-tabs2-activity">Activity</a></li>
-                                                <li><a href="#example-tabs2-profile">Profile</a></li>
-                                                <li><a href="#example-tabs2-options" data-toggle="tooltip" title="Settings"><i class="fa fa-cogs"></i></a></li>
-                                            </ul>
-                                           
-                                        </div>
-                                        <!-- END Block Tabs Title -->
-
-                                        <!-- Tabs Content -->
-                                        <div class="tab-content">
-                                            <table border="1" cellspacing="10px" width="300">
-                                                <tr height="50">
-                                                    <td align="center" width="50">User Id</td>
-                                                    <td align="center" width="50">Username</td>
-                                                    <td align="center">Alias</td>
-                                                    <td align="center">Member Id</td>
-                                                    <td align="center">Member Code</td>
-                                                    <td align="center">Email</td>
-                                                    <td align="center">Image Address</td>
-                                                    <td align="center">Description</td>
-                                                    <td align="center">Level Id</td>
-                                                    <td align="center">Departement Id</td>
-                                                </tr>
-                                            </table>
-                                            <div class="tab-pane active" id="example-tabs2-activity">Block tabs..</div>
-                                            <div class="tab-pane" id="example-tabs2-profile">Profile..</div>
-                                            <div class="tab-pane" id="example-tabs2-options">Settings..</div>
-                                        </div>
-                                        <!-- END Tabs Content -->
-                                    </div>
-                                    <!-- END Block Tabs -->
-                                </div>
-                                <div class="col-md-6">
-                                    <!-- Default Tabs -->
-                                    <ul class="nav nav-tabs push" data-toggle="tabs">
-                                        <li class="active"><a href="#example-tabs-news">Activity</a></li>
-                                        <li><a href="#example-tabs-profile">Profile</a></li>
-                                        <li><a href="#example-tabs-messages" data-toggle="tooltip" title="Messages"><i class="fa fa-envelope-o"></i></a></li>
-                                        <li><a href="#example-tabs-settings" data-toggle="tooltip" title="Settings"><i class="fa fa-cog"></i></a></li>
-                                    </ul>
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="example-tabs-news">News..</div>
-                                        <div class="tab-pane" id="example-tabs-profile">Profile..</div>
-                                        <div class="tab-pane" id="example-tabs-messages">Messages..</div>
-                                        <div class="tab-pane" id="example-tabs-settings">Settings..</div>
-                                    </div>
-                                    <!-- END Default Tabs -->
-                                </div>
+                            <div class="table-responsive">
+                                <table id="userManagerDT" class="table table-vcenter table-condensed table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th class="text-center">Name</th>
+                                            <th>Username</th>
+                                            <th>E-Mail</th>
+                                            <th>Level</th>
+                                            <th>Department</th>
+                                            <th>Status</th>
+                                            <th class="text-center">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="list-list"></tbody>
+                                </table>
                             </div>
-                            <!-- END Working Tabs Content -->
                         </div>
-                        <!-- END Working Tabs Block -->
+                        <!-- END Datatables Content -->
 
                     </div>
                     <!-- END Page Content -->
@@ -135,5 +79,10 @@
         <!-- Scroll to top link, initialized in js/app.js - scrollToTop() -->
         <a href="#" id="to-top"><i class="fa fa-angle-double-up"></i></a>
             <%@include file="page/js_import.jsp"%>
+        <script src="assets/js/pages/tablesDatatables.js"></script>
+        <script>$(function () {
+                TablesDatatables.init();
+            });</script>
+        <script type="text/javascript" src="js/user-manager.js"></script>
     </body>
 </html>
