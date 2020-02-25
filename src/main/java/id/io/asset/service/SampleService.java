@@ -1,8 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**
+  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+  *
+  * Copyright (c) 2019 IO-Teknologi Indonesia, and individual contributors
+  * as indicated by the @author tags. All Rights Reserved
+  *
+  * The contents of this file are subject to the terms of the
+  * Common Development and Distribution License (the License).
+  *
+  * Everyone is permitted to copy and distribute verbatim copies
+  * of this license document, but changing it is not allowed.
+  *
+  */
 package id.io.asset.service;
 
 import javax.ws.rs.Consumes;
@@ -12,11 +20,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
-/**
- *
- * @author permadi
- */
 
 @Path("ping")
 @Produces(MediaType.APPLICATION_JSON)
