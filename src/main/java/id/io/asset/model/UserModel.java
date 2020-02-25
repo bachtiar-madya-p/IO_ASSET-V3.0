@@ -23,13 +23,22 @@ public class UserModel {
     private String description;
     private String levelid;
     private String departmentid;
+    private String assetid;
+    private String assetcode;
+    private String assetname;
+    private String typeid;
+    private String manufacture;
+    private String model;
+    private String vendorid;
+    private String note;
     private boolean isadmin;
     private boolean isactive;
 
     public UserModel() {
+        
     }
-
-    public UserModel(String userid, String username, String password, String alias, String memberid, String membercode, String membername, String email, String imageaddress, String description, String levelid, String departmentid, boolean isadmin, boolean isactive) {
+    
+    public UserModel(String userid, String username, String password, String alias, String memberid, String membercode, String membername, String email, String imageaddress, String description, String levelid, String departmentid, String assetid,String assetcode,String assetname,String typeid,String manufacture,String model,String vendorid,String note,boolean isadmin, boolean isactive) {
         this.userid = userid;
         this.username = username;
         this.password = password;
@@ -42,6 +51,14 @@ public class UserModel {
         this.description = description;
         this.levelid = levelid;
         this.departmentid = departmentid;
+        this.assetid = assetid;
+        this.assetcode = assetcode;
+        this.assetname = assetname;
+        this.typeid = typeid;
+        this.manufacture = manufacture;
+        this.model = model;
+        this.vendorid = vendorid;
+        this.note = note;
         this.isadmin = isadmin;
         this.isactive = isactive;
     }
@@ -157,5 +174,70 @@ public class UserModel {
     public void setIsactive(boolean isactive) {
         this.isactive = isactive;
     }
+
+    public String getAssetid() {
+         return assetid;
+    }
+    
+    public void setAssetid(String assetid) {
+        this.assetid = assetid;
+    }
+
+    public String getAssetcode() {
+       return assetcode;
+    }
+    
+    public void setAssetcode(String assetcode) {
+        this.assetcode = assetcode;
+    }
+
+    public String getAssetname() {
+        return assetname;
+    }
+    
+    public void setAssetname(String assetname) {
+        this.assetname = assetname;
+    }
+
+    public String getTypeid() {
+        return typeid;
+    }
+    
+    public void setTypeid(String typeid) {
+        this.typeid = typeid;
+    }
+
+    public String getManufacture() {
+       return manufacture;
+    }
+    
+    public void setManufacture(String manufacture) {
+        this.manufacture = manufacture;
+    }
+    
+    public String getModel() {
+       return model;
+    }
+    
+    public void setModel(String model) {
+        this.model = model;
+    }
+    
+    public String getVendorid() {
+       return vendorid;
+    }
+    
+    public void setVendorid(String vendorid) {
+        this.vendorid = vendorid;
+    }
+    
+    public String getNote() {
+       return note;
+    }
+    
+    public void setNote(String note) {
+        this.note = note;
+    }
+
 
 }

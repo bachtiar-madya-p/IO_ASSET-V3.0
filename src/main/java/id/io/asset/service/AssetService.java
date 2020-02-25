@@ -25,30 +25,28 @@ import org.json.JSONObject;
  *
  * @author untung bagus purnomo
  */
-
 @Path("asset")
 @Produces(MediaType.APPLICATION_JSON)
 public class AssetService extends BaseService {
-    
+
     private AssetController assetsController;
-    
+
     public AssetService() {
         this.assetsController = new AssetController();
     }
-    
+
     @GET
     public Response assetList() {
         return Response.ok(assetsController.assetList()).build();
     }
-    
+
     @GET
     @Path("/{assetId}")
     public Response assetById(@PathParam("assetId") String assetId) {
         return Response.ok(assetsController.getAsset(assetId)).build();
     }
-    
+
     //create
-    
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response create(String jsonRequest) {
@@ -64,9 +62,8 @@ public class AssetService extends BaseService {
         return Response.status((!response.has(ConstantHelper.HTTP_CODE))
                 ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
     }
-    
+
     //update
-    
     @PUT
     @Path("/{assetId}")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -84,9 +81,8 @@ public class AssetService extends BaseService {
         }
 
     }
-    
+
     //Delete
-    
     @DELETE
     @Path("/{assetId}")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -98,4 +94,7 @@ public class AssetService extends BaseService {
 
     }
     
+   
+    
+
 }
