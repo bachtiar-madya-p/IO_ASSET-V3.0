@@ -74,4 +74,13 @@ public class ConstantHelper {
     public static final String ASSET_NOTE            = "note";
     public static final String ASSET_CREATEDT        = "createdt";
     
+    //DEPARTMENT RESPONSE CONFIGURATION
+    public static final String DEPARTMENT_ID                = "departmentid";
+    public static final String DEPARTMENT_DEPARTMENTCODE    = "departmentcode";
+    public static final String DEPARTMENT_DEPARTMENTNAME    = "assetname";
+    public static final String DEPARTMENT_DESCRIPTION       = "description";
+    public static final String DEPARTMENT_ISACTIVE          = "isactive";
+    
+    
+    
 }
