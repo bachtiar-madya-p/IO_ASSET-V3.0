@@ -6,16 +6,10 @@
 package id.io.asset.util.database;
 
 import id.io.asset.model.AssetModel;
-import id.io.asset.util.configuration.Configuration;
 import id.io.asset.util.constant.ConstantHelper;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import javax.swing.JOptionPane;
-import javax.ws.rs.core.Response;
 import org.jdbi.v3.core.Handle;
 
 /**
@@ -73,7 +67,7 @@ public class AssetDatabaseHelper extends BaseDatabaseHelper{
         final String sql = "DELETE FROM asset_master WHERE assetid = :assetid;";
         int result = 0;
         try (Handle handle = getHandle()) {
-            result = handle.createUpdate(sql).bind("assetid", assetId).execute();
+            result = handle.createUpdate(sql).bind(ConstantHelper.ASSET_ID, assetId).execute();
         } catch (SQLException ex) {
             log.error(AssetDatabaseHelper.class.getName(), " - errorDeleteAsset " + ex);
         }
@@ -85,7 +79,7 @@ public class AssetDatabaseHelper extends BaseDatabaseHelper{
         log.debug(MemberLevelDatabaseHelper.class.getName(), " - getListUserLevel");
         final String sql = "SELECT assetid, assetcode, assetname, typeid, manufacture, model, vendorid, note, createdt FROM asset_master WHERE assetid = :assetid;";
         try (Handle h = getHandle()) {
-            asset = h.createQuery(sql).bind("assetid", assetId).mapToBean(AssetModel.class).first();
+            asset = h.createQuery(sql).bind(ConstantHelper.ASSET_ID, assetId).mapToBean(AssetModel.class).first();
         } catch (Exception ex) {
             log.error(MemberLevelDatabaseHelper.class.getName(), " - errorGetListUserLevel " + ex);
         }
@@ -110,7 +104,7 @@ public class AssetDatabaseHelper extends BaseDatabaseHelper{
         final String sql = "select count(1) from asset_master where assetcode= :assetCode";
         int row = 0;
         try (Handle h = getHandle()) {
-            row = h.createQuery(sql).bind("assetCode", assetCode).mapTo(Integer.class).findOnly();
+            row = h.createQuery(sql).bind(ConstantHelper.ASSET_ASSETCODE, assetCode).mapTo(Integer.class).findOnly();
             if (row == 0) {
                 isValid = true;
             }
