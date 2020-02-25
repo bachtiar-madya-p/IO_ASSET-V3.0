@@ -22,7 +22,7 @@ import id.io.asset.util.log.AppLogger;
 import id.io.asset.util.rest.model.ServiceResponse;
 
 public class BaseService {
-
+ 
     protected AppLogger log;
 
     @Context
