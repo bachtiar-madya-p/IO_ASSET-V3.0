@@ -63,4 +63,15 @@ public class ConstantHelper {
     public static final String USER_DESCRIPTION     = "description";
     public static final String USER_ISADMIN         = "isadmin";
 
+    //ASSET RESPONSE CONFIGURATION
+    public static final String ASSET_ID             = "assetid";
+    public static final String ASSET_ASSETCODE       = "assetcode";
+    public static final String ASSET_ASSETNAME       = "assetname";
+    public static final String ASSET_TYPEID          = "typeid";
+    public static final String ASSET_MANUFACTURE     = "manufacture";
+    public static final String ASSET_MODEL           = "model";
+    public static final String ASSET_VENDORID        = "vendorid";
+    public static final String ASSET_NOTE            = "note";
+    public static final String ASSET_CREATEDT        = "createdt";
+    
 }
