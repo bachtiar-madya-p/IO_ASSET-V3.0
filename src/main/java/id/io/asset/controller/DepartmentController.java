@@ -41,13 +41,13 @@ public class DepartmentController extends BaseController {
     public JSONObject create(JSONObject json) {
         JSONObject response = new JSONObject();
         if (json.length() != 0) {
-            UUID uuid = uuidGenerator.generateUUID(json.getString("departmentcode"));
+            UUID uuid = uuidGenerator.generateUUID(json.getString(ConstantHelper.DEPARTMENT_DEPARTMENTCODE));
 
             DepartmentModel model = new DepartmentModel();
             model.setDepartmentid(uuid.toString());
-            model.setDepartmentcode(json.getString("departmentcode"));
-            model.setDepartmentname(json.getString("departmentname"));
-            model.setDescription(json.getString("description"));
+            model.setDepartmentcode(json.getString(ConstantHelper.DEPARTMENT_DEPARTMENTCODE));
+            model.setDepartmentname(json.getString(ConstantHelper.DEPARTMENT_DEPARTMENTNAME));
+            model.setDescription(json.getString(ConstantHelper.DEPARTMENT_DESCRIPTION));
 
             departmentDatabaseHelper.create(model);
 
@@ -67,9 +67,9 @@ public class DepartmentController extends BaseController {
         if (json.length() != 0) {
 
             DepartmentModel model = new DepartmentModel();
-            model.setDepartmentcode(json.getString("departmentcode"));
-            model.setDepartmentname(json.getString("departmentname"));
-            model.setDescription(json.getString("description"));
+            model.setDepartmentcode(json.getString(ConstantHelper.DEPARTMENT_DEPARTMENTCODE));
+            model.setDepartmentname(json.getString(ConstantHelper.DEPARTMENT_DEPARTMENTNAME));
+            model.setDescription(json.getString(ConstantHelper.DEPARTMENT_DESCRIPTION));
             departmentDatabaseHelper.update(departmentId, model);
 
             response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
@@ -86,7 +86,7 @@ public class DepartmentController extends BaseController {
     public JSONObject activate(String departmentId, JSONObject json) {
         JSONObject response = new JSONObject();
         if (json.length() != 0) {
-            departmentDatabaseHelper.activate(departmentId, json.getBoolean("isactive"));
+            departmentDatabaseHelper.activate(departmentId, json.getBoolean(ConstantHelper.DEPARTMENT_ISACTIVE));
 
             response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
             response.put(ConstantHelper.HTTP_REASON, "activate/inactivate_department_successful");
