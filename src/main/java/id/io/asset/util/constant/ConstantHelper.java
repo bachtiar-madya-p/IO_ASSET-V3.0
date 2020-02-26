@@ -81,6 +81,9 @@ public class ConstantHelper {
     public static final String DEPARTMENT_DESCRIPTION       = "description";
     public static final String DEPARTMENT_ISACTIVE          = "isactive";
     
-    
+    //CONFIGURATION RESPONSE CONFIGURATION
+    public static final String CONFIGURATION_ID      = "id";
+    public static final String CONFIGURATION_KEY     = "key";
+    public static final String CONFIGURATION_VALUE   = "value";
     
 }
