@@ -98,4 +98,11 @@ public class ConstantHelper {
     public static final String DEPARTMENTMEMBER_ISADMIN           = "isadmin";
     public static final String DEPARTMENTMEMBER_ISACTIVE          = "isactive";
     
+    //MEMBER LEVEL RESPONSE CONFIGURATION
+    public static final String MEMBERLEVEL_LEVELID                  = "levelid";
+    public static final String MEMBERLEVEL_LEVELCODE                = "levelcode";
+    public static final String MEMBERLEVEL_LEVELNAME                = "levelname";
+    public static final String MEMBERLEVEL_DESCRIPTION              = "description";
+    public static final String MEMBERLEVEL_ISACTIVE                 = "isactive";
+    
 }
