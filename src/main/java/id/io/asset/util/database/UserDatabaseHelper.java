@@ -6,6 +6,7 @@
 package id.io.asset.util.database;
 
 import id.io.asset.model.UserModel;
+import id.io.asset.util.constant.ConstantHelper;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,8 +34,8 @@ public class UserDatabaseHelper extends BaseDatabaseHelper {
         try (Handle handle = getHandle()) {
 
             user = handle.createQuery(sql)
-                    .bind("username", username)
-                    .bind("password", password).mapToBean(UserModel.class).first();
+                    .bind(ConstantHelper.USER_USERNAME, username)
+                    .bind(ConstantHelper.USER_PASSWORD, password).mapToBean(UserModel.class).first();
 
         } catch (SQLException ex) {
             log.error(UserDatabaseHelper.class.getName(), " - failedLogin " + ex);
@@ -73,7 +74,7 @@ public class UserDatabaseHelper extends BaseDatabaseHelper {
                 + "WHERE user.userid = :userid;";
 
         try (Handle h = getHandle()) {
-            user = h.createQuery(sql).bind("userid", userId).mapToBean(UserModel.class).first();
+            user = h.createQuery(sql).bind(ConstantHelper.USER_USERID, userId).mapToBean(UserModel.class).first();
         } catch (Exception ex) {
             log.error(UserDatabaseHelper.class.getName(), " - errorGetUser " + ex);
         }
@@ -95,7 +96,7 @@ public class UserDatabaseHelper extends BaseDatabaseHelper {
                 + "WHERE user.username = :username;";
 
         try (Handle h = getHandle()) {
-            user = h.createQuery(sql).bind("username", username).mapToBean(UserModel.class).first();
+            user = h.createQuery(sql).bind(ConstantHelper.USER_USERNAME, username).mapToBean(UserModel.class).first();
         } catch (Exception ex) {
             log.error(UserDatabaseHelper.class.getName(), " - errorGetUser " + ex);
         }
@@ -116,7 +117,7 @@ public class UserDatabaseHelper extends BaseDatabaseHelper {
                 + "WHERE user.userid = :userid;";
 
         try (Handle h = getHandle()) {
-            user = h.createQuery(sql).bind("userid", userId).mapToBean(UserModel.class).first();
+            user = h.createQuery(sql).bind(ConstantHelper.USER_USERID, userId).mapToBean(UserModel.class).first();
             memberId = user.getMemberid();
         } catch (Exception ex) {
             log.error(UserDatabaseHelper.class.getName(), " - errorGetMemberId " + ex);
@@ -135,7 +136,7 @@ public class UserDatabaseHelper extends BaseDatabaseHelper {
         final String sql = "SELECT COUNT(1) FROM `user` WHERE username = :username;";
 
         try (Handle h = getHandle()) {
-            count = h.createQuery(sql).bind("username", username).mapTo(Integer.class).findOnly();
+            count = h.createQuery(sql).bind(ConstantHelper.USER_USERNAME, username).mapTo(Integer.class).findOnly();
             if (count == 1) {
                 isValid = true;
             }
@@ -154,12 +155,12 @@ public class UserDatabaseHelper extends BaseDatabaseHelper {
         try (Handle handle = getHandle()) {
 
             row = handle.createUpdate(sql)
-                    .bind("userid", model.getUserid())
-                    .bind("username", model.getUsername())
-                    .bind("password", model.getPassword())
-                    .bind("alias", model.getAlias())
-                    .bind("memberid", model.getMemberid())
-                    .bind("isactive", false).execute();
+                    .bind(ConstantHelper.USER_USERID, model.getUserid())
+                    .bind(ConstantHelper.USER_USERNAME, model.getUsername())
+                    .bind(ConstantHelper.USER_PASSWORD, model.getPassword())
+                    .bind(ConstantHelper.USER_ALIAS, model.getAlias())
+                    .bind(ConstantHelper.USER_MEMBERID, model.getMemberid())
+                    .bind(ConstantHelper.USER_ISACTIVE, false).execute();
 
         } catch (SQLException ex) {
             log.error(UserDatabaseHelper.class.getName(), " - errorCreateUser " + ex);
@@ -175,8 +176,8 @@ public class UserDatabaseHelper extends BaseDatabaseHelper {
         try (Handle handle = getHandle()) {
 
             row = handle.createUpdate(sql)
-                    .bind("userid", userId)
-                    .bind("isactive", isActive).execute();
+                    .bind(ConstantHelper.USER_USERID, userId)
+                    .bind(ConstantHelper.USER_ISACTIVE, isActive).execute();
 
         } catch (SQLException ex) {
             log.error(UserDatabaseHelper.class.getName(), " - errorActivateUser " + ex);
@@ -193,7 +194,7 @@ public class UserDatabaseHelper extends BaseDatabaseHelper {
         int row = 0;
         try (Handle handle = getHandle()) {
 
-            row = handle.createQuery(sql).bind("username", username).mapTo(Integer.class).findOnly();
+            row = handle.createQuery(sql).bind(ConstantHelper.USER_USERNAME, username).mapTo(Integer.class).findOnly();
 
             if (row == 1) {
                 isActive = true;
@@ -213,8 +214,8 @@ public class UserDatabaseHelper extends BaseDatabaseHelper {
         try (Handle handle = getHandle()) {
 
             row = handle.createUpdate(sql)
-                    .bind("username", username)
-                    .bind("password", password).execute();
+                    .bind(ConstantHelper.USER_USERNAME, username)
+                    .bind(ConstantHelper.USER_PASSWORD, password).execute();
 
         } catch (SQLException ex) {
             log.error(UserDatabaseHelper.class.getName(), " - errorChangePassword " + ex);
@@ -230,7 +231,7 @@ public class UserDatabaseHelper extends BaseDatabaseHelper {
         int result = 0;
         try (Handle handle = getHandle()) {
 
-            result = handle.createUpdate(sql).bind("userid", userId).execute();
+            result = handle.createUpdate(sql).bind(ConstantHelper.USER_USERID, userId).execute();
 
         } catch (SQLException ex) {
             log.error(UserDatabaseHelper.class.getName(), " - errorDeleteUser " + ex);
