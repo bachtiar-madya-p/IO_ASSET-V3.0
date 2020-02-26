@@ -71,21 +71,21 @@ public class UserController extends BaseController {
     public JSONObject create(JSONObject json) {
         JSONObject response = new JSONObject();
         if (json.length() != 0) {
-            UUID memberId = uuidGenerator.generateUUID(json.getString("membercode"));
-            UUID userId = uuidGenerator.generateUUID(json.getString("username"));
+            UUID memberId = uuidGenerator.generateUUID(json.getString(ConstantHelper.DEPARTMENTMEMBER_MEMBERCODE));
+            UUID userId = uuidGenerator.generateUUID(json.getString(ConstantHelper.USER_USERNAME));
 
             UserModel model = new UserModel();
             model.setUserid(userId.toString());
-            model.setUsername(json.getString("username"));
-            model.setAlias(json.getString("alias"));
+            model.setUsername(json.getString(ConstantHelper.USER_USERNAME));
+            model.setAlias(json.getString(ConstantHelper.USER_ALIAS));
             model.setMemberid(memberId.toString());
-            model.setMembercode(json.getString("membercode"));
-            model.setMembername(json.getString("membername"));
-            model.setEmail(json.getString("email"));
-            model.setImageaddress(json.getString("imageaddress"));
-            model.setDescription(json.getString("description"));
-            model.setLevelid(json.getString("levelid"));
-            model.setDepartmentid(json.getString("departmentid"));
+            model.setMembercode(json.getString(ConstantHelper.DEPARTMENTMEMBER_MEMBERCODE));
+            model.setMembername(json.getString(ConstantHelper.DEPARTMENTMEMBER_MEMBERNAME));
+            model.setEmail(json.getString(ConstantHelper.DEPARTMENTMEMBER_EMAIL));
+            model.setImageaddress(json.getString(ConstantHelper.DEPARTMENTMEMBER_IMAGEADDRESS));
+            model.setDescription(json.getString(ConstantHelper.DEPARTMENTMEMBER_DESCRIPTION));
+            model.setLevelid(json.getString(ConstantHelper.DEPARTMENTMEMBER_LEVELID));
+            model.setDepartmentid(json.getString(ConstantHelper.DEPARTMENTMEMBER_DEPARTMENTID));
 
             memberDatabaseHelper.create(model);
             userDatabaseHelper.create(model);
@@ -104,9 +104,9 @@ public class UserController extends BaseController {
         JSONObject response = new JSONObject();
         if (json.length() != 0) {
 
-            userDatabaseHelper.activate(userId, json.getBoolean("isactive"));
+            userDatabaseHelper.activate(userId, json.getBoolean(ConstantHelper.USER_ISACTIVE));
             String memberId = userDatabaseHelper.getMemberId(userId);
-            memberDatabaseHelper.activate(memberId, json.getBoolean("isactive"));
+            memberDatabaseHelper.activate(memberId, json.getBoolean(ConstantHelper.MEMBERLEVEL_ISACTIVE));
 
             response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
             response.put(ConstantHelper.HTTP_REASON, "activate/inactivate_user_successful");
@@ -124,7 +124,7 @@ public class UserController extends BaseController {
         if (json.length() != 0) {
 
             String memberId = userDatabaseHelper.getMemberId(userId);
-            memberDatabaseHelper.asAdmin(memberId, json.getBoolean("isadmin"));
+            memberDatabaseHelper.asAdmin(memberId, json.getBoolean(ConstantHelper.DEPARTMENTMEMBER_ISADMIN));
 
             response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
             response.put(ConstantHelper.HTTP_REASON, "activate/inactivate_admin_successful");
