@@ -105,4 +105,10 @@ public class ConstantHelper {
     public static final String MEMBERLEVEL_DESCRIPTION              = "description";
     public static final String MEMBERLEVEL_ISACTIVE                 = "isactive";
     
+    //OTP LOG RESPONSE CONFIGURATION
+    public static final String OTPLOG_ID                            = "id";
+    public static final String OTPLOG_USERID                        = "userid";
+    public static final String OTPLOG_OTP                           = "otp";
+    public static final String OTPLOG_CREATEDT                      = "createdt";
+    
 }
