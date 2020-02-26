@@ -52,8 +52,10 @@ public class ConstantHelper {
     
     public static final String USER_USERID          = "userid";
     public static final String USER_USERNAME        = "username";
+    public static final String USER_PASSWORD        = "password";
     public static final String USER_ALIAS           = "alias";
     public static final String USER_MEMBERID        = "memberid";
+    public static final String USER_ISACTIVE        = "isactive";
     public static final String USER_MEMBERCODE      = "membercode";
     public static final String USER_MEMBERNAME      = "membername";
     public static final String USER_EMAIL           = "email";
