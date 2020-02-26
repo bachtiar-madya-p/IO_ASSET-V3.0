@@ -1,16 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**
+  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+  *
+  * Copyright (c) 2019 IO-Teknologi Indonesia, and individual contributors
+  * as indicated by the @author tags. All Rights Reserved
+  *
+  * The contents of this file are subject to the terms of the
+  * Common Development and Distribution License (the License).
+  *
+  * Everyone is permitted to copy and distribute verbatim copies
+  * of this license document, but changing it is not allowed.
+  *
+  */
 package id.io.asset.console;
 
-import id.io.asset.manager.EncryptionManager;
+import id.io.asset.manager.EncryptionManager; 
 
-/**
- *
- * @author permadi
- */
 public class PasswordHash {
 
     public static void main(String[] args) {
