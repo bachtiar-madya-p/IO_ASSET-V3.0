@@ -42,13 +42,13 @@ public class MemberLevelController extends BaseController {
     public JSONObject createMemberLevel(JSONObject json) {
         JSONObject response = new JSONObject();
         if (json.length() != 0) {
-            UUID uuid = uuidGenerator.generateUUID(json.getString("levelcode"));
+            UUID uuid = uuidGenerator.generateUUID(json.getString(ConstantHelper.MEMBERLEVEL_LEVELCODE));
 
             MemberLevelModel model = new MemberLevelModel();
             model.setLevelid(uuid.toString());
-            model.setLevelcode(json.getString("levelcode"));
-            model.setLevelname(json.getString("levelname"));
-            model.setDescription(json.getString("description"));
+            model.setLevelcode(json.getString(ConstantHelper.MEMBERLEVEL_LEVELCODE));
+            model.setLevelname(json.getString(ConstantHelper.MEMBERLEVEL_LEVELNAME));
+            model.setDescription(json.getString(ConstantHelper.MEMBERLEVEL_DESCRIPTION));
 
             userLevelDatabaseHelper.create(model);
 
@@ -68,9 +68,9 @@ public class MemberLevelController extends BaseController {
         if (json.length() != 0) {
 
             MemberLevelModel model = new MemberLevelModel();
-            model.setLevelcode(json.getString("levelcode"));
-            model.setLevelname(json.getString("levelname"));
-            model.setDescription(json.getString("description"));
+            model.setLevelcode(json.getString(ConstantHelper.MEMBERLEVEL_LEVELCODE));
+            model.setLevelname(json.getString(ConstantHelper.MEMBERLEVEL_LEVELNAME));
+            model.setDescription(json.getString(ConstantHelper.MEMBERLEVEL_DESCRIPTION));
 
             userLevelDatabaseHelper.update(levelId, model);
 
@@ -89,7 +89,7 @@ public class MemberLevelController extends BaseController {
         JSONObject response = new JSONObject();
         if (json.length() != 0) {
 
-            userLevelDatabaseHelper.activate(levelId, json.getBoolean("isactive"));
+            userLevelDatabaseHelper.activate(levelId, json.getBoolean(ConstantHelper.MEMBERLEVEL_ISACTIVE));
 
             response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
             response.put(ConstantHelper.HTTP_REASON, "activate/inactivate_member_level_successful");
