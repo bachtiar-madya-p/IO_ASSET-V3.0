@@ -6,6 +6,7 @@
 package id.io.asset.util.database;
 
 import id.io.asset.model.UserModel;
+import id.io.asset.util.constant.ConstantHelper;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +46,7 @@ public class DepartmentMemberDatabaseHelper extends BaseDatabaseHelper {
         final String sql = "SELECT memberid, membercode, membername, email, imageaddress, description, levelid, departmentid, IF(isadmin, 'true', 'false') isadmin, IF(isactive, 'true', 'false') isactive FROM departmentmember WHERE memberid = :memberid;";
 
         try (Handle h = getHandle()) {
-            resutl = h.createQuery(sql).bind("memberid", memberId).mapToBean(UserModel.class).first();
+            resutl = h.createQuery(sql).bind(ConstantHelper.DEPARTMENTMEMBER_MEMBERID, memberId).mapToBean(UserModel.class).first();
         } catch (Exception ex) {
             log.error(DepartmentMemberDatabaseHelper.class.getName(), " - errorGetDepartmentMember " + ex);
         }
@@ -61,16 +62,16 @@ public class DepartmentMemberDatabaseHelper extends BaseDatabaseHelper {
         try (Handle handle = getHandle()) {
 
             row = handle.createUpdate(sql)
-                    .bind("memberid", model.getMemberid())
-                    .bind("membercode", model.getMembercode())
-                    .bind("membername", model.getMembername())
-                    .bind("email", model.getEmail())
-                    .bind("imageaddress", model.getImageaddress())
-                    .bind("description", model.getDescription())
-                    .bind("levelid", model.getLevelid())
-                    .bind("departmentid", model.getDepartmentid())
-                    .bind("isadmin", false)
-                    .bind("isactive", false).execute();
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_MEMBERID, model.getMemberid())
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_MEMBERCODE, model.getMembercode())
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_MEMBERNAME, model.getMembername())
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_EMAIL, model.getEmail())
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_IMAGEADDRESS, model.getImageaddress())
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_DESCRIPTION, model.getDescription())
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_LEVELID, model.getLevelid())
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_DEPARTMENTID, model.getDepartmentid())
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_ISADMIN, false)
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_ISACTIVE, false).execute();
 
         } catch (SQLException ex) {
             log.error(DepartmentMemberDatabaseHelper.class.getName(), " - errorCreateDepartmentMember " + ex);
@@ -86,13 +87,13 @@ public class DepartmentMemberDatabaseHelper extends BaseDatabaseHelper {
         try (Handle handle = getHandle()) {
 
             row = handle.createUpdate(sql)
-                    .bind("memberid", memberId)
-                    .bind("membername", model.getMembername())
-                    .bind("email", model.getEmail())
-                    .bind("imageaddress", model.getImageaddress())
-                    .bind("description", model.getDescription())
-                    .bind("levelid", model.getLevelid())
-                    .bind("departmentid", model.getDepartmentid()).execute();
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_MEMBERID, memberId)
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_MEMBERNAME, model.getMembername())
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_EMAIL, model.getEmail())
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_IMAGEADDRESS, model.getImageaddress())
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_DESCRIPTION, model.getDescription())
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_LEVELID, model.getLevelid())
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_DEPARTMENTID, model.getDepartmentid()).execute();
 
         } catch (SQLException ex) {
             log.error(DepartmentMemberDatabaseHelper.class.getName(), " - errorUpdateDepartmentMember " + ex);
@@ -108,8 +109,8 @@ public class DepartmentMemberDatabaseHelper extends BaseDatabaseHelper {
         try (Handle handle = getHandle()) {
 
             row = handle.createUpdate(sql)
-                    .bind("memberid", memberId)
-                    .bind("isactive", isActive).execute();
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_MEMBERID, memberId)
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_ISACTIVE, isActive).execute();
 
         } catch (SQLException ex) {
             log.error(DepartmentMemberDatabaseHelper.class.getName(), " - errorActivateDepartmentMember " + ex);
@@ -125,8 +126,8 @@ public class DepartmentMemberDatabaseHelper extends BaseDatabaseHelper {
         try (Handle handle = getHandle()) {
 
             row = handle.createUpdate(sql)
-                    .bind("memberid", memberId)
-                    .bind("isadmin", isAdmin).execute();
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_MEMBERID, memberId)
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_ISADMIN, isAdmin).execute();
 
         } catch (SQLException ex) {
             log.error(DepartmentMemberDatabaseHelper.class.getName(), " - errorAsAdminDepartmentMember " + ex);
@@ -142,7 +143,7 @@ public class DepartmentMemberDatabaseHelper extends BaseDatabaseHelper {
         int result = 0;
         try (Handle handle = getHandle()) {
 
-            result = handle.createUpdate(sql).bind("memberid", memberId).execute();
+            result = handle.createUpdate(sql).bind(ConstantHelper.DEPARTMENTMEMBER_MEMBERID, memberId).execute();
 
         } catch (SQLException ex) {
             log.error(DepartmentMemberDatabaseHelper.class.getName(), " - errorDeleteDepartmentMember " + ex);
