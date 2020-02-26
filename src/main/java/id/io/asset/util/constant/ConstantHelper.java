@@ -86,4 +86,16 @@ public class ConstantHelper {
     public static final String CONFIGURATION_KEY     = "key";
     public static final String CONFIGURATION_VALUE   = "value";
     
+    //DEPARTMENT MEMBER RESPONSE CONFIGURATION
+    public static final String DEPARTMENTMEMBER_MEMBERID          = "memberid";
+    public static final String DEPARTMENTMEMBER_MEMBERCODE        = "membercode";
+    public static final String DEPARTMENTMEMBER_MEMBERNAME        = "membername";
+    public static final String DEPARTMENTMEMBER_EMAIL             = "email";
+    public static final String DEPARTMENTMEMBER_IMAGEADDRESS      = "imageaddress";
+    public static final String DEPARTMENTMEMBER_DESCRIPTION       = "description";
+    public static final String DEPARTMENTMEMBER_LEVELID           = "levelid";
+    public static final String DEPARTMENTMEMBER_DEPARTMENTID      = "departmentid";
+    public static final String DEPARTMENTMEMBER_ISADMIN           = "isadmin";
+    public static final String DEPARTMENTMEMBER_ISACTIVE          = "isactive";
+    
 }
