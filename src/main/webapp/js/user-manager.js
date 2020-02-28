@@ -16,7 +16,11 @@ var tableData={};
                             tab_data += '<td>'+value.email+'</td>';
                             tab_data += '<td>'+value.levelid+'</td>';
                             tab_data += '<td>'+value.departmentid+'</td>';
-                            tab_data += '<td><span class="label label-info">'+value.isadmin+'</span></td>';                                                      
+//                            tab_data += '<td><span class="label label-info">'+value.isadmin+'</span></td>';
+                             if (value.isadmin !== true) {
+                             tab_data += '<td><span class="label label-default">Inactive</span></td>';}
+                         else {
+                             tab_data += '<td><span class="label label-success">Active</span></td>';}
                             tab_data += '<td ><div class="btn-group"><a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-xs btn-default"><i class="fa fa-pencil"></i></a><a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a></div></td>';                    
                         tab_data += '</tr>';
                     });
