@@ -14,6 +14,7 @@
 package id.io.asset.util.database;
 
 import id.io.asset.model.MemberLevelModel;
+import id.io.asset.util.constant.ConstantHelper;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +50,7 @@ public class MemberLevelDatabaseHelper extends BaseDatabaseHelper {
         final String sql = "SELECT levelid, levelcode, levelname, description, IF(isactive, 'true', 'false') isactive FROM user_level WHERE levelid = :levelId;";
 
         try (Handle h = getHandle()) {
-            userLevel = h.createQuery(sql).bind("levelId", levelId).mapToBean(MemberLevelModel.class).first();
+            userLevel = h.createQuery(sql).bind(ConstantHelper.MEMBERLEVEL_LEVELID, levelId).mapToBean(MemberLevelModel.class).first();
         } catch (Exception ex) {
             log.error(MemberLevelDatabaseHelper.class.getName(), " - errorGetListUserLevel " + ex);
         }
@@ -65,11 +66,11 @@ public class MemberLevelDatabaseHelper extends BaseDatabaseHelper {
         try (Handle handle = getHandle()) {
 
             row = handle.createUpdate(sql)
-                    .bind("levelid", model.getLevelid())
-                    .bind("levelcode", model.getLevelcode())
-                    .bind("levelname", model.getLevelname())
-                    .bind("description", model.getDescription())
-                    .bind("isactive", false).execute();
+                    .bind(ConstantHelper.MEMBERLEVEL_LEVELID, model.getLevelid())
+                    .bind(ConstantHelper.MEMBERLEVEL_LEVELCODE, model.getLevelcode())
+                    .bind(ConstantHelper.MEMBERLEVEL_LEVELNAME, model.getLevelname())
+                    .bind(ConstantHelper.MEMBERLEVEL_DESCRIPTION, model.getDescription())
+                    .bind(ConstantHelper.MEMBERLEVEL_ISACTIVE, false).execute();
 
         } catch (SQLException ex) {
             log.error(MemberLevelDatabaseHelper.class.getName(), " - errorCreateMemberLevel " + ex);
@@ -85,9 +86,9 @@ public class MemberLevelDatabaseHelper extends BaseDatabaseHelper {
         try (Handle handle = getHandle()) {
 
             row = handle.createUpdate(sql)
-                    .bind("levelid", levelId)
-                    .bind("levelname", model.getLevelname())
-                    .bind("description", model.getDescription()).execute();
+                    .bind(ConstantHelper.MEMBERLEVEL_LEVELID, levelId)
+                    .bind(ConstantHelper.MEMBERLEVEL_LEVELNAME, model.getLevelname())
+                    .bind(ConstantHelper.MEMBERLEVEL_DESCRIPTION, model.getDescription()).execute();
 
         } catch (SQLException ex) {
             log.error(MemberLevelDatabaseHelper.class.getName(), " - errorUpdateMemberLevel " + ex);
@@ -103,8 +104,8 @@ public class MemberLevelDatabaseHelper extends BaseDatabaseHelper {
         try (Handle handle = getHandle()) {
 
             row = handle.createUpdate(sql)
-                    .bind("levelid", levelId)
-                    .bind("isactive", isActive).execute();
+                    .bind(ConstantHelper.MEMBERLEVEL_LEVELID, levelId)
+                    .bind(ConstantHelper.MEMBERLEVEL_ISACTIVE, isActive).execute();
 
         } catch (SQLException ex) {
             log.error(MemberLevelDatabaseHelper.class.getName(), " - errorActivateMemberLevel " + ex);
@@ -120,7 +121,7 @@ public class MemberLevelDatabaseHelper extends BaseDatabaseHelper {
         int result = 0;
         try (Handle handle = getHandle()) {
 
-            result = handle.createUpdate(sql).bind("levelId", levelId).execute();
+            result = handle.createUpdate(sql).bind(ConstantHelper.MEMBERLEVEL_LEVELID, levelId).execute();
 
         } catch (SQLException ex) {
             log.error(ConfigurationDatabaseHelper.class.getName(), " - errorDeleteMemberLevel " + ex);

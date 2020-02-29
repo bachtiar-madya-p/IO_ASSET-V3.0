@@ -65,9 +65,9 @@ public class ConfigurationDatabaseHelper extends BaseDatabaseHelper {
             String encryptedPassword;
             if (ConstantHelper.EMAIL_PASSWORD.equals(key)) {
                 encryptedPassword = EncryptionManager.encrypt(value);
-                row = handle.createUpdate(sql).bind("key", key).bind("value", encryptedPassword).execute();
+                row = handle.createUpdate(sql).bind(ConstantHelper.CONFIGURATION_KEY, key).bind(ConstantHelper.CONFIGURATION_VALUE, encryptedPassword).execute();
             } else {
-                row = handle.createUpdate(sql).bind("key", key).bind("value", value).execute();
+                row = handle.createUpdate(sql).bind(ConstantHelper.CONFIGURATION_KEY, key).bind(ConstantHelper.CONFIGURATION_VALUE, value).execute();
             }
         } catch (SQLException ex) {
             log.error(ConfigurationDatabaseHelper.class.getName(), " - errorUpdateConfiguration " + ex);
@@ -86,9 +86,9 @@ public class ConfigurationDatabaseHelper extends BaseDatabaseHelper {
             if (key.contains("PASSWORD")) {
                 EncryptionManager.init();
                 encryptedPassword = EncryptionManager.encrypt(value);
-                row = handle.createUpdate(sql).bind("key", key).bind("value", encryptedPassword).execute();
+                row = handle.createUpdate(sql).bind(ConstantHelper.CONFIGURATION_KEY, key).bind(ConstantHelper.CONFIGURATION_VALUE, encryptedPassword).execute();
             } else {
-                row = handle.createUpdate(sql).bind("key", key).bind("value", value).execute();
+                row = handle.createUpdate(sql).bind(ConstantHelper.CONFIGURATION_KEY, key).bind(ConstantHelper.CONFIGURATION_VALUE, value).execute();
             }
         } catch (SQLException ex) {
             log.error(ConfigurationDatabaseHelper.class.getName(), " - errorCreateConfiguration " + ex);
@@ -104,7 +104,7 @@ public class ConfigurationDatabaseHelper extends BaseDatabaseHelper {
         int result = 0;
         try (Handle handle = getHandle()) {
 
-            result = handle.createUpdate(sql).bind("key", key).execute();
+            result = handle.createUpdate(sql).bind(ConstantHelper.CONFIGURATION_KEY, key).execute();
 
         } catch (SQLException ex) {
             log.error(ConfigurationDatabaseHelper.class.getName(), " - errorDeleteConfiguration " + ex);

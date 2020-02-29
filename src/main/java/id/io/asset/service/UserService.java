@@ -60,13 +60,13 @@ public class UserService extends BaseService {
         JSONObject response = new JSONObject();
 
         JSONObject json = new JSONObject(jsonRequest);
-        boolean validateUsername = userController.validateUsername(json.getString("username"));
+        boolean validateUsername = userController.validateUsername(json.getString(ConstantHelper.USER_USERNAME));
         if (validateUsername) {
             try {
                 response = userController.create(new JSONObject(jsonRequest));
                 JSONObject otpConfig = configurationDatabaseHelper.getOtpEmailConfiguration();
                 String otp = otpController.generateOtp(Integer.parseInt(otpConfig.getString(ConstantHelper.OTP_LENGTH)));
-                otpController.saveOtpLog(json.getString("email"), otp);
+                otpController.saveOtpLog(json.getString(ConstantHelper.USER_EMAIL), otp);
 
             } catch (JSONException ex) {
                 response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_INTERNAL_SERVER_ERROR);

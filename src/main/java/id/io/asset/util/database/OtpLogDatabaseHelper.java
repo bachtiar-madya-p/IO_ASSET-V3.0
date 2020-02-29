@@ -13,6 +13,7 @@
   */
 package id.io.asset.util.database;
 
+import id.io.asset.util.constant.ConstantHelper;
 import id.io.asset.util.helper.DateHelper;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
@@ -31,7 +32,7 @@ public class OtpLogDatabaseHelper extends BaseDatabaseHelper {
         int row = 0;
         try (Handle handle = getHandle()) {
 
-            row = handle.createUpdate(sql).bind("userid", userid).bind("otp", otp).execute();
+            row = handle.createUpdate(sql).bind(ConstantHelper.OTPLOG_USERID, userid).bind(ConstantHelper.OTPLOG_OTP, otp).execute();
 
         } catch (SQLException ex) {
             log.error(OtpLogDatabaseHelper.class.getName(), " - errorCreateOtpLog " + ex);
@@ -48,7 +49,7 @@ public class OtpLogDatabaseHelper extends BaseDatabaseHelper {
 
         try (Handle h = getHandle()) {
 
-            int count = h.createQuery(sql).bind("otp", otp).mapTo(Integer.class).findOnly();
+            int count = h.createQuery(sql).bind(ConstantHelper.OTPLOG_OTP, otp).mapTo(Integer.class).findOnly();
 
             if (count > 0) {
                 isValid = true;
@@ -69,9 +70,9 @@ public class OtpLogDatabaseHelper extends BaseDatabaseHelper {
         try (Handle h = getHandle()) {
             LocalDateTime createDt = LocalDateTime.now().minusMinutes(expiry);
             int count = h.createQuery(sql)
-                    .bind("userid", userId)
-                    .bind("otp", otp)
-                    .bind("createDt", DateHelper.formatDateTime(createDt)).mapTo(Integer.class).findOnly();
+                    .bind(ConstantHelper.OTPLOG_USERID, userId)
+                    .bind(ConstantHelper.OTPLOG_OTP, otp)
+                    .bind(ConstantHelper.OTPLOG_CREATEDT, DateHelper.formatDateTime(createDt)).mapTo(Integer.class).findOnly();
 
             if (count != 0) {
                 isValid = true;

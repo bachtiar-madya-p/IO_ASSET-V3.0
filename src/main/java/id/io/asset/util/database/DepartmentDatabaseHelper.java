@@ -14,6 +14,7 @@
 package id.io.asset.util.database;
 
 import id.io.asset.model.DepartmentModel;
+import id.io.asset.util.constant.ConstantHelper;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,11 +34,11 @@ public class DepartmentDatabaseHelper extends BaseDatabaseHelper {
         try (Handle handle = getHandle()) {
 
             row = handle.createUpdate(sql)
-                    .bind("departmentid", department.getDepartmentid())
-                    .bind("departmentcode", department.getDepartmentcode())
-                    .bind("departmentname", department.getDepartmentname())
-                    .bind("description", department.getDescription())
-                    .bind("isactive", false).execute();
+                    .bind(ConstantHelper.DEPARTMENT_DEPARTMENTID, department.getDepartmentid())
+                    .bind(ConstantHelper.DEPARTMENT_DEPARTMENTCODE, department.getDepartmentcode())
+                    .bind(ConstantHelper.DEPARTMENT_DEPARTMENTNAME, department.getDepartmentname())
+                    .bind(ConstantHelper.DEPARTMENT_DESCRIPTION, department.getDescription())
+                    .bind(ConstantHelper.DEPARTMENT_ISACTIVE, false).execute();
 
         } catch (SQLException ex) {
             log.error(DepartmentDatabaseHelper.class.getName(), " - errorCreateDepartment " + ex);
@@ -53,9 +54,9 @@ public class DepartmentDatabaseHelper extends BaseDatabaseHelper {
         try (Handle handle = getHandle()) {
 
             row = handle.createUpdate(sql)
-                    .bind("departmentid", departmentId)
-                    .bind("departmentname", department.getDepartmentname())
-                    .bind("description", department.getDescription()).execute();
+                    .bind(ConstantHelper.DEPARTMENT_DEPARTMENTID, departmentId)
+                    .bind(ConstantHelper.DEPARTMENT_DEPARTMENTNAME, department.getDepartmentname())
+                    .bind(ConstantHelper.DEPARTMENT_DESCRIPTION, department.getDescription()).execute();
 
         } catch (SQLException ex) {
             log.error(DepartmentDatabaseHelper.class.getName(), " - errorUpdateDepartment " + ex);
@@ -70,7 +71,7 @@ public class DepartmentDatabaseHelper extends BaseDatabaseHelper {
         int result = 0;
         try (Handle handle = getHandle()) {
 
-            result = handle.createUpdate(sql).bind("departmentid", departmentId).execute();
+            result = handle.createUpdate(sql).bind(ConstantHelper.DEPARTMENT_DEPARTMENTID, departmentId).execute();
 
         } catch (SQLException ex) {
             log.error(DepartmentDatabaseHelper.class.getName(), " - errorDeleteDepartment " + ex);
@@ -86,7 +87,7 @@ public class DepartmentDatabaseHelper extends BaseDatabaseHelper {
         final String sql = "SELECT departmentid, departmentcode, departmentname, description, IF(isactive, 'true', 'false') isactive FROM department WHERE departmentid = :departmentid;";
 
         try (Handle h = getHandle()) {
-            department = h.createQuery(sql).bind("departmentid", departmentId).mapToBean(DepartmentModel.class).first();
+            department = h.createQuery(sql).bind(ConstantHelper.DEPARTMENT_DEPARTMENTID, departmentId).mapToBean(DepartmentModel.class).first();
         } catch (Exception ex) {
             log.error(MemberLevelDatabaseHelper.class.getName(), " - errorGetListUserLevel " + ex);
         }
@@ -117,8 +118,8 @@ public class DepartmentDatabaseHelper extends BaseDatabaseHelper {
         try (Handle handle = getHandle()) {
 
             row = handle.createUpdate(sql)
-                    .bind("departmentid", levelId)
-                    .bind("isactive", isActive).execute();
+                    .bind(ConstantHelper.DEPARTMENT_DEPARTMENTID, levelId)
+                    .bind(ConstantHelper.DEPARTMENT_ISACTIVE, isActive).execute();
 
         } catch (SQLException ex) {
             log.error(DepartmentDatabaseHelper.class.getName(), " - errorActivateDepartment " + ex);

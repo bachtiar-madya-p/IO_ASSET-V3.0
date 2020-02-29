@@ -56,8 +56,10 @@ public class ConstantHelper {
     
     public static final String USER_USERID          = "userid";
     public static final String USER_USERNAME        = "username";
+    public static final String USER_PASSWORD        = "password";
     public static final String USER_ALIAS           = "alias";
     public static final String USER_MEMBERID        = "memberid";
+    public static final String USER_ISACTIVE        = "isactive";
     public static final String USER_MEMBERCODE      = "membercode";
     public static final String USER_MEMBERNAME      = "membername";
     public static final String USER_EMAIL           = "email";
@@ -77,5 +79,42 @@ public class ConstantHelper {
     public static final String ASSET_VENDORID        = "vendorid";
     public static final String ASSET_NOTE            = "note";
     public static final String ASSET_CREATEDT        = "createdt";
+    
+    //DEPARTMENT RESPONSE CONFIGURATION
+    public static final String DEPARTMENT_DEPARTMENTID      = "departmentid";
+    public static final String DEPARTMENT_DEPARTMENTCODE    = "departmentcode";
+    public static final String DEPARTMENT_DEPARTMENTNAME    = "assetname";
+    public static final String DEPARTMENT_DESCRIPTION       = "description";
+    public static final String DEPARTMENT_ISACTIVE          = "isactive";
+    
+    //CONFIGURATION RESPONSE CONFIGURATION
+    public static final String CONFIGURATION_ID      = "id";
+    public static final String CONFIGURATION_KEY     = "key";
+    public static final String CONFIGURATION_VALUE   = "value";
+    
+    //DEPARTMENT MEMBER RESPONSE CONFIGURATION
+    public static final String DEPARTMENTMEMBER_MEMBERID          = "memberid";
+    public static final String DEPARTMENTMEMBER_MEMBERCODE        = "membercode";
+    public static final String DEPARTMENTMEMBER_MEMBERNAME        = "membername";
+    public static final String DEPARTMENTMEMBER_EMAIL             = "email";
+    public static final String DEPARTMENTMEMBER_IMAGEADDRESS      = "imageaddress";
+    public static final String DEPARTMENTMEMBER_DESCRIPTION       = "description";
+    public static final String DEPARTMENTMEMBER_LEVELID           = "levelid";
+    public static final String DEPARTMENTMEMBER_DEPARTMENTID      = "departmentid";
+    public static final String DEPARTMENTMEMBER_ISADMIN           = "isadmin";
+    public static final String DEPARTMENTMEMBER_ISACTIVE          = "isactive";
+    
+    //MEMBER LEVEL RESPONSE CONFIGURATION
+    public static final String MEMBERLEVEL_LEVELID                  = "levelid";
+    public static final String MEMBERLEVEL_LEVELCODE                = "levelcode";
+    public static final String MEMBERLEVEL_LEVELNAME                = "levelname";
+    public static final String MEMBERLEVEL_DESCRIPTION              = "description";
+    public static final String MEMBERLEVEL_ISACTIVE                 = "isactive";
+    
+    //OTP LOG RESPONSE CONFIGURATION
+    public static final String OTPLOG_ID                            = "id";
+    public static final String OTPLOG_USERID                        = "userid";
+    public static final String OTPLOG_OTP                           = "otp";
+    public static final String OTPLOG_CREATEDT                      = "createdt";
     
 }
