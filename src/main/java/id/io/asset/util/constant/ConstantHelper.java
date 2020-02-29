@@ -117,4 +117,15 @@ public class ConstantHelper {
     public static final String OTPLOG_OTP                           = "otp";
     public static final String OTPLOG_CREATEDT                      = "createdt";
     
+    //ASSET REGISTER RESPONSE CONFIGURATION
+    public static final String ASSETREGISTER_ASSETID         = "assetid";
+    public static final String ASSETREGISTER_ASSETCODE       = "assetcode";
+    public static final String ASSETREGISTER_ASSETNAME       = "assetname";
+    public static final String ASSETREGISTER_TYPEID          = "typeid";
+    public static final String ASSETREGISTER_MANUFACTURE     = "manufacture";
+    public static final String ASSETREGISTER_MODEL           = "model";
+    public static final String ASSETREGISTER_VENDORID        = "vendorid";
+    public static final String ASSETREGISTER_NOTE            = "note";
+    public static final String ASSETREGISTER_CREATEDT        = "createdt";
+    
 }
