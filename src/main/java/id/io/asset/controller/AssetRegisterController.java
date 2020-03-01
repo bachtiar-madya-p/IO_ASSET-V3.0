@@ -9,6 +9,7 @@ import id.io.asset.model.AssetRegisterModel;
 import id.io.asset.util.constant.ConstantHelper;
 import id.io.asset.util.database.AssetRegisterDatabaseHelper;
 import id.io.asset.util.database.UUIDGeneratorHelper;
+import java.util.List;
 import java.util.UUID;
 import org.apache.http.HttpStatus;
 import org.json.JSONObject;
@@ -96,5 +97,15 @@ public class AssetRegisterController extends BaseController{
             json.put(ConstantHelper.HTTP_MESSAGE, "Error Delete Asset Register");
         }
         return json;
+    }
+    //list
+    public List<AssetRegisterModel> assetList() {
+        List<AssetRegisterModel> assetList = assetRegisterDatabaseHelper.getList();
+        return assetList;
+    }
+    //findById
+    public AssetRegisterModel getAsset(String assetId) {
+        AssetRegisterModel asset = assetRegisterDatabaseHelper.findById(assetId);
+        return asset;
     }
 }
