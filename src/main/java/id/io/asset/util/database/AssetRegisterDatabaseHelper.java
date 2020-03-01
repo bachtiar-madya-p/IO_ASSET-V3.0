@@ -67,6 +67,20 @@ public class AssetRegisterDatabaseHelper extends BaseDatabaseHelper {
         }
         return row;
     }
+    //delete 
+    public int delete(String assetId){
+        log.debug(AssetRegisterDatabaseHelper.class.getName(),"- deleteAssetRegister");
+        
+        final String sql = "DELETE FROM asset_register WHERE assetid = :assetid;";
+        int result = 0;
+        try(Handle handle = getHandle()){
+            result = handle.createUpdate(sql).bind(ConstantHelper.ASSETREGISTER_ASSETID, assetId).execute();
+                    
+        }catch(SQLException ex){
+            log.error(AssetRegisterDatabaseHelper.class.getName()," - errorDeleteAssetRegister ");
+        }
+        return result;
+    }
     
     
 }
