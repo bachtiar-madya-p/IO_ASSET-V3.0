@@ -36,6 +36,10 @@ public class AssetRegisterModel {
         this.note           = note;
         this.createdt       = createdt;
     }
+
+    public AssetRegisterModel() {
+        
+    }
     
     public String getAssetid() {
         return assetid;
