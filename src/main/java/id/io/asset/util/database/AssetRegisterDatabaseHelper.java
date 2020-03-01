@@ -107,4 +107,20 @@ public class AssetRegisterDatabaseHelper extends BaseDatabaseHelper {
         }
         return assetRegisterList;
     }
+    //assetRegisterCodeValidity
+    public boolean assetRegisterCodeValidity(String assetCode){
+        log.debug(AssetRegisterDatabaseHelper.class.getName()," - assetRegisterCodeValidity");
+        boolean isValid = false;
+        final String sql = "SELECT count(1) FROM asset_register WHERE assetcode= :assetcode";
+        int row = 0;
+        try(Handle handle = getHandle()){
+            row = handle.createQuery(sql).bind(ConstantHelper.ASSETREGISTER_ASSETCODE, assetCode).mapTo(Integer.class).findOnly();
+            if(row == 0){
+                isValid = true;
+            }
+        }catch(SQLException ex){
+            log.error(AssetRegisterDatabaseHelper.class.getName()," - errorAssetRegisterCodeValidity" + ex);
+        }
+        return isValid;
+    }
 }
