@@ -47,5 +47,26 @@ public class AssetRegisterDatabaseHelper extends BaseDatabaseHelper {
         }
         return row;
     }
+    //update
+    public int update(String assetId, AssetRegisterModel assetregister){
+        log.debug(AssetRegisterDatabaseHelper.class.getName(),"- updateAssetRegister");
+        
+        final String sql = "UPDATE asset_register SET assetname= :assetname, typeid= :typeid, manufacture= :manufacture, model= :model, vendorid= :vendorid, note= :note WHERE assetid= :asstid;";
+        int row = 0;
+        try(Handle handle = getHandle()){
+            row = handle.createUpdate(sql)
+                    .bind(ConstantHelper.ASSETREGISTER_ASSETID, assetId)
+                    .bind(ConstantHelper.ASSETREGISTER_ASSETNAME, assetregister.getAssetname())
+                    .bind(ConstantHelper.ASSET_TYPEID, assetregister.getTypeid())
+                    .bind(ConstantHelper.ASSET_MANUFACTURE, assetregister.getManufacture())
+                    .bind(ConstantHelper.ASSET_MODEL, assetregister.getModel())
+                    .bind(ConstantHelper.ASSET_VENDORID, assetregister.getVendorid())
+                    .bind(ConstantHelper.ASSET_NOTE, assetregister.getNote()).execute();
+        }catch(SQLException ex){
+            log.error(AssetRegisterDatabaseHelper.class.getName(),"- errorUpdateAssetRegister" + ex);
+        }
+        return row;
+    }
+    
     
 }
