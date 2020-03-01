@@ -77,10 +77,21 @@ public class AssetRegisterDatabaseHelper extends BaseDatabaseHelper {
             result = handle.createUpdate(sql).bind(ConstantHelper.ASSETREGISTER_ASSETID, assetId).execute();
                     
         }catch(SQLException ex){
-            log.error(AssetRegisterDatabaseHelper.class.getName()," - errorDeleteAssetRegister ");
+            log.error(AssetRegisterDatabaseHelper.class.getName()," - errorDeleteAssetRegister " + ex);
         }
         return result;
     }
-    
-    
+    //findById
+    public AssetRegisterModel findById(String assetId){
+        AssetRegisterModel assetregister = new AssetRegisterModel();
+        log.debug(MemberLevelDatabaseHelper.class.getName()," - getListUserLevel");
+        
+        final String sql = "SELECT assetid, assetcode, assetname, typeid, manufacture, model, vendorid, note, createdt FROM asset_register WHERE assetid= :assetid;";
+        try(Handle handle = getHandle()){
+            assetregister = handle.createQuery(sql).bind(ConstantHelper.ASSETREGISTER_ASSETID, assetId).mapToBean(AssetRegisterModel.class).first();
+        }catch(SQLException ex){
+            log.error(MemberLevelDatabaseHelper.class.getName()," - errorGetListUserLevel" + ex);
+        }
+        return assetregister;
+    }
 }
