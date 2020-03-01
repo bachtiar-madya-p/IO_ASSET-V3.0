@@ -94,4 +94,17 @@ public class AssetRegisterDatabaseHelper extends BaseDatabaseHelper {
         }
         return assetregister;
     }
+    //list
+    public List<AssetRegisterModel> getList(){
+        List<AssetRegisterModel> assetRegisterList = new ArrayList<>();
+        log.debug(MemberLevelDatabaseHelper.class.getName()," - getListAssetRegister");
+        
+        final String sql = "SELECT assetid, assetcode, assetname, typeid, manufacture, model, vendorid, note, createdt FROM asset_register;";
+        try(Handle handle = getHandle()){
+            assetRegisterList = handle.createQuery(sql).mapToBean(AssetRegisterModel.class).list();
+        }catch(SQLException ex){
+            log.error(MemberLevelDatabaseHelper.class.getName()," - errorGetListAssetRegister"+ ex);
+        }
+        return assetRegisterList;
+    }
 }
