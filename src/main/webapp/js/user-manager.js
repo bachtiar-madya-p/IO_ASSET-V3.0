@@ -7,10 +7,10 @@ var tableData={};
                 
                 $.getJSON(hsRestUrl() + "/user",function(data){
                     var tab_data = '';                     
-                    $.each(data, function(key,value){
+                   tabel = $.each(data, function(key,value){
                         
                         tab_data += '<tr>';
-                            tab_data += '<td></td>';
+                            tab_data += '<td>'+value.userid+'</td>';
                             tab_data += '<td>'+value.membername+'</td>';
                             tab_data += '<td>'+value.username+'</td>';
                             tab_data += '<td>'+value.email+'</td>';
@@ -18,48 +18,78 @@ var tableData={};
                             tab_data += '<td>'+value.departmentid+'</td>';
 //                            tab_data += '<td><span class="label label-info">'+value.isadmin+'</span></td>';
                              if (value.isadmin !== true) {
-                             tab_data += '<td><span class="label label-default">Inactive</span></td>';}
-                         else {
-                             tab_data += '<td><span class="label label-success">Active</span></td>';}
-                            tab_data += '<td ><div class="btn-group"><a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-xs btn-default"><i class="fa fa-pencil"></i></a><a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a></div></td>';                    
+                             tab_data += '<td class="text-center"><span class="label label-default">Inactive</span></td>';}
+                             else {
+                             tab_data += '<td class="text-center"><span class="label label-success">Active</span></td>';}
+                            tab_data += '<td class="text-center"><button data-toggle="modal" data-target="#edit-item" class="btn btn-xs btn-default edit-item"><i class="fa fa-pencil"></i></button><button class="btn btn-xs btn-danger remove-item"><i class="fa fa-times"></i></button></td>';                    
                         tab_data += '</tr>';
                     });
-                    $('#userManagerDT').append(tab_data).DataTable({ responsive: true});
+                    
+//                    $('#userManagerDT').append(tab_data).DataTable({ responsive: true});
+                    $('#userManagerDT').append(tab_data).DataTable({ responsive: true}).on("click",".edit-item",function(){
+                    var userid = $(this).parent("td").data('userid');
+                    var membername = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+                    var username = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+                    var email = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").text();
+                    var levelid = $(this).parent("td").prev("td").prev("td").prev("td").text();
+                    var departmentid = $(this).parent("td").prev("td").prev("td").text();
+                    
+
+                    $("#edit-item").find("input[name='membername']").val(membername);
+                    $("#edit-item").find("input[name='username']").val(username);
+                    $("#edit-item").find("input[name='email']").val(email);
+                    $("#edit-item").find("input[name='levelid']").val(levelid);
+                    $("#edit-item").find("input[name='departmentid']").val(departmentid);
+                    
+                    $("#edit-item").find("form").attr("action",hsRestUrl() + "/user" + userid);
+                    
+                    /* Updated new Item */
+                        $(".crud-submit-edit").click(function(e){
+
+
+                            e.preventDefault();
+
+
+                            var form_action = $("#edit-item").find("form").attr("action");
+                            var membername = $("#edit-item").find("input[name='membername']").val();
+                            var username = $("#edit-item").find("input[name='username']").val();
+                            var email = $("#edit-item").find("input[name='email']").val();
+                            var levelid = $("#edit-item").find("input[name='levelid']").val();
+                            var departmentid = $("#edit-item").find("input[name='departmentid']").val();
+
+//                            $.getJSON(hsRestUrl() + "/user",function(data){
+//                                tabel = $.each(data, function(key,value){
+//                                tab_data += '<tr>';
+//                                    tab_data += '<td>'+value.userid+'</td>';
+//                                    tab_data += '<td>'+value.membername+'</td>';
+//                                    tab_data += '<td>'+value.username+'</td>';
+//                                    tab_data += '<td>'+value.email+'</td>';
+//                                    tab_data += '<td>'+value.levelid+'</td>';
+//                                    tab_data += '<td>'+value.departmentid+'</td>';
+//                                tab_data += '</tr>';
+//
+//                            });    
+//                            });
+                            
+                            $.ajax({
+                                dataType: 'json',
+                                type:'get',
+                                url: form_action,
+                                data:{membername:membername, username:username, email:email, levelid:levelid, departmentid:departmentid}
+                            }).done(function(data){
+
+
+                                getPageData(data);
+                                $(".modal").modal('hide');
+                                toastr.success('Item Updated Successfully.', 'Success Alert', {timeOut: 5000});
+
+
+                            });
+
+
+                        });
+
+                    });
                 });
             });
-//$(document).ready(function () {
-//
-//    const  columns = daftar;
-//
-//     $('#userManagerDT').DataTable({
-//                 "ajax" : { url: hsRestUrl() + "/user",
-//                          type: 'get',
-//                          dataType: 'json',
-//                          success: function (result) {
-//                               daftar = result;      
-//                               console.log(daftar);
-//                              }
-//    },
-//                 columns : [
-//                  { "data" : "membername"},
-//                  { "data" : "username"},
-//                  { "data" : "email"},
-//                  { "data" : "levelid"},
-//                  { "data" : "departmentid"},
-//                  { "data" : "departmentid"},
-//                  { "data" : "isadmin"},
-//                  { "data" : "isactive"}                   
-//                 ]
-//            });    
-//});
-//    $("#userManagerDT").dataTable({lengthChange: false});
-//    $("#userManagerDT").DataTable({ responsive: true});
-//    $.ajax({
-//        url: hsRestUrl() + "/user",
-//        type: 'get',
-//        dataType: 'json',
-//        success: function (result) {
-//             daftar = result;      
-//            console.log(daftar);
-//        }
-//    });
+          
