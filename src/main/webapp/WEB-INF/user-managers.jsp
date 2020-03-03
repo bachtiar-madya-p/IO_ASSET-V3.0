@@ -20,7 +20,7 @@
 
 
     </head>
-    <body>
+    <body id="reload">
         <div id="page-wrapper">
             <!-- Preloader -->
             <%@include file="page/preloader.jsp"%>
@@ -58,7 +58,7 @@
 
                             </div>
 
-                            <div class="table-responsive">
+                            <div class="table-responsive" >
                                 <table id="userManagerDT" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                     <thead>
                                         <tr>
