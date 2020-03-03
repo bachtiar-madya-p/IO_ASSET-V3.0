@@ -27,7 +27,7 @@ var tableData={};
                     
 //                    $('#userManagerDT').append(tab_data).DataTable({ responsive: true});
                     $('#userManagerDT').append(tab_data).DataTable({ responsive: true}).on("click",".edit-item",function(){
-                    var userid = $(this).parent("td").data('userid');
+                    var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
                     var membername = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
                     var username = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
                     var email = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").text();
@@ -41,7 +41,7 @@ var tableData={};
                     $("#edit-item").find("input[name='levelid']").val(levelid);
                     $("#edit-item").find("input[name='departmentid']").val(departmentid);
                     
-                    $("#edit-item").find("form").attr("action",hsRestUrl() + "/user" + userid);
+                    $("#edit-item").find("form").attr("action",hsRestUrl() + "/user/" + userId);
                     
                     /* Updated new Item */
                         $(".crud-submit-edit").click(function(e){
@@ -62,19 +62,21 @@ var tableData={};
 //                                tab_data += '<tr>';
 //                                    tab_data += '<td>'+value.userid+'</td>';
 //                                    tab_data += '<td>'+value.membername+'</td>';
-//                                    tab_data += '<td>'+value.username+'</td>';
-//                                    tab_data += '<td>'+value.email+'</td>';
-//                                    tab_data += '<td>'+value.levelid+'</td>';
+//                                tab_data += '<td>'+value.levelid+'</td>';
 //                                    tab_data += '<td>'+value.departmentid+'</td>';
 //                                tab_data += '</tr>';
 //
 //                            });    
-//                            });
+//                            });                    tab_data += '<td>'+value.username+'</td>';
+//                                    tab_data += '<td>'+value.email+'</td>';
+//                    
                             
                             $.ajax({
-                                dataType: 'json',
-                                type:'get',
+                                
+                                dataType: 'json',                                
                                 url: form_action,
+                                type:'put',
+                                contentType: 'application/json',
                                 data:{membername:membername, username:username, email:email, levelid:levelid, departmentid:departmentid}
                             }).done(function(data){
 
