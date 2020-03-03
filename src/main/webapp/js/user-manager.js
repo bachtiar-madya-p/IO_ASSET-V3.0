@@ -27,7 +27,9 @@ $(document).ready(function () {
         });
 
 //                    $('#userManagerDT').append(tab_data).DataTable({ responsive: true});
-        $('#userManagerDT').append(tab_data).DataTable({responsive: true}).on("click", ".edit-item", function () {
+        $('#userManagerDT').append(tab_data).DataTable({responsive: true})
+
+        $('body').on("click", ".edit-item", function () {
             var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
             var membername = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
             var username = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
@@ -64,17 +66,20 @@ $(document).ready(function () {
                     type: 'put',
                     url: form_action,
                     contentType: 'application/json; charset=utf-8',
-                    data: JSON.stringify(tada),
+                    data: JSON.stringify(tada)
+
+
                 }).done(function (data) {
-
-
-                    getPageData(data);
-                    $(".modal").modal('hide');
-                    toastr.success('Item Updated Successfully.', 'Success Alert', {timeOut: 5000});
-
+                    
+                    var intv = setInterval(function () {
+                        $('#reload').load('/asset/user-managers');
+                    }, 1000);
+                    setTimeout(function () {
+                        clearInterval(intv);
+                    }, 1000);
+                    
                 });
             });
-
         });
     });
 });
