@@ -119,12 +119,13 @@ public class ConstantHelper {
     
     //ASSET REGISTER RESPONSE CONFIGURATION
     public static final String ASSETREGISTER_ASSETID         = "assetid";
+    public static final String ASSETREGISTER_LOCATIONNAME    = "locationname";
     public static final String ASSETREGISTER_ASSETCODE       = "assetcode";
-    public static final String ASSETREGISTER_ASSETNAME       = "assetname";
-    public static final String ASSETREGISTER_TYPEID          = "typeid";
-    public static final String ASSETREGISTER_MANUFACTURE     = "manufacture";
-    public static final String ASSETREGISTER_MODEL           = "model";
-    public static final String ASSETREGISTER_VENDORID        = "vendorid";
+    public static final String ASSETREGISTER_BUILDINGNAME    = "buildingname";
+    public static final String ASSETREGISTER_MEMBERCODE      = "membercode";
+    public static final String ASSETREGISTER_RATEID          = "rateid";
+    public static final String ASSETREGISTER_GEOLOCATION     = "geoloaction";
+    public static final String ASSETREGISTER_PHOTO           = "photo";
     public static final String ASSETREGISTER_NOTE            = "note";
     public static final String ASSETREGISTER_CREATEDT        = "createdt";
     
