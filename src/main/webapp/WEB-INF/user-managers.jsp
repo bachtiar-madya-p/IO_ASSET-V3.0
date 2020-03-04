@@ -7,11 +7,11 @@
 
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
-        <link rel="stylesheet" href="https://demo.pixelcave.com/proui/css/bootstrap.min-3.6.css">
-        <link rel="stylesheet" href="https://demo.pixelcave.com/proui/css/plugins-3.8.css">
-        <link rel="stylesheet" href="https://demo.pixelcave.com/proui/css/main-3.8.css">
-        <link rel="stylesheet" href="https://demo.pixelcave.com/proui/css/themes-3.1.css">
-        <link rel="stylesheet" href="https://demo.pixelcave.com/proui/js/vendor/modernizr.min-3.6.js">
+        <link rel="stylesheet" href="css/bootstrap.min-3.6.css">
+        <link rel="stylesheet" href="css/plugins-3.8.css">
+        <link rel="stylesheet" href="css/main-3.8.css">
+        <link rel="stylesheet" href="css/themes-3.1.css">
+        <link rel="stylesheet" href="js/vendor/modernizr.min-3.6.js">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"/>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
         <link rel="stylesheet" href="https://editor.datatables.net/extensions/Editor/css/editor.dataTables.min.css">
