@@ -16,23 +16,25 @@ package id.io.asset.model;
 public class AssetRegisterModel {
     
     private String assetid;
+    private String locationname;
     private String assetcode;
-    private String assetname;
-    private String typeid;
-    private String manufacture;
-    private String model;
-    private String vendorid;
+    private String buildingname;
+    private String membercode;
+    private String rateid;
+    private String geolocation;
+    private String photo;
     private String note;
     private String createdt;
     
-    public AssetRegisterModel(String assetid, String assetcode, String assetname, String typeid, String manufacture, String model, String vendorid, String note, String createdt){
+    public AssetRegisterModel(String assetid, String locationname, String assetcode, String buildingname, String membercode, String rateid, String geolocation, String photo, String note, String createdt){
         this.assetid        = assetid;
+        this.locationname   = locationname;
         this.assetcode      = assetcode;
-        this.assetname      = assetname;
-        this.typeid         = typeid;
-        this.manufacture    = manufacture;
-        this.model          = model;
-        this.vendorid       = vendorid;
+        this.buildingname   = buildingname;
+        this.membercode     = membercode;
+        this.rateid         = rateid;
+        this.geolocation    = geolocation;
+        this.photo          = photo;
         this.note           = note;
         this.createdt       = createdt;
     }
@@ -49,6 +51,14 @@ public class AssetRegisterModel {
         this.assetid = assetid;
     }
     
+    public String getLocationname(){
+        return locationname;
+    }
+    
+    public void setLocationname(String locationname){
+        this.locationname = locationname;
+    }
+    
     public String getAssetcode(){
         return assetcode;
     }
@@ -57,44 +67,44 @@ public class AssetRegisterModel {
         this.assetcode = assetcode;
     }
     
-    public String getAssetname(){
-        return assetname;
+    public String getBuildingname(){
+        return buildingname;
     }
     
-    public void setAssetname(String assetname){
-        this.assetname = assetname;
+    public void setBuildingname(String buildingname){
+        this.buildingname = buildingname;
     }
     
-    public String getTypeid(){
-        return typeid;
+    public String getMembercode(){
+        return membercode;
     }
     
-    public void setTypeid(String typeid){
-        this.typeid = typeid;
+    public void setMembercode(String membercode){
+        this.membercode = membercode;
     }
     
-    public String getManufacture(){
-        return manufacture;
+    public String getRateid(){
+        return rateid;
     }
     
-    public void setManufacture(String manufacture){
-        this.manufacture = manufacture;
+    public void setRateid(String rateid){
+        this.rateid = rateid;
     }
     
-    public String getModel(){
-        return model;
+    public String getGeolocation(){
+        return geolocation;
     }
     
-    public void setModel(String model){
-        this.model = model;
+    public void setGeolocation(String geolocation){
+        this.geolocation = geolocation;
     }
     
-    public String getVendorid(){
-        return vendorid;
+    public String getPhoto(){
+        return photo;
     }
     
-    public void setVendorid(String vendorid){
-        this.vendorid = vendorid;
+    public void setPhoto(String photo){
+        this.photo = photo;
     }
     
     public String getNote(){
@@ -112,5 +122,4 @@ public class AssetRegisterModel {
     public void setCreatedt(String createdt){
         this.createdt = createdt;
     }
-    
 }
