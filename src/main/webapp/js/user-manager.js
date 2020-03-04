@@ -17,17 +17,17 @@ $(document).ready(function () {
             tab_data += '<td>' + value.levelid + '</td>';
             tab_data += '<td>' + value.departmentid + '</td>';
 //                            tab_data += '<td><span class="label label-info">'+value.isadmin+'</span></td>';
-            if (value.isadmin !== true) {
+            if (value.isactive !== true) {
                 tab_data += '<td class="text-center"><span class="label label-default">Inactive</span></td>';
             } else {
                 tab_data += '<td class="text-center"><span class="label label-success">Active</span></td>';
             }
-            tab_data += '<td class="text-center"><button data-toggle="modal" data-target="#edit-item" class="btn btn-xs btn-default edit-item"><i class="fa fa-pencil"></i></button><button class="btn btn-xs btn-danger remove-item"><i class="fa fa-times"></i></button></td>';
+            tab_data += '<td class="text-center"><button data-toggle="modal" data-target="#edit-item" class="btn btn-xs btn-default edit-item"><i class="fa fa-pencil"></i></button><button class="btn btn-xs btn-danger remove-item"><i class="fa fa-times"></i></button><button  class="btn btn-xs btn-info deactive-user"><i class="fa fa-power-off"></i></button></td>';
             tab_data += '</tr>';
         });
 
 //                    $('#userManagerDT').append(tab_data).DataTable({ responsive: true});
-        $('#userManagerDT').append(tab_data).DataTable({responsive: true})
+        $('#userManagerDT').append(tab_data).DataTable({responsive: true});
 
         $('body').on("click", ".edit-item", function () {
             var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
@@ -70,15 +70,39 @@ $(document).ready(function () {
 
 
                 }).done(function (data) {
-                    
+
                     var intv = setInterval(function () {
                         $('#reload').load('/asset/user-managers');
                     }, 1000);
                     setTimeout(function () {
                         clearInterval(intv);
                     }, 1000);
-                    
+
                 });
+            });
+        });
+        $('body').on('click', ".deactive-user",  function () {
+
+            
+            var status = true;
+            
+            var userid = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+
+            var tada = {"isactive": status, "userid": userid};
+            $.ajax({
+                type: "post",
+                dataType: "json",
+                url: hsRestUrl() + "/user/activate/" + userid,
+
+                data: JSON.stringify(tada),
+                success: function (data) {
+                      var intv = setInterval(function () {
+                        $('#reload').load('/asset/user-managers');
+                    }, 1000);
+                    setTimeout(function () {
+                        clearInterval(intv);
+                    }, 1000);
+                }
             });
         });
     });
