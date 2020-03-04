@@ -1,8 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**
+  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+  *
+  * Copyright (c) 2019 IO-Teknologi Indonesia, and individual contributors
+  * as indicated by the @author tags. All Rights Reserved
+  *
+  * The contents of this file are subject to the terms of the
+  * Common Development and Distribution License (the License).
+  *
+  * Everyone is permitted to copy and distribute verbatim copies
+  * of this license document, but changing it is not allowed.
+  *
+  */
 package id.io.asset.service;
 
 import id.io.asset.controller.AssetRegisterController;
@@ -21,10 +29,6 @@ import org.apache.http.HttpStatus;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- *
- * @author user
- */
 @Path("assetregister")
 @Produces(MediaType.APPLICATION_JSON)
 public class AssetRegisterService extends BaseService{
