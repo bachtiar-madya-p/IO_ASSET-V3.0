@@ -29,17 +29,18 @@ public class AssetRegisterDatabaseHelper extends BaseDatabaseHelper {
     public int create(AssetRegisterModel assetregister){
         log.debug(AssetRegisterDatabaseHelper.class.getName(),"- createAssetRegister");
         
-        final String sql = "INSERT INTO asset_register (assetid, assetcode, assetname, typeid, manufacture, model, vendorid, note) VALUES (:assetid, :assetcode, :assetname, :typeid, :manufacture, :model, :vendorid, :note);";
+        final String sql = "INSERT INTO assetregister (assetid, locationname, assetcode, buildingname, membercode, rateid, geolocation, photo, note) VALUES (:assetid, :locationname, :assetcode, :buildingname, :membercode, :rateid, :geolocation, :photo, :note);";
         int row = 0;
         try(Handle handle = getHandle()){
             row  = handle.createUpdate(sql)
                     .bind(ConstantHelper.ASSETREGISTER_ASSETID,assetregister.getAssetid())
+                    .bind(ConstantHelper.ASSETREGISTER_LOCATIONNAME, assetregister.getLocationname())
                     .bind(ConstantHelper.ASSETREGISTER_ASSETCODE, assetregister.getAssetcode())
-                    .bind(ConstantHelper.ASSETREGISTER_ASSETNAME, assetregister.getAssetname())
-                    .bind(ConstantHelper.ASSETREGISTER_TYPEID, assetregister.getTypeid())
-                    .bind(ConstantHelper.ASSETREGISTER_MANUFACTURE, assetregister.getManufacture())
-                    .bind(ConstantHelper.ASSETREGISTER_MODEL, assetregister.getModel())
-                    .bind(ConstantHelper.ASSETREGISTER_VENDORID, assetregister.getVendorid())
+                    .bind(ConstantHelper.ASSETREGISTER_BUILDINGNAME, assetregister.getBuildingname())
+                    .bind(ConstantHelper.ASSETREGISTER_MEMBERCODE, assetregister.getMembercode())
+                    .bind(ConstantHelper.ASSETREGISTER_RATEID, assetregister.getRateid())
+                    .bind(ConstantHelper.ASSETREGISTER_GEOLOCATION, assetregister.getGeolocation())
+                    .bind(ConstantHelper.ASSETREGISTER_PHOTO, assetregister.getPhoto())
                     .bind(ConstantHelper.ASSETREGISTER_NOTE, assetregister.getNote()).execute();
             
         }catch(SQLException ex){
@@ -51,16 +52,18 @@ public class AssetRegisterDatabaseHelper extends BaseDatabaseHelper {
     public int update(String assetId, AssetRegisterModel assetregister){
         log.debug(AssetRegisterDatabaseHelper.class.getName(),"- updateAssetRegister");
         
-        final String sql = "UPDATE asset_register SET assetname= :assetname, typeid= :typeid, manufacture= :manufacture, model= :model, vendorid= :vendorid, note= :note WHERE assetid= :asstid;";
+        final String sql = "UPDATE assetregister SET locationname= :locationname, assetcode= :assetcode, buildingname= :buildingname, membercode= :membercode, rateid= :rateid, geolocation= :geolocation, photo= :photo, note= :note WHERE assetid= :asstid;";
         int row = 0;
         try(Handle handle = getHandle()){
             row = handle.createUpdate(sql)
                     .bind(ConstantHelper.ASSETREGISTER_ASSETID, assetId)
-                    .bind(ConstantHelper.ASSETREGISTER_ASSETNAME, assetregister.getAssetname())
-                    .bind(ConstantHelper.ASSET_TYPEID, assetregister.getTypeid())
-                    .bind(ConstantHelper.ASSET_MANUFACTURE, assetregister.getManufacture())
-                    .bind(ConstantHelper.ASSET_MODEL, assetregister.getModel())
-                    .bind(ConstantHelper.ASSET_VENDORID, assetregister.getVendorid())
+                    .bind(ConstantHelper.ASSETREGISTER_LOCATIONNAME, assetregister.getLocationname())
+                    .bind(ConstantHelper.ASSETREGISTER_ASSETCODE, assetregister.getAssetcode())
+                    .bind(ConstantHelper.ASSETREGISTER_BUILDINGNAME, assetregister.getBuildingname())
+                    .bind(ConstantHelper.ASSETREGISTER_MEMBERCODE, assetregister.getMembercode())
+                    .bind(ConstantHelper.ASSETREGISTER_RATEID, assetregister.getRateid())
+                    .bind(ConstantHelper.ASSETREGISTER_GEOLOCATION, assetregister.getGeolocation())
+                    .bind(ConstantHelper.ASSETREGISTER_PHOTO, assetregister.getPhoto())
                     .bind(ConstantHelper.ASSET_NOTE, assetregister.getNote()).execute();
         }catch(SQLException ex){
             log.error(AssetRegisterDatabaseHelper.class.getName(),"- errorUpdateAssetRegister" + ex);
@@ -71,7 +74,7 @@ public class AssetRegisterDatabaseHelper extends BaseDatabaseHelper {
     public int delete(String assetId){
         log.debug(AssetRegisterDatabaseHelper.class.getName(),"- deleteAssetRegister");
         
-        final String sql = "DELETE FROM asset_register WHERE assetid = :assetid;";
+        final String sql = "DELETE FROM assetregister WHERE assetid = :assetid;";
         int result = 0;
         try(Handle handle = getHandle()){
             result = handle.createUpdate(sql).bind(ConstantHelper.ASSETREGISTER_ASSETID, assetId).execute();
@@ -86,7 +89,7 @@ public class AssetRegisterDatabaseHelper extends BaseDatabaseHelper {
         AssetRegisterModel assetregister = new AssetRegisterModel();
         log.debug(MemberLevelDatabaseHelper.class.getName()," - getListUserLevel");
         
-        final String sql = "SELECT assetid, assetcode, assetname, typeid, manufacture, model, vendorid, note, createdt FROM asset_register WHERE assetid= :assetid;";
+        final String sql = "SELECT assetid, locationname, assetcode, buildingname, membercode, rateid, geolocation, photo, note, createdt FROM assetregister WHERE assetid= :assetid;";
         try(Handle handle = getHandle()){
             assetregister = handle.createQuery(sql).bind(ConstantHelper.ASSETREGISTER_ASSETID, assetId).mapToBean(AssetRegisterModel.class).first();
         }catch(SQLException ex){
@@ -99,7 +102,7 @@ public class AssetRegisterDatabaseHelper extends BaseDatabaseHelper {
         List<AssetRegisterModel> assetRegisterList = new ArrayList<>();
         log.debug(MemberLevelDatabaseHelper.class.getName()," - getListAssetRegister");
         
-        final String sql = "SELECT assetid, assetcode, assetname, typeid, manufacture, model, vendorid, note, createdt FROM asset_register;";
+        final String sql = "SELECT assetid, locationname, assetcode, buildingname, membercode, rateid, geolocation, photo, note, createdt FROM assetregister;";
         try(Handle handle = getHandle()){
             assetRegisterList = handle.createQuery(sql).mapToBean(AssetRegisterModel.class).list();
         }catch(SQLException ex){
@@ -111,7 +114,7 @@ public class AssetRegisterDatabaseHelper extends BaseDatabaseHelper {
     public boolean assetRegisterCodeValidity(String assetCode){
         log.debug(AssetRegisterDatabaseHelper.class.getName()," - assetRegisterCodeValidity");
         boolean isValid = false;
-        final String sql = "SELECT count(1) FROM asset_register WHERE assetcode= :assetcode";
+        final String sql = "SELECT count(1) FROM assetregister WHERE assetcode= :assetcode";
         int row = 0;
         try(Handle handle = getHandle()){
             row = handle.createQuery(sql).bind(ConstantHelper.ASSETREGISTER_ASSETCODE, assetCode).mapTo(Integer.class).findOnly();
