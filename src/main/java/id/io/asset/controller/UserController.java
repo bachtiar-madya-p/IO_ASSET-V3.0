@@ -155,5 +155,21 @@ public class UserController extends BaseController {
         }
         return response;
     }
+    
+     public JSONObject delete(String userId) {
+        JSONObject json = new JSONObject();
+        int result = userDatabaseHelper.delete(userId);
+        if (result == 1) {
+            json.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
+            json.put(ConstantHelper.HTTP_REASON, "delete_department_successful");
+            json.put(ConstantHelper.HTTP_MESSAGE, "Delete Department Successful!");
+
+        } else {
+            json.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_BAD_REQUEST);
+            json.put(ConstantHelper.HTTP_REASON, "error_delete_department");
+            json.put(ConstantHelper.HTTP_MESSAGE, "Error Delete Department");
+        }
+        return json;
+    }
 
 }
