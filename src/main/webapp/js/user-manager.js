@@ -31,14 +31,10 @@ $(document).ready(function () {
 
         /* Create new Item */
         $(".crud-submit").click(function (e) {
-
-
             e.preventDefault();
+            var act = $("#create-item").find("form").attr("action", );
 
-
-            var act = $("#create-item").find("form").attr("action",);
-            
-            var username = $("#create-item").find("input[name='username']").val();            
+            var username = $("#create-item").find("input[name='username']").val();
             var alias = $("#create-item").find("input[name='alias']").val();
             var membercode = $("#create-item").find("input[name='membercode']").val();
             var membername = $("#create-item").find("input[name='membername']").val();
@@ -48,15 +44,15 @@ $(document).ready(function () {
             var levelid = $("#create-item").find("input[name='levelid']").val();
             var departmentid = $("#create-item").find("input[name='departmentid']").val();
             var tada = {
-                        "username": username,                        
-                        "alias": alias,
-                        "membercode": membercode,
-                        "membername": membername,
-                        "email": email,
-                        "imageaddress": imageaddress,
-                        "description": description,
-                        "levelid": levelid,
-                        "departmentid": departmentid};
+                "username": username,
+                "alias": alias,
+                "membercode": membercode,
+                "membername": membername,
+                "email": email,
+                "imageaddress": imageaddress,
+                "description": description,
+                "levelid": levelid,
+                "departmentid": departmentid};
             $.ajax({
                 dataType: 'json',
                 type: 'POST',
@@ -122,12 +118,32 @@ $(document).ready(function () {
                     setTimeout(function () {
                         clearInterval(intv);
                     }, 1000);
-
                 });
             });
         });
-        $('body').on('click', ".deactive-user", function () {
+        /* Remove Item */
+        $("body").on("click", ".remove-item", function () {
 
+            var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();          
+
+            $.ajax({
+                dataType: 'json',
+                type: 'delete',
+                url: hsRestUrl() + "/user/" + userId,
+                contentType: 'application/json; charset=utf-8'
+            }).done(function (data) {
+
+               var intv = setInterval(function () {
+                        $('#reload').load('/asset/user-managers');
+                    }, 1000);
+                    setTimeout(function () {
+                        clearInterval(intv);
+                    }, 1000);
+
+            });
+        });
+
+        $('body').on('click', ".deactive-user", function () {
 
             var status = true;
 
