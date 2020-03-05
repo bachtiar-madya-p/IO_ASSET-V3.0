@@ -39,12 +39,13 @@ public class AssetRegisterController extends BaseController{
             if(codeValidate){
                 AssetRegisterModel model = new AssetRegisterModel();
                 model.setAssetid(uuid.toString());
+                model.setLocationname(json.getString(ConstantHelper.ASSETREGISTER_LOCATIONNAME));
                 model.setAssetcode(json.getString(ConstantHelper.ASSETREGISTER_ASSETCODE));
-                model.setAssetname(json.getString(ConstantHelper.ASSETREGISTER_ASSETNAME));
-                model.setTypeid(json.getString(ConstantHelper.ASSETREGISTER_TYPEID));
-                model.setManufacture(json.getString(ConstantHelper.ASSETREGISTER_MANUFACTURE));
-                model.setModel(json.getString(ConstantHelper.ASSETREGISTER_MODEL));
-                model.setVendorid(json.getString(ConstantHelper.ASSET_VENDORID));
+                model.setBuildingname(json.getString(ConstantHelper.ASSETREGISTER_BUILDINGNAME));
+                model.setMembercode(json.getString(ConstantHelper.ASSETREGISTER_MEMBERCODE));
+                model.setRateid(json.getString(ConstantHelper.ASSETREGISTER_RATEID));
+                model.setGeolocation(json.getString(ConstantHelper.ASSETREGISTER_GEOLOCATION));
+                model.setPhoto(json.getString(ConstantHelper.ASSETREGISTER_PHOTO));
                 model.setNote(json.getString(ConstantHelper.ASSETREGISTER_NOTE));
                 
                 assetRegisterDatabaseHelper.create(model);
@@ -69,12 +70,13 @@ public class AssetRegisterController extends BaseController{
         JSONObject response = new JSONObject();
         if (json.length() != 0) {
             AssetRegisterModel model = new AssetRegisterModel();
+            model.setLocationname(json.getString(ConstantHelper.ASSETREGISTER_LOCATIONNAME));
             model.setAssetcode(json.getString(ConstantHelper.ASSETREGISTER_ASSETCODE));
-            model.setAssetname(json.getString(ConstantHelper.ASSETREGISTER_ASSETNAME));
-            model.setTypeid(json.getString(ConstantHelper.ASSETREGISTER_TYPEID));
-            model.setManufacture(json.getString(ConstantHelper.ASSETREGISTER_MANUFACTURE));
-            model.setModel(json.getString(ConstantHelper.ASSETREGISTER_MODEL));
-            model.setVendorid(json.getString(ConstantHelper.ASSETREGISTER_VENDORID));
+            model.setBuildingname(json.getString(ConstantHelper.ASSETREGISTER_BUILDINGNAME));
+            model.setMembercode(json.getString(ConstantHelper.ASSETREGISTER_MEMBERCODE));
+            model.setRateid(json.getString(ConstantHelper.ASSETREGISTER_RATEID));
+            model.setGeolocation(json.getString(ConstantHelper.ASSETREGISTER_GEOLOCATION));
+            model.setPhoto(json.getString(ConstantHelper.ASSETREGISTER_PHOTO));
             model.setNote(json.getString(ConstantHelper.ASSETREGISTER_NOTE));
             assetRegisterDatabaseHelper.update(assetId, model);
             response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
