@@ -10,6 +10,7 @@ import id.io.asset.controller.UserController;
 import id.io.asset.util.constant.ConstantHelper;
 import id.io.asset.util.database.ConfigurationDatabaseHelper;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -129,5 +130,16 @@ public class UserService extends BaseService {
             return Response.status((!response.has(ConstantHelper.HTTP_CODE))
                     ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
         }
+    }
+    
+    @DELETE
+    @Path("/{userId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response delete(@PathParam("userId") String userId) {
+
+        JSONObject response = userController.delete(userId);
+        return Response.status((!response.has(ConstantHelper.HTTP_CODE))
+                ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
+
     }
 }
