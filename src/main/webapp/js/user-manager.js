@@ -29,6 +29,51 @@ $(document).ready(function () {
 //                    $('#userManagerDT').append(tab_data).DataTable({ responsive: true});
         $('#userManagerDT').append(tab_data).DataTable({responsive: true});
 
+        /* Create new Item */
+        $(".crud-submit").click(function (e) {
+
+
+            e.preventDefault();
+
+
+            var act = $("#create-item").find("form").attr("action",);
+            
+            var username = $("#create-item").find("input[name='username']").val();            
+            var alias = $("#create-item").find("input[name='alias']").val();
+            var membercode = $("#create-item").find("input[name='membercode']").val();
+            var membername = $("#create-item").find("input[name='membername']").val();
+            var email = $("#create-item").find("input[name='email']").val();
+            var imageaddress = $("#create-item").find("input[name='imageaddress']").val();
+            var description = $("#create-item").find("input[name='description']").val();
+            var levelid = $("#create-item").find("input[name='levelid']").val();
+            var departmentid = $("#create-item").find("input[name='departmentid']").val();
+            var tada = {
+                        "username": username,                        
+                        "alias": alias,
+                        "membercode": membercode,
+                        "membername": membername,
+                        "email": email,
+                        "imageaddress": imageaddress,
+                        "description": description,
+                        "levelid": levelid,
+                        "departmentid": departmentid};
+            $.ajax({
+                dataType: 'json',
+                type: 'POST',
+                url: hsRestUrl() + "/user",
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(tada)
+            }).done(function (data) {
+                var intv = setInterval(function () {
+                    $('#reload').load('/asset/user-managers');
+                }, 1000);
+                setTimeout(function () {
+                    clearInterval(intv);
+                }, 1000);
+
+            });
+        });
+
         $('body').on("click", ".edit-item", function () {
             var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
             var membername = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
@@ -81,11 +126,11 @@ $(document).ready(function () {
                 });
             });
         });
-        $('body').on('click', ".deactive-user",  function () {
+        $('body').on('click', ".deactive-user", function () {
 
-            
+
             var status = true;
-            
+
             var userid = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
 
             var tada = {"isactive": status, "userid": userid};
@@ -96,7 +141,7 @@ $(document).ready(function () {
 
                 data: JSON.stringify(tada),
                 success: function (data) {
-                      var intv = setInterval(function () {
+                    var intv = setInterval(function () {
                         $('#reload').load('/asset/user-managers');
                     }, 1000);
                     setTimeout(function () {
