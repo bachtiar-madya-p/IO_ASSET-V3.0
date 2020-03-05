@@ -124,7 +124,7 @@ public class ConstantHelper {
     public static final String ASSETREGISTER_BUILDINGNAME    = "buildingname";
     public static final String ASSETREGISTER_MEMBERCODE      = "membercode";
     public static final String ASSETREGISTER_RATEID          = "rateid";
-    public static final String ASSETREGISTER_GEOLOCATION     = "geoloaction";
+    public static final String ASSETREGISTER_GEOLOCATION     = "geolocation";
     public static final String ASSETREGISTER_PHOTO           = "photo";
     public static final String ASSETREGISTER_NOTE            = "note";
     public static final String ASSETREGISTER_CREATEDT        = "createdt";
