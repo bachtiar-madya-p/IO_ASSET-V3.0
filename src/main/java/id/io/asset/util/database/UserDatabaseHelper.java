@@ -240,7 +240,7 @@ public class UserDatabaseHelper extends BaseDatabaseHelper {
         return row;
     }
 
-    public int remove(String userId) {
+    public int delete(String userId) {
 
         log.debug(UserDatabaseHelper.class.getName(), "- deleteUser");
 
