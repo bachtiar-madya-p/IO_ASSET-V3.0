@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+ <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
     <head>
@@ -50,6 +50,7 @@
                         <div class="block full">
                             <div class="block-title">
                                 
+                                
                             </div>
                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Add User</button>
                             <input type="search" class="form-control" placeholder="Search" aria-controls="example-datatable">
@@ -73,7 +74,7 @@
           </h1>
         </div>
         <div class="modal-body">
-          <form action="Welcome.html" method="post">
+          <form action="add_user.html" method="post">
 <table border="0" align="center">
 <tbody>
 
@@ -84,7 +85,7 @@
 
 <tr>
 <td><label for="FullName">Full Name: </label></td>
-<td><input id="Fullname" maxlength="50" Fullname="Fullname" type="text" /></td>
+<td><input id="Fullname" maxlength="50" Fullname="FullName" type="text" /></td>
 </tr>
 
 <tr>
@@ -114,7 +115,15 @@
 
 
 <tr>
-<td align="left"><input name="Submit" type="Submit" value="Add" /></td>
+<td 
+   
+    align="left"><input name="Submit" type="Submit" value="Add" />
+    
+    
+
+</td>
+
+
 </tr>
 
 </tbody>
@@ -252,8 +261,6 @@
     
  
     <script type="text/javascript" src="js/user-manager.js"></script>
-    <script>
-    
-    </script>
+    <script type="text/javascript" src="js/adduser.js"></script>
     </body>
 </html>
