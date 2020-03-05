@@ -57,7 +57,10 @@
                             <div class="block-title">
 
                             </div>
-
+                            <div class="pull-left">
+                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create-item">+ Add User</button>
+                            </div>
+                            <br style="line-height:35px;"></br>
                             <div class="table-responsive" >
                                 <table id="userManagerDT" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                     <thead>
@@ -83,9 +86,8 @@
 
                     </div>
                     <!-- END Page Content -->
-
-                    <!-- Edit Item Modal -->
-                    <div class="modal fade" id="edit-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <!-- Create Item Modal -->
+                    <div class="modal fade" id="create-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 
 
                         <div class="modal-dialog" role="document">
@@ -94,14 +96,29 @@
 
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Edit Item</h4>
+                                    <h4 class="modal-title" id="myModalLabel">Add User</h4>
                                 </div>
 
-
                                 <div class="modal-body">
+                                    <form data-toggle="validator" action="/user" method="POST">
+                                        <div class="form-group">
+                                            <label class="control-label" for="title">Username:</label>
+                                            <input name="username" class="form-control" data-error="Please enter description." required></input>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
 
 
-                                    <form data-toggle="validator" action="" method="put">
+                                        <div class="form-group">
+                                            <label class="control-label" for="title">Alias:</label>
+                                            <input name="alias" class="form-control" data-error="Please enter description." required></input>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label" for="title">Member Code:</label>
+                                            <input name="membercode" class="form-control" data-error="Please enter description." required></input>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
 
 
                                         <div class="form-group">
@@ -110,6 +127,62 @@
                                             <div class="help-block with-errors"></div>
                                         </div>
 
+                                        <div class="form-group">
+                                            <label class="control-label" for="title">E-mail:</label>
+                                            <input name="email" class="form-control" data-error="Please enter description." required></input>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label" for="title">Image Address:</label>
+                                            <input name="imageaddress" class="form-control" data-error="Please enter description." required></input>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label" for="title">Description:</label>
+                                            <input name="description" class="form-control" data-error="Please enter description." required></input>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label" for="title">Level ID:</label>
+                                            <input name="levelid" class="form-control" data-error="Please enter description." required></input>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label" for="title">Department ID:</label>
+                                            <input name="departmentid" class="form-control" data-error="Please enter description." required></input>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <button type="submit" class="btn crud-submit btn-info">Submit</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Edit Item Modal -->
+                    <div class="modal fade" id="edit-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Edit Item</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form data-toggle="validator" action="" method="put">
+                                        <div class="form-group">
+                                            <label class="control-label" for="title">Member Name:</label>
+                                            <input type="text" name="membername" class="form-control" data-error="Please enter title." required />
+                                            <div class="help-block with-errors"></div>
+                                        </div>
 
                                         <div class="form-group">
                                             <label class="control-label" for="title">Username:</label>
