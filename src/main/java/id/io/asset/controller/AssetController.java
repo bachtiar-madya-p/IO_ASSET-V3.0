@@ -31,12 +31,12 @@ public class AssetController extends BaseController{
         assetDbHelper = new AssetDatabaseHelper();
         this.uuidGenerator = new UUIDGeneratorHelper();
     }
-    
+    //list
     public List<AssetModel> assetList() {
         List<AssetModel> assetList = assetDbHelper.getList();
         return assetList;
     }
-    
+    //findById
     public AssetModel getAsset(String assetId) {
         AssetModel asset = assetDbHelper.findById(assetId);
         return asset;
@@ -60,7 +60,7 @@ public class AssetController extends BaseController{
 
                 assetDbHelper.create(model);
 
-                response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
+                response .put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
                 response.put(ConstantHelper.HTTP_REASON, "create_asset_successful");
                 response.put(ConstantHelper.HTTP_MESSAGE, "Create Asset Successful!");
             } else {
@@ -69,7 +69,7 @@ public class AssetController extends BaseController{
                 response.put(ConstantHelper.HTTP_MESSAGE, "Error Duplicate AssetId " + codeValidate);
             }
         } else {
-           response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_BAD_REQUEST);
+            response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_BAD_REQUEST);
             response.put(ConstantHelper.HTTP_REASON, "error_create_asset");
             response.put(ConstantHelper.HTTP_MESSAGE, "Error Create Asset : No such Asset");
         }

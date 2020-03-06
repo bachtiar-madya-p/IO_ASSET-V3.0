@@ -105,7 +105,7 @@ public class AssetDatabaseHelper extends BaseDatabaseHelper{
     public boolean assetCodeValidity (String assetCode) {
         log.debug(AssetDatabaseHelper.class.getName(), "- assetCodeValidity");
         boolean isValid = false;
-        final String sql = "select count(1) from asset_master where assetcode= :assetCode";
+        final String sql = "select count(1) from asset_master where assetcode= :assetcode";
         int row = 0;
         try (Handle h = getHandle()) {
             row = h.createQuery(sql).bind(ConstantHelper.ASSET_ASSETCODE, assetCode).mapTo(Integer.class).findOnly();
