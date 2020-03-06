@@ -60,12 +60,7 @@ $(document).ready(function () {
                 contentType: 'application/json; charset=utf-8',
                 data: JSON.stringify(tada)
             }).done(function (data) {
-                var intv = setInterval(function () {
-                    $('#reload').load('/asset/user-managers');
-                }, 1000);
-                setTimeout(function () {
-                    clearInterval(intv);
-                }, 1000);
+               window.parent.location = window.parent.location.href;
 
             });
         });
@@ -112,40 +107,14 @@ $(document).ready(function () {
 
                 }).done(function (data) {
 
-                    var intv = setInterval(function () {
-                        $('#reload').load('/asset/user-managers');
-                    }, 1000);
-                    setTimeout(function () {
-                        clearInterval(intv);
-                    }, 1000);
+                    window.parent.location = window.parent.location.href;
                 });
             });
         });
-        /* Remove Item */
-        $("body").on("click", ".remove-item", function () {
-
-            var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();          
-
-            $.ajax({
-                dataType: 'json',
-                type: 'delete',
-                url: hsRestUrl() + "/user/" + userId,
-                contentType: 'application/json; charset=utf-8'
-            }).done(function (data) {
-
-               var intv = setInterval(function () {
-                        $('#reload').load('/asset/user-managers');
-                    }, 1000);
-                    setTimeout(function () {
-                        clearInterval(intv);
-                    }, 1000);
-
-            });
-        });
-
         $('body').on('click', ".deactive-user", function () {
 
-            var status = true;
+
+            var status = false;
 
             var userid = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
 
@@ -157,12 +126,7 @@ $(document).ready(function () {
 
                 data: JSON.stringify(tada),
                 success: function (data) {
-                    var intv = setInterval(function () {
-                        $('#reload').load('/asset/user-managers');
-                    }, 1000);
-                    setTimeout(function () {
-                        clearInterval(intv);
-                    }, 1000);
+                    window.parent.location = window.parent.location.href;
                 }
             });
         });
