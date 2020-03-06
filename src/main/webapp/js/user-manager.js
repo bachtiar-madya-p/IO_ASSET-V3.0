@@ -111,10 +111,31 @@ $(document).ready(function () {
                 });
             });
         });
+        /* Remove Item */
+        $("body").on("click", ".remove-item", function () {
+
+            var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();          
+
+            $.ajax({
+                dataType: 'json',
+                type: 'delete',
+                url: hsRestUrl() + "/user/" + userId,
+                contentType: 'application/json; charset=utf-8'
+            }).done(function (data) {
+
+              window.parent.location = window.parent.location.href;
+
+            });
+        });
         $('body').on('click', ".deactive-user", function () {
 
-
-            var status = false;
+            if($(this).parent("td").prev("td").text()=== 'Inactive'){
+                var status = true;
+            }
+            else{
+                var status = false;
+            }
+            
 
             var userid = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
 
