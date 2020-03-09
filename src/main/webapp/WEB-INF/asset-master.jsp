@@ -69,9 +69,13 @@
                                     <thead>
                                         <tr>
                                             <th>User ID</th>
+                                            <th>Asset Code</th>
                                             <th>Asset Name</th>
-                                            <th>Model</th>
-                                            <th>Vendor</th>                                                                                     
+                                            <th>Type</th>   
+                                            <th>Manufacture</th>   
+                                            <th>Model</th>   
+                                            <th>Vendor</th>   
+                                            <th>Note</th>   
                                             <th class="text-center">Actions</th>
                                         </tr>
                                     </thead>
