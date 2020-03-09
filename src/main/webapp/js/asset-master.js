@@ -5,3 +5,30 @@
  */
 
 
+function hsRestUrl() {
+    return "/asset/system";
+}
+
+var tableData = {};
+$(document).ready(function () {
+
+    $.getJSON(hsRestUrl() + "/asset", function (data) {
+        var tab_data = '';
+        tabel = $.each(data, function (key, value) {
+
+            tab_data += '<tr>';
+            tab_data += '<td>' + value.assetid + '</td>';
+            tab_data += '<td>' + value.assetname + '</td>';
+            tab_data += '<td>' + value.model + '</td>';
+            tab_data += '<td>' + value.vendorid + '</td>';          
+            tab_data += '<td class="text-center"><button data-toggle="modal" data-target="#edit-item" class="btn btn-xs btn-default edit-item"><i class="fa fa-pencil"></i></button><button class="btn btn-xs btn-danger remove-item"><i class="fa fa-times"></i></button><button  class="btn btn-xs btn-info deactive-user"><i class="fa fa-power-off"></i></button></td>';
+            tab_data += '</tr>';
+        });
+
+//                    $('#userManagerDT').append(tab_data).DataTable({ responsive: true});
+        $('#userManagerDT').append(tab_data).DataTable({responsive: true});
+
+       
+    });
+});
+     
