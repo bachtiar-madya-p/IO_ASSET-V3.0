@@ -32,6 +32,9 @@
                                 <li>
                                     <a href="settings-governance"><i class="fa fa-cogs"></i> Settings</a>
                                 </li>
+                                <li>
+                                    <a href="asset-master"><i class="fa fa-truck"></i> Asset Master</a>
+                                </li>
                             </ul>
                         </div>
                         <!-- END Dashboard 2 Header -->
