@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="page/css_import.jsp"%>
         <title>Asset Master</title>
-         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
         <link rel="stylesheet" href="css/bootstrap.min-3.6.css">
         <link rel="stylesheet" href="css/plugins-3.8.css">
@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="https://editor.datatables.net/extensions/Editor/css/editor.dataTables.min.css">
         <link rel="stylesheet" href="https://editor.datatables.net/extensions/Editor/css/editor.dataTables.min.css">
     </head>
-     <body>
+    <body>
         <div id="page-wrapper">
             <!-- Preloader -->
             <%@include file="page/preloader.jsp"%>
@@ -68,10 +68,10 @@
                                 <table id="userManagerDT" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                     <thead>
                                         <tr>
-<!--                                            <th>User ID</th>-->
-                                            <th>Nama</th>
-                                            <th>Username</th>
-                                            <th>E-Mail</th>                                                                                     
+                                            <!--                                            <th>User ID</th>-->
+                                            <th>Asset Name</th>
+                                            <th>Model</th>
+                                            <th>Vendor</th>                                                                                     
                                             <th class="text-center">Actions</th>
                                         </tr>
                                     </thead>
@@ -174,40 +174,27 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Edit Item</h4>
+                                    <h4 class="modal-title" id="myModalLabel">Edit Asset</h4>
                                 </div>
                                 <div class="modal-body">
                                     <form data-toggle="validator" action="" method="put">
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Member Name:</label>
+                                            <label class="control-label" for="title">Asset Name:</label>
                                             <input type="text" name="membername" class="form-control" data-error="Please enter title." required />
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Username:</label>
+                                            <label class="control-label" for="title">Model:</label>
                                             <input name="username" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label" for="title">E-mail:</label>
+                                            <label class="control-label" for="title">Vendor:</label>
                                             <input name="email" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="control-label" for="title">Level ID:</label>
-                                            <input name="levelid" class="form-control" data-error="Please enter description." required></input>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="control-label" for="title">Department ID:</label>
-                                            <input name="departmentid" class="form-control" data-error="Please enter description." required></input>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-
+                                        </div>                                     
 
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-info crud-submit-edit">Submit</button>
