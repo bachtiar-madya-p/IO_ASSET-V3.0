@@ -183,58 +183,83 @@
                                 <div class="modal-body">
                                     <form data-toggle="validator" action="" method="put">
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Asset Name:</label>
-                                            <input type="text" name="assetname" class="form-control" data-error="Please enter title." required />
+                                            <label class="control-label" for="title">Asset Code:</label>
+                                            <input type="text" name="assetcode" class="form-control" data-error="Please enter title." required />
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
+                                            <label class="control-label" for="title">Asset Name:</label>
+                                            <input name="assetname" class="form-control" data-error="Please enter description." required></input>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label" for="title">Type:</label>
+                                            <input name="typeid" class="form-control" data-error="Please enter description." required></input>
+                                            <div class="help-block with-errors"></div>
+                                        </div> 
+                                        
+                                         <div class="form-group">
+                                            <label class="control-label" for="title">Manufacture:</label>
+                                            <input name="manufacture" class="form-control" data-error="Please enter description." required></input>
+                                            <div class="help-block with-errors"></div>
+                                        </div>  
+                                        
+                                         <div class="form-group">
                                             <label class="control-label" for="title">Model:</label>
                                             <input name="model" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
-                                        </div>
-
-                                        <div class="form-group">
+                                        </div>  
+                                        
+                                         <div class="form-group">
                                             <label class="control-label" for="title">Vendor:</label>
                                             <input name="vendor" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
-                                        </div>                                     
+                                        </div>  
+                                        
+                                         <div class="form-group">
+                                            <label class="control-label" for="title">Note:</label>
+                                            <input name="note" class="form-control" data-error="Please enter description." required></input>
+                                            <div class="help-block with-errors"></div>
+                                        </div>  
+                          
 
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-info crud-submit-edit">Submit</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-info crud-submit-edit">Submit</button>
                         </div>
+                        </form>
                     </div>
                 </div>
-                <!-- Footer -->
-                <%@include file="page/footer.jsp"%>
-                <!-- END Footer -->
             </div>
-            <!-- END Main Container -->
         </div>
-        <!-- END Page Container -->
     </div>
-    <!-- END Page Wrapper -->
+    <!-- Footer -->
+    <%@include file="page/footer.jsp"%>
+    <!-- END Footer -->
+</div>
+<!-- END Main Container -->
+</div>
+<!-- END Page Container -->
+</div>
+<!-- END Page Wrapper -->
 
-    <!-- Scroll to top link, initialized in js/app.js - scrollToTop() -->
-    <a href="#" id="to-top"><i class="fa fa-angle-double-up"></i></a>
-        <%@include file="page/js_import.jsp"%>
-    <script src="assets/js/pages/tablesDatatables.js"></script>
-    <script>$(function () {
-            TablesDatatables.init();
+<!-- Scroll to top link, initialized in js/app.js - scrollToTop() -->
+<a href="#" id="to-top"><i class="fa fa-angle-double-up"></i></a>
+    <%@include file="page/js_import.jsp"%>
+<script src="assets/js/pages/tablesDatatables.js"></script>
+<script>$(function () {
+        TablesDatatables.init();
 
-        });</script>
+    });</script>
 
-    <script src="assets/js/vendor/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+<script src="assets/js/vendor/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
 
-    <script src="js/pages/tablesDatatables.js"></script>
-    <script type="text/javascript" src="js/asset-master.js"></script>
+<script src="js/pages/tablesDatatables.js"></script>
+<script type="text/javascript" src="js/asset-master.js"></script>
 </body>
 </html>
