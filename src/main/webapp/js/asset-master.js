@@ -31,7 +31,7 @@ $(document).ready(function () {
 
 
         $('#assetMasterDT').append(tab_data).DataTable({responsive: true});
-
+        /* Edit Item */
         $('body').on("click", ".edit-item", function () {
             var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
             var assetcode = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
@@ -93,6 +93,24 @@ $(document).ready(function () {
 
                     window.parent.location = window.parent.location.href;
                 });
+            });
+            
+        });
+        
+         /* Remove Item */
+        $("body").on("click", ".remove-item", function () {
+
+            var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();       
+
+            $.ajax({
+                dataType: 'json',
+                type: 'delete',
+                url: hsRestUrl() + "/asset/" + userId,
+                contentType: 'application/json; charset=utf-8'
+            }).done(function (data) {
+
+              window.parent.location = window.parent.location.href;
+
             });
         });
 
