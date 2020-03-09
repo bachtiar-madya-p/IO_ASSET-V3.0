@@ -18,8 +18,10 @@ import id.io.asset.controller.UserController;
 import id.io.asset.util.constant.ConstantHelper;
 import id.io.asset.util.database.ConfigurationDatabaseHelper;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -115,4 +117,17 @@ public class UserService extends BaseService {
                     ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
         }
     }
+    
+    //Delete
+    @DELETE
+    @Path("/{assetId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response remove(@PathParam("assetId") String assetId) {
+
+        JSONObject response = userController.remove(assetId);
+        return Response.status((!response.has(ConstantHelper.HTTP_CODE))
+                ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
+
+    }
+    
 }
