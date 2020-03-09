@@ -65,7 +65,7 @@ $(document).ready(function () {
 
 
         /* Edit Item */
-        $('body').on("click", ".edit-item", function () {
+        $('body').on("click", ".edit-item", function (value) {
             var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
             var assetcode = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
             var assetname = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
@@ -131,20 +131,25 @@ $(document).ready(function () {
         });
 
         /* Remove Item */
-        $("body").on("click", ".remove-item", function () {
+        $("body").on("click", ".remove-item", data, function (value) {
+
 
             var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+            var result = confirm("Are u sure to delete this?!");
+            if (result) {
+                $.ajax({
+                    dataType: 'json',
+                    type: 'delete',
+                    url: hsRestUrl() + "/asset/" + userId,
+                    contentType: 'application/json; charset=utf-8'
+                }).done(function (data) {
 
-            $.ajax({
-                dataType: 'json',
-                type: 'delete',
-                url: hsRestUrl() + "/asset/" + userId,
-                contentType: 'application/json; charset=utf-8'
-            }).done(function (data) {
+                    window.parent.location = window.parent.location.href;
 
-                window.parent.location = window.parent.location.href;
+                });
+            }
 
-            });
+
         });
 
 
