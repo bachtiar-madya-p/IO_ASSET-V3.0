@@ -29,8 +29,41 @@ $(document).ready(function () {
             tab_data += '</tr>';
         });
 
-
         $('#assetMasterDT').append(tab_data).DataTable({responsive: true});
+
+        /* Create new Item */
+        $(".crud-submit").click(function (e) {
+            e.preventDefault();
+            var act = $("#create-item").find("form").attr("action", );
+
+            var assetcode = $("#create-item").find("input[name='assetcode']").val();
+            var assetname = $("#create-item").find("input[name='assetname']").val();
+            var typeid = $("#create-item").find("input[name='typeid']").val();
+            var manufacture = $("#create-item").find("input[name='manufacture']").val();
+            var model = $("#create-item").find("input[name='model']").val();
+            var vendorid = $("#create-item").find("input[name='vendor']").val();
+            var note = $("#create-item").find("input[name='note']").val();
+            var tada = {"assetcode": assetcode,
+                "assetname": assetname,
+                "typeid": typeid,
+                "manufacture": manufacture,
+                "model": model,
+                "vendorid": vendorid,
+                "note": note
+            };
+            $.ajax({
+                dataType: 'json',
+                type: 'POST',
+                url: hsRestUrl() + "/asset",
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(tada)
+            }).done(function (data) {
+                window.parent.location = window.parent.location.href;
+
+            });
+        });
+
+
         /* Edit Item */
         $('body').on("click", ".edit-item", function () {
             var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
@@ -51,7 +84,7 @@ $(document).ready(function () {
             $("#edit-item").find("input[name='model']").val(model);
             $("#edit-item").find("input[name='vendor']").val(vendor);
             $("#edit-item").find("input[name='note']").val(note);
-            
+
 
 
             $("#edit-item").find("form").attr("action", hsRestUrl() + "/asset/" + userId);
@@ -94,13 +127,13 @@ $(document).ready(function () {
                     window.parent.location = window.parent.location.href;
                 });
             });
-            
+
         });
-        
-         /* Remove Item */
+
+        /* Remove Item */
         $("body").on("click", ".remove-item", function () {
 
-            var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();       
+            var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
 
             $.ajax({
                 dataType: 'json',
@@ -109,7 +142,7 @@ $(document).ready(function () {
                 contentType: 'application/json; charset=utf-8'
             }).done(function (data) {
 
-              window.parent.location = window.parent.location.href;
+                window.parent.location = window.parent.location.href;
 
             });
         });
