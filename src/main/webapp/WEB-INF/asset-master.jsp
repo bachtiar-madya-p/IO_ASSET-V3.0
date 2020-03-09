@@ -60,11 +60,11 @@
                             <div class="block-title">
 
                             </div>
-                            <div class="pull-left">
-                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create-item">+ Add User</button>
+                            <div class="pull-left" >
+                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create-item">+ Add Asset</button>
                             </div>
                             <br></br>
-                            <div class="table-responsive" >
+                            <div class="table-responsive" style="padding-top: 20px" >
                                 <table id="assetMasterDT" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                     <thead>
                                         <tr>
@@ -100,7 +100,7 @@
 
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Add User</h4>
+                                    <h4 class="modal-title" id="myModalLabel">Add Asset</h4>
                                 </div>
 
                                 <div class="modal-body">
