@@ -65,10 +65,10 @@
                             </div>
                             <br></br>
                             <div class="table-responsive" >
-                                <table id="userManagerDT" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                                <table id="assetMasterDT" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <!--                                            <th>User ID</th>-->
+                                            <th>User ID</th>
                                             <th>Asset Name</th>
                                             <th>Model</th>
                                             <th>Vendor</th>                                                                                     
@@ -180,19 +180,19 @@
                                     <form data-toggle="validator" action="" method="put">
                                         <div class="form-group">
                                             <label class="control-label" for="title">Asset Name:</label>
-                                            <input type="text" name="membername" class="form-control" data-error="Please enter title." required />
+                                            <input type="text" name="assetname" class="form-control" data-error="Please enter title." required />
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="control-label" for="title">Model:</label>
-                                            <input name="username" class="form-control" data-error="Please enter description." required></input>
+                                            <input name="model" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="control-label" for="title">Vendor:</label>
-                                            <input name="email" class="form-control" data-error="Please enter description." required></input>
+                                            <input name="vendor" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>                                     
 
