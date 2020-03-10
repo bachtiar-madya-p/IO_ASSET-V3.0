@@ -130,4 +130,24 @@ public class UserService extends BaseService {
 
     }
     
+    //updateUser
+    @PUT
+    @Path("/{userId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response updateUser(@PathParam("userId") String userId,String memberId, String jsonRequest) {
+        JSONObject response = new JSONObject();
+        try {
+            return Response.ok(userController.updateUser(userId,memberId, new JSONObject(jsonRequest)).toString()).build();
+        } catch (JSONException ex) {
+            response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_INTERNAL_SERVER_ERROR);
+            response.put(ConstantHelper.HTTP_REASON, "error_update_user");
+            response.put(ConstantHelper.HTTP_MESSAGE, "Error Update user cause :" + ex.getMessage());
+
+            return Response.status((!response.has(ConstantHelper.HTTP_CODE))
+                    ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
+        }
+
+    }
+    
+    
 }
