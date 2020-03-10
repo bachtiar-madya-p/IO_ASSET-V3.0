@@ -18,8 +18,10 @@ import id.io.asset.controller.UserController;
 import id.io.asset.util.constant.ConstantHelper;
 import id.io.asset.util.database.ConfigurationDatabaseHelper;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -82,6 +84,24 @@ public class UserService extends BaseService {
         return Response.status((!response.has(ConstantHelper.HTTP_CODE))
                 ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
     }
+    
+    @PUT
+    @Path("/{userId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response update(@PathParam("userId") String userId, String jsonRequest) {
+        JSONObject response = new JSONObject();
+        try {
+            return Response.ok(userController.update(userId, new JSONObject(jsonRequest)).toString()).build();
+        } catch (JSONException ex) {
+            response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_INTERNAL_SERVER_ERROR);
+            response.put(ConstantHelper.HTTP_REASON, "error_update_user");
+            response.put(ConstantHelper.HTTP_MESSAGE, "Error Update User cause :" + ex.getMessage());
+
+            return Response.status((!response.has(ConstantHelper.HTTP_CODE))
+                    ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
+        }
+
+    }
 
     @POST
     @Path("/activate/{userId}")
@@ -114,5 +134,16 @@ public class UserService extends BaseService {
             return Response.status((!response.has(ConstantHelper.HTTP_CODE))
                     ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
         }
+    }
+    
+    @DELETE
+    @Path("/{userId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response delete(@PathParam("userId") String userId) {
+
+        JSONObject response = userController.delete(userId);
+        return Response.status((!response.has(ConstantHelper.HTTP_CODE))
+                ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
+
     }
 }
