@@ -13,6 +13,9 @@
   */
 package id.io.asset.util.database;
 
+import id.io.asset.model.DepartmentMemberModel;
+import id.io.asset.model.DepartmentModel;
+import id.io.asset.model.MemberLevelModel;
 import id.io.asset.model.UserModel;
 import id.io.asset.util.constant.ConstantHelper;
 import java.sql.SQLException;
@@ -241,6 +244,31 @@ public class UserDatabaseHelper extends BaseDatabaseHelper {
             log.error(UserDatabaseHelper.class.getName(), " - errorDeleteUser " + ex);
         }
         return result;
+    }
+    
+
+    public int updateUser(String userId, String memberId, UserModel model) {
+        log.debug(AssetDatabaseHelper.class.getName(), "- updateUser");
+        final String sql = "UPDATE user SET  username= :username, password= :password, alias= :alias, memberid= :memberid WHERE userid= :userid;"+
+                "INNER JOIN departmentmember SET membername= :membername, email= :email, imageaddress= :imageaddress, description= :description, levelid= :levelid, departmentid= :departmentid WHERE memberid= :memberid;";
+        int row = 0;
+        try (Handle handle = getHandle()) {
+            row = handle.createUpdate(sql)
+                    .bind(ConstantHelper.USER_USERID, userId)
+                    .bind(ConstantHelper.USER_USERNAME, model.getUsername())
+                    .bind(ConstantHelper.USER_PASSWORD, model.getPassword())
+                    .bind(ConstantHelper.USER_ALIAS, model.getAlias())
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_MEMBERID, memberId)
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_MEMBERNAME, model.getMembername())
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_EMAIL, model.getEmail())
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_IMAGEADDRESS, model.getImageaddress())
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_DESCRIPTION, model.getDescription())
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_LEVELID, model.getLevelid())
+                    .bind(ConstantHelper.DEPARTMENTMEMBER_DEPARTMENTID, model.getDepartmentid()).execute();
+        } catch (SQLException ex) {
+            log.error(AssetDatabaseHelper.class.getName(), " - errorUpdateUser " + ex);
+        }
+        return row;
     }
 
 }
