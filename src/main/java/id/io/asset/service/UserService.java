@@ -1,16 +1,16 @@
 /**
-  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-  *
-  * Copyright (c) 2019 IO-Teknologi Indonesia, and individual contributors
-  * as indicated by the @author tags. All Rights Reserved
-  *
-  * The contents of this file are subject to the terms of the
-  * Common Development and Distribution License (the License).
-  *
-  * Everyone is permitted to copy and distribute verbatim copies
-  * of this license document, but changing it is not allowed.
-  *
-  */
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ *
+ * Copyright (c) 2019 IO-Teknologi Indonesia, and individual contributors
+ * as indicated by the @author tags. All Rights Reserved
+ *
+ * The contents of this file are subject to the terms of the
+ * Common Development and Distribution License (the License).
+ *
+ * Everyone is permitted to copy and distribute verbatim copies
+ * of this license document, but changing it is not allowed.
+ *
+ */
 package id.io.asset.service;
 
 import id.io.asset.controller.OtpController;
@@ -117,7 +117,7 @@ public class UserService extends BaseService {
                     ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
         }
     }
-    
+
     //Delete
     @DELETE
     @Path("/{assetId}")
@@ -129,25 +129,22 @@ public class UserService extends BaseService {
                 ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
 
     }
-    
-    //updateUser
+    //update
     @PUT
-    @Path("/{userId}")
+    @Path("/{userId}")    
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response updateUser(@PathParam("userId") String userId,String memberId, String jsonRequest) {
+    public Response update(@PathParam("userId") String userId,String memberId, String jsonRequest) {
         JSONObject response = new JSONObject();
         try {
             return Response.ok(userController.updateUser(userId,memberId, new JSONObject(jsonRequest)).toString()).build();
         } catch (JSONException ex) {
             response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_INTERNAL_SERVER_ERROR);
             response.put(ConstantHelper.HTTP_REASON, "error_update_user");
-            response.put(ConstantHelper.HTTP_MESSAGE, "Error Update user cause :" + ex.getMessage());
+            response.put(ConstantHelper.HTTP_MESSAGE, "Error Update User cause :" + ex.getMessage());
 
             return Response.status((!response.has(ConstantHelper.HTTP_CODE))
                     ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
         }
-
     }
-    
-    
 }
+
