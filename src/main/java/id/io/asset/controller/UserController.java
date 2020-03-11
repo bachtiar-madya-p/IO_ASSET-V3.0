@@ -156,31 +156,32 @@ public class UserController extends BaseController {
         return json;
     }
     
-    
-//    //update 
+    //update
     public JSONObject updateUser(String userId,String memberId, JSONObject json) {
         JSONObject response = new JSONObject();
         if (json.length() != 0) {
+
             UserModel model = new UserModel();
-            model.setUsername(json.getString(ConstantHelper.USER_USERNAME));
             model.setPassword(json.getString(ConstantHelper.USER_PASSWORD));
             model.setAlias(json.getString(ConstantHelper.USER_ALIAS));
-            model.setMemberid(json.getString(ConstantHelper.USER_MEMBERID));
-            model.setMembercode(json.getString(ConstantHelper.DEPARTMENTMEMBER_MEMBERCODE));
+            userDatabaseHelper.updateUser(userId, model);
+        }else if(json.length() != 0){
+            UserModel model = new UserModel();
             model.setMembername(json.getString(ConstantHelper.DEPARTMENTMEMBER_MEMBERNAME));
             model.setEmail(json.getString(ConstantHelper.DEPARTMENTMEMBER_EMAIL));
             model.setImageaddress(json.getString(ConstantHelper.DEPARTMENTMEMBER_IMAGEADDRESS));
             model.setDescription(json.getString(ConstantHelper.DEPARTMENTMEMBER_DESCRIPTION));
             model.setLevelid(json.getString(ConstantHelper.DEPARTMENTMEMBER_LEVELID));
-            model.setDepartmentid(json.getString(ConstantHelper.DEPARTMENTMEMBER_DEPARTMENTID));
-//            userDatabaseHelper.updateDepartmentMember(memberId, model);
-            userDatabaseHelper.updateUser(userId,memberId, model);
+            userDatabaseHelper.updateUser(memberId, model);
+
             response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
-            response.put(ConstantHelper.HTTP_REASON, "update_User_successful");
+            response.put(ConstantHelper.HTTP_REASON, "update_user_successful");
             response.put(ConstantHelper.HTTP_MESSAGE, "Update User Successful!");
-        } else {
+            }
+            
+         else {
             response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_BAD_REQUEST);
-            response.put(ConstantHelper.HTTP_REASON, "error_update_User");
+            response.put(ConstantHelper.HTTP_REASON, "error_update_user");
             response.put(ConstantHelper.HTTP_MESSAGE, "Error Update User : No such User");
         }
         return response;
