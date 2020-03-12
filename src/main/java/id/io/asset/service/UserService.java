@@ -133,10 +133,10 @@ public class UserService extends BaseService {
     @PUT
     @Path("/{userId}")    
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response update(@PathParam("userId") String userId,String memberId, String jsonRequest) {
+    public Response update(@PathParam("userId") String userId, String jsonRequest) {
         JSONObject response = new JSONObject();
         try {
-            return Response.ok(userController.updateUser(userId,memberId, new JSONObject(jsonRequest)).toString()).build();
+            return Response.ok(userController.updateUser(userId, new JSONObject(jsonRequest)).toString()).build();
         } catch (JSONException ex) {
             response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_INTERNAL_SERVER_ERROR);
             response.put(ConstantHelper.HTTP_REASON, "error_update_user");
