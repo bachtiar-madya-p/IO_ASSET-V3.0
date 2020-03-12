@@ -245,8 +245,7 @@ public class UserDatabaseHelper extends BaseDatabaseHelper {
         }
         return result;
     }
-    
-
+    //updateUser
     public int updateUser(String userId, String memberId, UserModel model) {
         log.debug(AssetDatabaseHelper.class.getName(), "- updateUser");
         final String updateUser = "UPDATE user SET  password= :password, alias= :alias WHERE userid= :userid;";
@@ -277,5 +276,4 @@ public class UserDatabaseHelper extends BaseDatabaseHelper {
         }
         return rows;
     }
-
 }
