@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="css/bootstrap.min-3.6.css">
         <link rel="stylesheet" href="css/plugins-3.8.css">
         <link rel="stylesheet" href="css/main-3.8.css">
-        <link rel="stylesheet" href="css/themes-3.1.css">
+        <link rel="stylesheet" href="css/themes-3.1.css">        
         <link rel="stylesheet" href="js/vendor/modernizr.min-3.6.js">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"/>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
@@ -64,11 +64,12 @@
                                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create-item">+ Add Asset</button>
                             </div>
                             <br></br>
+                            
                             <div class="table-responsive" style="padding-top: 20px" >
                                 <table id="assetMasterDT" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>User ID</th>
+                                            <th hidden>#</th>
                                             <th>Asset Code</th>
                                             <th>Asset Name</th>
                                             <th>Type</th>   
@@ -85,6 +86,9 @@
                             </div>
 
 
+                        </div>
+                        <div class="spinner-grow" role="status">
+                            <span class="sr-only">Loading...</span>
                         </div>
                         <!-- END Datatables Content -->
 
@@ -104,60 +108,48 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    <form data-toggle="validator" action="/user" method="POST">
+                                    <form data-toggle="validator" action="/asset" method="POST">
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Username:</label>
-                                            <input name="username" class="form-control" data-error="Please enter description." required></input>
+                                            <label class="control-label" for="title">Asset Code:</label>
+                                            <input name="assetcode" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
 
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Alias:</label>
-                                            <input name="alias" class="form-control" data-error="Please enter description." required></input>
+                                            <label class="control-label" for="title">Asset Name:</label>
+                                            <input name="assetname" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Member Code:</label>
-                                            <input name="membercode" class="form-control" data-error="Please enter description." required></input>
+                                            <label class="control-label" for="title">Type:</label>
+                                            <input name="typeid" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
 
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Member Name:</label>
-                                            <input type="text" name="membername" class="form-control" data-error="Please enter title." required />
+                                            <label class="control-label" for="title">Manufacture:</label>
+                                            <input type="text" name="manufacture" class="form-control" data-error="Please enter title." required />
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label" for="title">E-mail:</label>
-                                            <input name="email" class="form-control" data-error="Please enter description." required></input>
+                                            <label class="control-label" for="title">Model</label>
+                                            <input name="model" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Image Address:</label>
-                                            <input name="imageaddress" class="form-control" data-error="Please enter description." required></input>
+                                            <label class="control-label" for="title">Vendor:</label>
+                                            <input name="vendor" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Description:</label>
-                                            <input name="description" class="form-control" data-error="Please enter description." required></input>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="control-label" for="title">Level ID:</label>
-                                            <input name="levelid" class="form-control" data-error="Please enter description." required></input>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="control-label" for="title">Department ID:</label>
-                                            <input name="departmentid" class="form-control" data-error="Please enter description." required></input>
+                                            <label class="control-label" for="title">Note:</label>
+                                            <input name="note" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
@@ -199,67 +191,67 @@
                                             <input name="typeid" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div> 
-                                        
-                                         <div class="form-group">
+
+                                        <div class="form-group">
                                             <label class="control-label" for="title">Manufacture:</label>
                                             <input name="manufacture" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>  
-                                        
-                                         <div class="form-group">
+
+                                        <div class="form-group">
                                             <label class="control-label" for="title">Model:</label>
                                             <input name="model" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>  
-                                        
-                                         <div class="form-group">
+
+                                        <div class="form-group">
                                             <label class="control-label" for="title">Vendor:</label>
                                             <input name="vendor" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>  
-                                        
-                                         <div class="form-group">
+
+                                        <div class="form-group">
                                             <label class="control-label" for="title">Note:</label>
                                             <input name="note" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>  
-                          
 
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-info crud-submit-edit">Submit</button>
+
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-info crud-submit-edit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                        </form>
                     </div>
                 </div>
+                <!-- Footer -->
+                <%@include file="page/footer.jsp"%>
+                <!-- END Footer -->
             </div>
+            <!-- END Main Container -->
         </div>
+        <!-- END Page Container -->
     </div>
-    <!-- Footer -->
-    <%@include file="page/footer.jsp"%>
-    <!-- END Footer -->
-</div>
-<!-- END Main Container -->
-</div>
-<!-- END Page Container -->
-</div>
-<!-- END Page Wrapper -->
+    <!-- END Page Wrapper -->
 
-<!-- Scroll to top link, initialized in js/app.js - scrollToTop() -->
-<a href="#" id="to-top"><i class="fa fa-angle-double-up"></i></a>
-    <%@include file="page/js_import.jsp"%>
-<script src="assets/js/pages/tablesDatatables.js"></script>
-<script>$(function () {
-        TablesDatatables.init();
+    <!-- Scroll to top link, initialized in js/app.js - scrollToTop() -->
+    <a href="#" id="to-top"><i class="fa fa-angle-double-up"></i></a>
+        <%@include file="page/js_import.jsp"%>
+    <script src="assets/js/pages/tablesDatatables.js"></script>
+    <script>$(function () {
+            TablesDatatables.init();
 
-    });</script>
+        });</script>
 
-<script src="assets/js/vendor/jquery.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+    <script src="assets/js/vendor/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
 
-<script src="js/pages/tablesDatatables.js"></script>
-<script type="text/javascript" src="js/asset-master.js"></script>
+    <script src="js/pages/tablesDatatables.js"></script>
+    <script type="text/javascript" src="js/asset-master.js"></script>
 </body>
 </html>
