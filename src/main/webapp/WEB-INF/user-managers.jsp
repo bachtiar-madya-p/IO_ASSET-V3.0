@@ -199,14 +199,27 @@
                                         <div class="form-group">
                                             <label class="control-label" for="title">Level ID:</label>
                                             <input name="levelid" class="form-control" data-error="Please enter description." required></input>
+                                            
+                                             <select id="Level ID" size="1">
+                                             <option value="a"></option>
+                                             <option value="b"></option>
+                                             <option value="c"></option>
+                                             </select>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="control-label" for="title">Department ID:</label>
                                             <input name="departmentid" class="form-control" data-error="Please enter description." required></input>
+                                             <select id="Department ID" size="1">
+                                             <option value="a"></option>
+                                             <option value="b"></option>
+                                             <option value="c"></option>
+                                             </select>
                                             <div class="help-block with-errors"></div>
                                         </div>
+
+
 
 
                                         <div class="form-group">
