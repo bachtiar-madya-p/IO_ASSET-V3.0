@@ -129,7 +129,7 @@ public class UserService extends BaseService {
                 ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
 
     }
-    //update
+    //update user
     @PUT
     @Path("/{userId}")    
     @Consumes(MediaType.APPLICATION_JSON)
