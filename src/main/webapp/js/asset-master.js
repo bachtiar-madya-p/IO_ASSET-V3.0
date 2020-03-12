@@ -17,7 +17,7 @@ $(document).ready(function () {
         tabel = $.each(data, function (key, value) {
 
             tab_data += '<tr>';
-            tab_data += '<td>' + value.assetid + '</td>';
+            tab_data += '<td hidden >' + value.assetid + '</td>';
             tab_data += '<td>' + value.assetcode + '</td>';
             tab_data += '<td>' + value.assetname + '</td>';
             tab_data += '<td>' + value.typeid + '</td>';
@@ -145,6 +145,7 @@ $(document).ready(function () {
                 }).done(function (data) {
 
                     window.parent.location = window.parent.location.href;
+                    
 
                 });
             }
