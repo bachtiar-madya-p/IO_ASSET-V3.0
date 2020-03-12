@@ -32,6 +32,9 @@
                                 <li>
                                     <a href="settings-governance"><i class="fa fa-cogs"></i> Settings</a>
                                 </li>
+                                 <li>
+                                    <a href="settings-governance"><i class="gi gi-registration_mark"></i> Asset Register</a>
+                                </li>
                             </ul>
                         </div>
                         <!-- END Dashboard 2 Header -->
