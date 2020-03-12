@@ -164,7 +164,7 @@ public class UserController extends BaseController {
             UserModel model = new UserModel();
             model.setPassword(json.getString(ConstantHelper.USER_PASSWORD));
             model.setAlias(json.getString(ConstantHelper.USER_ALIAS));
-            userDatabaseHelper.updateUser(userId, model);
+            userDatabaseHelper.updateUser(userId,memberId, model);
         }else if(json.length() != 0){
             UserModel model = new UserModel();
             model.setMembername(json.getString(ConstantHelper.DEPARTMENTMEMBER_MEMBERNAME));
@@ -172,7 +172,7 @@ public class UserController extends BaseController {
             model.setImageaddress(json.getString(ConstantHelper.DEPARTMENTMEMBER_IMAGEADDRESS));
             model.setDescription(json.getString(ConstantHelper.DEPARTMENTMEMBER_DESCRIPTION));
             model.setLevelid(json.getString(ConstantHelper.DEPARTMENTMEMBER_LEVELID));
-            userDatabaseHelper.updateUser(memberId, model);
+            userDatabaseHelper.updateUser(memberId,userId, model);
 
             response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
             response.put(ConstantHelper.HTTP_REASON, "update_user_successful");
@@ -186,5 +186,9 @@ public class UserController extends BaseController {
         }
         return response;
     }
-    
+
+    public Object updateUser(String userId, JSONObject jsonObject) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
