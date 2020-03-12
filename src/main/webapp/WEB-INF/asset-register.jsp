@@ -61,7 +61,7 @@
 
                             </div>
                             <div class="pull-left" >
-                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create-item">+ Add Asset</button>
+                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create-item">+ Register Asset</button>
                             </div>
                             <br></br>
                             
