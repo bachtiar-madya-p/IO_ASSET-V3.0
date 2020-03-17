@@ -10,7 +10,7 @@ $(document).ready(function () {
         tabel = $.each(data, function (key, value) {
 
             tab_data += '<tr>';
-            tab_data += '<td>' + value.userid + '</td>';
+            tab_data += '<td hidden>' + value.userid + '</td>';
             tab_data += '<td>' + value.membername + '</td>';
             tab_data += '<td>' + value.username + '</td>';
             tab_data += '<td>' + value.email + '</td>';
