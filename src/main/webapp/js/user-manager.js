@@ -11,6 +11,7 @@ $(document).ready(function () {
 
             tab_data += '<tr>';
             tab_data += '<td hidden>' + value.userid + '</td>';
+            tab_data += '<td></td>';
             tab_data += '<td>' + value.membername + '</td>';
             tab_data += '<td>' + value.username + '</td>';
             tab_data += '<td>' + value.email + '</td>';
