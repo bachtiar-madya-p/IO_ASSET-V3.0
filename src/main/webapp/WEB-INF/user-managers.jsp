@@ -61,12 +61,12 @@
                                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create-item">+ Add User</button>
                             </div>
                             <br style="line-height:35px;"></br>
-                            <div class="table-responsive" >
+                            <div class="table-responsive" style="padding-top: 20px" >
                                 <table id="userManagerDT" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>Nama</th>
+                                            <th hidden>#</th>
+                                            <th>Name</th>
                                             <th>Username</th>
                                             <th>E-Mail</th>
                                             <th>Level</th>
