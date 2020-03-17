@@ -66,6 +66,7 @@
                                     <thead>
                                         <tr>
                                             <th hidden>#</th>
+                                            <th>#</th>
                                             <th>Name</th>
                                             <th>Username</th>
                                             <th>E-Mail</th>
