@@ -175,7 +175,25 @@ public class UserDatabaseHelper extends BaseDatabaseHelper {
         }
         return row;
     }
+    
+         public int update(String userId, UserModel user) {
+        log.debug(UserDatabaseHelper.class.getName(), "- updateUser");
 
+        final String sql = "UPDATE user SET username= :username WHERE userid= :userid;";
+        int row = 0;
+        try (Handle handle = getHandle()) {
+
+            row = handle.createUpdate(sql)
+                    .bind("userid", userId)
+                    .bind("username", user.getUsername()).execute();                                                          
+
+
+        } catch (SQLException ex) {
+            log.error(UserDatabaseHelper.class.getName(), " - errorUpdateUser " + ex);
+        }
+        return row;
+    }
+         
     public int activate(String userId, boolean isActive) {
         log.debug(UserDatabaseHelper.class.getName(), "- activateUser");
 
@@ -231,7 +249,7 @@ public class UserDatabaseHelper extends BaseDatabaseHelper {
         return row;
     }
 
-    public int remove(String userId) {
+    public int delete(String userId) {
 
         log.debug(UserDatabaseHelper.class.getName(), "- deleteUser");
 

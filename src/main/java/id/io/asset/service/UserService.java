@@ -84,6 +84,24 @@ public class UserService extends BaseService {
         return Response.status((!response.has(ConstantHelper.HTTP_CODE))
                 ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
     }
+    
+    @PUT
+    @Path("/{userId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response update(@PathParam("userId") String userId, String jsonRequest) {
+        JSONObject response = new JSONObject();
+        try {
+            return Response.ok(userController.update(userId, new JSONObject(jsonRequest)).toString()).build();
+        } catch (JSONException ex) {
+            response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_INTERNAL_SERVER_ERROR);
+            response.put(ConstantHelper.HTTP_REASON, "error_update_user");
+            response.put(ConstantHelper.HTTP_MESSAGE, "Error Update User cause :" + ex.getMessage());
+
+            return Response.status((!response.has(ConstantHelper.HTTP_CODE))
+                    ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
+        }
+
+    }
 
     @POST
     @Path("/activate/{userId}")
@@ -118,33 +136,16 @@ public class UserService extends BaseService {
         }
     }
 
-    //Delete
     @DELETE
-    @Path("/{userid}")
+    @Path("/{userId}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response remove(@PathParam("userid") String userid) {
+    public Response delete(@PathParam("userId") String userId) {
 
-        JSONObject response = userController.remove(userid);
+        JSONObject response = userController.delete(userId);
+
         return Response.status((!response.has(ConstantHelper.HTTP_CODE))
                 ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
 
-    }
-    //update user
-    @PUT
-    @Path("/{userId}")    
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response update(@PathParam("userId") String userId, String jsonRequest) {
-        JSONObject response = new JSONObject();
-        try {
-            return Response.ok(userController.updateUser(userId, new JSONObject(jsonRequest)).toString()).build();
-        } catch (JSONException ex) {
-            response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_INTERNAL_SERVER_ERROR);
-            response.put(ConstantHelper.HTTP_REASON, "error_update_user");
-            response.put(ConstantHelper.HTTP_MESSAGE, "Error Update User cause :" + ex.getMessage());
-
-            return Response.status((!response.has(ConstantHelper.HTTP_CODE))
-                    ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
-        }
     }
 }
 

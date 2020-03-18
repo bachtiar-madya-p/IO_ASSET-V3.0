@@ -103,7 +103,26 @@ public class UserController extends BaseController {
         }
         return response;
     }
+     public JSONObject update(String userId, JSONObject json) {
+        JSONObject response = new JSONObject();
+        if (json.length() != 0) {
 
+            UserModel model = new UserModel();
+            model.setUsername(json.getString("username"));
+     
+
+            userDatabaseHelper.update(userId, model);
+
+            response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
+            response.put(ConstantHelper.HTTP_REASON, "update_member_level_successful");
+            response.put(ConstantHelper.HTTP_MESSAGE, "Update MemberLevel Successful!");
+        } else {
+            response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_BAD_REQUEST);
+            response.put(ConstantHelper.HTTP_REASON, "error_update_member_level");
+            response.put(ConstantHelper.HTTP_MESSAGE, "Error Update MemberLevel : No such MemberLevel");
+        }
+        return response;
+    }
     public JSONObject activateUser(String userId, JSONObject json) {
         JSONObject response = new JSONObject();
         if (json.length() != 0) {
@@ -140,6 +159,7 @@ public class UserController extends BaseController {
         }
         return response;
     }
+
     //delete
     public JSONObject remove(String userId) {
         JSONObject json = new JSONObject();
@@ -186,5 +206,4 @@ public class UserController extends BaseController {
         }
         return response;
     }
-
 }

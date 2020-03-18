@@ -31,6 +31,14 @@
         <from>^/user-managers</from>
         <to>/WEB-INF/user-managers.jsp</to>
     </rule>
+     <rule>
+        <from>^/asset-register</from>
+        <to>/WEB-INF/asset-register.jsp</to>
+    </rule>
+    <rule>
+        <from>^/asset-master</from>
+        <to>/WEB-INF/asset-master.jsp</to>
+    </rule>
 
 
 </urlrewrite>
