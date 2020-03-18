@@ -190,52 +190,68 @@
                                     <h4 class="modal-title" id="myModalLabel">Edit Asset</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form data-toggle="validator" action="" method="put">
+                                    <form data-toggle="validator" action="" method="put" >
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Asset Code:</label>
-                                            <input type="text" name="assetcode" class="form-control" data-error="Please enter title." required />
+                                            <label class="control-label col-sm-3" for="title">Asset Code :</label>
+                                            <div class="col-sm-8">
+                                                <input name="assetcode" class="form-control" data-error="Please enter description." required></input>
+                                            </div>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-3" for="title">Asset Name :</label>
+                                            <div class="col-sm-8">
+                                                <input name="assetname" class="form-control" data-error="Please enter description." required></input>
+                                            </div>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Asset Name:</label>
-                                            <input name="assetname" class="form-control" data-error="Please enter description." required></input>
+                                            <label class="control-label col-sm-3" for="title">Type :</label>
+                                            <div class="col-sm-8">
+                                                <input name="typeid" class="form-control" data-error="Please enter description." required></input>
+                                            </div>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-3" for="title">Manufacture :</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" name="manufacture" class="form-control" data-error="Please enter title." required />
+                                            </div>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Type:</label>
-                                            <input name="typeid" class="form-control" data-error="Please enter description." required></input>
+                                            <label class="control-label col-sm-3" for="title">Model :</label>
+                                            <div class="col-sm-8">
+                                                <input name="model" class="form-control" data-error="Please enter description." required></input>
+                                            </div>
                                             <div class="help-block with-errors"></div>
-                                        </div> 
+                                        </div>
 
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Manufacture:</label>
-                                            <input name="manufacture" class="form-control" data-error="Please enter description." required></input>
+                                            <label class="control-label col-sm-3" for="title">Vendor :</label>
+                                            <div class="col-sm-8">
+                                                <input name="vendor" class="form-control" data-error="Please enter description." required></input>
+                                            </div>
                                             <div class="help-block with-errors"></div>
-                                        </div>  
+                                        </div>
 
-                                        <div class="form-group">
-                                            <label class="control-label" for="title">Model:</label>
-                                            <input name="model" class="form-control" data-error="Please enter description." required></input>
+                                        <div class="form-group" style="padding-bottom: 20px">
+                                            <label class="control-label col-sm-3" for="title">Note :</label>
+                                            <div class="col-sm-8">
+                                                <input name="note" class="form-control" data-error="Please enter description." required></input>
+                                            </div>
                                             <div class="help-block with-errors"></div>
-                                        </div>  
-
-                                        <div class="form-group">
-                                            <label class="control-label" for="title">Vendor:</label>
-                                            <input name="vendor" class="form-control" data-error="Please enter description." required></input>
-                                            <div class="help-block with-errors"></div>
-                                        </div>  
-
-                                        <div class="form-group">
-                                            <label class="control-label" for="title">Note:</label>
-                                            <input name="note" class="form-control" data-error="Please enter description." required></input>
-                                            <div class="help-block with-errors"></div>
-                                        </div>  
+                                        </div>
 
 
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-info crud-submit-edit">Submit</button>
+                                        <div class="form-group" style="padding-left: 155px; padding-top: 250px" >
+                                            <button type="submit" class="btn btn-info crud-submit-edit" >Submit</button>
                                         </div>
                                     </form>
                                 </div>
