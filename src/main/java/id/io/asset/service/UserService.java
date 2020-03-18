@@ -1,16 +1,16 @@
 /**
-  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-  *
-  * Copyright (c) 2019 IO-Teknologi Indonesia, and individual contributors
-  * as indicated by the @author tags. All Rights Reserved
-  *
-  * The contents of this file are subject to the terms of the
-  * Common Development and Distribution License (the License).
-  *
-  * Everyone is permitted to copy and distribute verbatim copies
-  * of this license document, but changing it is not allowed.
-  *
-  */
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ *
+ * Copyright (c) 2019 IO-Teknologi Indonesia, and individual contributors
+ * as indicated by the @author tags. All Rights Reserved
+ *
+ * The contents of this file are subject to the terms of the
+ * Common Development and Distribution License (the License).
+ *
+ * Everyone is permitted to copy and distribute verbatim copies
+ * of this license document, but changing it is not allowed.
+ *
+ */
 package id.io.asset.service;
 
 import id.io.asset.controller.OtpController;
@@ -135,15 +135,17 @@ public class UserService extends BaseService {
                     ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
         }
     }
-    
+
     @DELETE
     @Path("/{userId}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response delete(@PathParam("userId") String userId) {
 
         JSONObject response = userController.delete(userId);
+
         return Response.status((!response.has(ConstantHelper.HTTP_CODE))
                 ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
 
     }
 }
+

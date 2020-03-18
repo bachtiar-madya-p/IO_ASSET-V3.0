@@ -1,18 +1,22 @@
 /**
-  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-  *
-  * Copyright (c) 2019 IO-Teknologi Indonesia, and individual contributors
-  * as indicated by the @author tags. All Rights Reserved
-  *
-  * The contents of this file are subject to the terms of the
-  * Common Development and Distribution License (the License).
-  *
-  * Everyone is permitted to copy and distribute verbatim copies
-  * of this license document, but changing it is not allowed.
-  *
-  */
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ *
+ * Copyright (c) 2019 IO-Teknologi Indonesia, and individual contributors
+ * as indicated by the @author tags. All Rights Reserved
+ *
+ * The contents of this file are subject to the terms of the
+ * Common Development and Distribution License (the License).
+ *
+ * Everyone is permitted to copy and distribute verbatim copies
+ * of this license document, but changing it is not allowed.
+ *
+ */
 package id.io.asset.util.database;
 
+import id.io.asset.manager.EncryptionManager;
+import id.io.asset.model.DepartmentMemberModel;
+import id.io.asset.model.DepartmentModel;
+import id.io.asset.model.MemberLevelModel;
 import id.io.asset.model.UserModel;
 import id.io.asset.util.constant.ConstantHelper;
 import java.sql.SQLException;
@@ -249,16 +253,48 @@ public class UserDatabaseHelper extends BaseDatabaseHelper {
 
         log.debug(UserDatabaseHelper.class.getName(), "- deleteUser");
 
-        final String sql = "DELETE FROM user WHERE userid = :userid;";
-        int result = 0;
+        UserModel users = getById(userId);
+        final String userSql = "DELETE FROM user WHERE userid = :userid;";
+        final String memberSql = "DELETE FROM departmentmember WHERE memberid= :memberid;";
+        int userResult = 0;
+        int memberResult = 0;
         try (Handle handle = getHandle()) {
 
-            result = handle.createUpdate(sql).bind(ConstantHelper.USER_USERID, userId).execute();
+            userResult = handle.createUpdate(userSql).bind(ConstantHelper.USER_USERID, userId).execute();
+            if (userResult != 0) {
+                memberResult = handle.createUpdate(memberSql).bind(ConstantHelper.USER_MEMBERID, users.getMemberid()).execute();
+            }
 
         } catch (SQLException ex) {
             log.error(UserDatabaseHelper.class.getName(), " - errorDeleteUser " + ex);
         }
-        return result;
+        return memberResult;
     }
 
+    //updateUser
+    public int updateUser(String userId, UserModel model) {
+        log.debug(AssetDatabaseHelper.class.getName(), "- updateUser");
+        final String updateDepartmentMember = "UPDATE departmentmember SET "
+                + "membername= :membername, email= :email, imageaddress= :imageaddress, description= :description, "
+                + "levelid= :levelid, departmentid= :departmentid WHERE memberid= :memberid;";
+        int rows = 0;
+        UserModel users = getById(userId);
+        if (users != null) {
+            try (Handle handle = getHandle()) {
+
+                rows = handle.createUpdate(updateDepartmentMember)
+                        .bind(ConstantHelper.DEPARTMENTMEMBER_MEMBERID, users.getMemberid())
+                        .bind(ConstantHelper.DEPARTMENTMEMBER_MEMBERNAME, model.getMembername())
+                        .bind(ConstantHelper.DEPARTMENTMEMBER_EMAIL, model.getEmail())
+                        .bind(ConstantHelper.DEPARTMENTMEMBER_IMAGEADDRESS, model.getImageaddress())
+                        .bind(ConstantHelper.DEPARTMENTMEMBER_DESCRIPTION, model.getDescription())
+                        .bind(ConstantHelper.DEPARTMENTMEMBER_LEVELID, model.getLevelid())
+                        .bind(ConstantHelper.DEPARTMENTMEMBER_DEPARTMENTID, model.getDepartmentid()).execute();
+
+            } catch (SQLException ex) {
+                log.error(AssetDatabaseHelper.class.getName(), " - errorUpdateUser " + ex);
+            }
+        }
+        return rows;
+    }
 }

@@ -159,21 +159,51 @@ public class UserController extends BaseController {
         }
         return response;
     }
-    
-     public JSONObject delete(String userId) {
+
+    //delete
+    public JSONObject remove(String userId) {
         JSONObject json = new JSONObject();
-        int result = userDatabaseHelper.delete(userId);
+        int result = userDatabaseHelper.remove(userId);
         if (result == 1) {
             json.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
-            json.put(ConstantHelper.HTTP_REASON, "delete_department_successful");
-            json.put(ConstantHelper.HTTP_MESSAGE, "Delete Department Successful!");
-
+            json.put(ConstantHelper.HTTP_REASON, "delete_user_successful");
+            json.put(ConstantHelper.HTTP_MESSAGE, "Delete User Successful!");
         } else {
             json.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_BAD_REQUEST);
-            json.put(ConstantHelper.HTTP_REASON, "error_delete_department");
-            json.put(ConstantHelper.HTTP_MESSAGE, "Error Delete Department");
+            json.put(ConstantHelper.HTTP_REASON, "error_delete_user");
+            json.put(ConstantHelper.HTTP_MESSAGE, "Error Delete User");
         }
         return json;
     }
+    
+    //update
+    public JSONObject updateUser(String userId, JSONObject json) {
+        JSONObject response = new JSONObject();
+        if(json.length() != 0){
+            UserModel model = new UserModel();
+            model.setMembername(json.getString(ConstantHelper.DEPARTMENTMEMBER_MEMBERNAME));
+            model.setEmail(json.getString(ConstantHelper.DEPARTMENTMEMBER_EMAIL));
+            model.setImageaddress(json.getString(ConstantHelper.DEPARTMENTMEMBER_IMAGEADDRESS));
+            model.setDescription(json.getString(ConstantHelper.DEPARTMENTMEMBER_DESCRIPTION));
+            model.setLevelid(json.getString(ConstantHelper.DEPARTMENTMEMBER_LEVELID));
+            model.setDepartmentid(json.getString(ConstantHelper.DEPARTMENT_DEPARTMENTID));
+     
+            int result = userDatabaseHelper.updateUser(userId, model);
+            if (result != 0) {
 
+                response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
+                response.put(ConstantHelper.HTTP_REASON, "update_user_successful");
+                response.put(ConstantHelper.HTTP_MESSAGE, "Update User Successful!");
+            } else {
+                response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_BAD_REQUEST);
+                response.put(ConstantHelper.HTTP_REASON, "error_update_user");
+                response.put(ConstantHelper.HTTP_MESSAGE, "Error Update User");
+            }
+        } else {
+            response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_BAD_REQUEST);
+            response.put(ConstantHelper.HTTP_REASON, "error_update_user");
+            response.put(ConstantHelper.HTTP_MESSAGE, "Error Update User : No such User");
+        }
+        return response;
+    }
 }
