@@ -120,11 +120,11 @@ public class UserService extends BaseService {
 
     //Delete
     @DELETE
-    @Path("/{assetId}")
+    @Path("/{userid}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response remove(@PathParam("assetId") String assetId) {
+    public Response remove(@PathParam("userid") String userid) {
 
-        JSONObject response = userController.remove(assetId);
+        JSONObject response = userController.remove(userid);
         return Response.status((!response.has(ConstantHelper.HTTP_CODE))
                 ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
 

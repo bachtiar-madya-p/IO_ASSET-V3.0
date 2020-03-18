@@ -141,9 +141,9 @@ public class UserController extends BaseController {
         return response;
     }
     //delete
-    public JSONObject remove(String assetId) {
+    public JSONObject remove(String userId) {
         JSONObject json = new JSONObject();
-        int result = userDatabaseHelper.remove(assetId);
+        int result = userDatabaseHelper.remove(userId);
         if (result == 1) {
             json.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
             json.put(ConstantHelper.HTTP_REASON, "delete_user_successful");
@@ -157,38 +157,34 @@ public class UserController extends BaseController {
     }
     
     //update
-    public JSONObject updateUser(String userId,String memberId, JSONObject json) {
+    public JSONObject updateUser(String userId, JSONObject json) {
         JSONObject response = new JSONObject();
-        if (json.length() != 0) {
-
-            UserModel model = new UserModel();
-            model.setPassword(json.getString(ConstantHelper.USER_PASSWORD));
-            model.setAlias(json.getString(ConstantHelper.USER_ALIAS));
-            userDatabaseHelper.updateUser(userId,memberId, model);
-        }else if(json.length() != 0){
+        if(json.length() != 0){
             UserModel model = new UserModel();
             model.setMembername(json.getString(ConstantHelper.DEPARTMENTMEMBER_MEMBERNAME));
             model.setEmail(json.getString(ConstantHelper.DEPARTMENTMEMBER_EMAIL));
             model.setImageaddress(json.getString(ConstantHelper.DEPARTMENTMEMBER_IMAGEADDRESS));
             model.setDescription(json.getString(ConstantHelper.DEPARTMENTMEMBER_DESCRIPTION));
             model.setLevelid(json.getString(ConstantHelper.DEPARTMENTMEMBER_LEVELID));
-            userDatabaseHelper.updateUser(memberId,userId, model);
+            model.setDepartmentid(json.getString(ConstantHelper.DEPARTMENT_DEPARTMENTID));
+     
+            int result = userDatabaseHelper.updateUser(userId, model);
+            if (result != 0) {
 
-            response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
-            response.put(ConstantHelper.HTTP_REASON, "update_user_successful");
-            response.put(ConstantHelper.HTTP_MESSAGE, "Update User Successful!");
+                response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
+                response.put(ConstantHelper.HTTP_REASON, "update_user_successful");
+                response.put(ConstantHelper.HTTP_MESSAGE, "Update User Successful!");
+            } else {
+                response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_BAD_REQUEST);
+                response.put(ConstantHelper.HTTP_REASON, "error_update_user");
+                response.put(ConstantHelper.HTTP_MESSAGE, "Error Update User");
             }
-            
-         else {
+        } else {
             response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_BAD_REQUEST);
             response.put(ConstantHelper.HTTP_REASON, "error_update_user");
             response.put(ConstantHelper.HTTP_MESSAGE, "Error Update User : No such User");
         }
         return response;
-    }
-
-    public Object updateUser(String userId, JSONObject jsonObject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
