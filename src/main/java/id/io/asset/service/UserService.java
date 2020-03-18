@@ -91,7 +91,7 @@ public class UserService extends BaseService {
     public Response update(@PathParam("userId") String userId, String jsonRequest) {
         JSONObject response = new JSONObject();
         try {
-            return Response.ok(userController.update(userId, new JSONObject(jsonRequest)).toString()).build();
+            return Response.ok(userController.updateUser(userId, new JSONObject(jsonRequest)).toString()).build();
         } catch (JSONException ex) {
             response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_INTERNAL_SERVER_ERROR);
             response.put(ConstantHelper.HTTP_REASON, "error_update_user");
@@ -141,7 +141,7 @@ public class UserService extends BaseService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response delete(@PathParam("userId") String userId) {
 
-        JSONObject response = userController.delete(userId);
+        JSONObject response = userController.remove(userId);
 
         return Response.status((!response.has(ConstantHelper.HTTP_CODE))
                 ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();

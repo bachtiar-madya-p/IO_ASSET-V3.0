@@ -6,3 +6,5 @@ src/main/java/id/io/asset/service/AssetService.java
 src/main/java/id/io/asset/util/database/AssetDatabaseHelper.java
 
 src/main/java/id/io/asset/util/property/AssetModel.java
+
+target/
