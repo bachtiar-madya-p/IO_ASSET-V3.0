@@ -15,7 +15,7 @@
             <!-- Sidebar Navigation -->
             <ul class="sidebar-nav">
                 <li>
-                    <a href="#"><i class="gi gi-dashboard sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Menu 1</span></a>
+                    <a href="#"><i class="fa fa-ticket sidebar-nav-icon "></i><span class="sidebar-nav-mini-hide">Ticket</span></a>
                 </li>
                 <li>
                     <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="hi hi-list-alt sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Managers</span></a>
