@@ -32,6 +32,7 @@ public class ProvinceService extends BaseService {
         this.provinceController = new ProvinceController();
     }
     
+    //list
     @GET
     public Response provinceList(){
         return Response.ok(provinceController.provinceList()).build();
@@ -43,6 +44,7 @@ public class ProvinceService extends BaseService {
         return Response.ok(provinceController.getProvince(provinceId)).build();
     }
     
+    //create
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response create(String jsonRequest){
@@ -58,6 +60,7 @@ public class ProvinceService extends BaseService {
                 ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
     }
     
+    //update
     @PUT
     @Path("/{provinceId}")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -76,5 +79,34 @@ public class ProvinceService extends BaseService {
 
     }
     
-    
+    //activate
+    @POST
+    @Path("/activate/{provinceId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response activate(@PathParam("provinceId") String provinceId, String jsonRequest) {
+        JSONObject response = new JSONObject();
+        try {
+            return Response.ok(provinceController.activate(provinceId, new JSONObject(jsonRequest)).toString()).build();
+        } catch (JSONException ex) {
+            response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_INTERNAL_SERVER_ERROR);
+            response.put(ConstantHelper.HTTP_REASON, "error_activate_province");
+            response.put(ConstantHelper.HTTP_MESSAGE, "Error Activate Province cause :" + ex.getMessage());
+
+            return Response.status((!response.has(ConstantHelper.HTTP_CODE))
+                    ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
+        }
+
+    }
+
+    //delete
+    @DELETE
+    @Path("/{provinceId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response delete(@PathParam("provinceId") String provinceId) {
+
+        JSONObject response = provinceController.delete(provinceId);
+        return Response.status((!response.has(ConstantHelper.HTTP_CODE))
+                ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
+
+    }
 }
