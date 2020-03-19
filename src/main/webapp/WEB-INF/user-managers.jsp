@@ -26,7 +26,7 @@
             <%@include file="page/preloader.jsp"%>
             <!-- END Preloader -->
 
-            <div id="page-container" class="sidebar-partial sidebar-visible-lg sidebar-no-animations">
+            <div id="page-container" class="sidebar-mini sidebar-visible-lg-mini sidebar-no-animations">
                 <!-- Main Sidebar -->
                 <%@include file="page/side-nav.jsp"%>
                 <!-- END Main Sidebar -->
@@ -38,19 +38,21 @@
 
                     <!-- Page content -->
                     <div id="page-content">
+                           
                         <!-- Page Header -->
                         <div class="content-header">
                             <div class="header-section">
                                 <h1>
-                                    <i class="gi gi-brush"></i>User Manager<br><small></small>
+                                    User Manager<br><small></small>
                                 </h1>
                             </div>
                         </div>
-                        <ul class="breadcrumb breadcrumb-top">
+                         <ul class="breadcrumb breadcrumb-top">
                             <li>Managers</li>
-                            <li><a href="">User Manager</a></li>
+                            <li><a href="">Asset Master</a></li>
                         </ul>
                         <!-- END Page Header -->
+                     
 
                         <!-- Datatables Content -->
                         <div class="block full">
