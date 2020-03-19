@@ -26,6 +26,10 @@ public class ProvinceModel {
         this.isactive       = isactive;
     
     }
+
+    public ProvinceModel() {
+
+    }
     
     public String getProvinceid(){
         return provinceid;
