@@ -6,7 +6,7 @@
         <!-- Sidebar Content -->
         <div class="sidebar-content">
             <!-- Brand -->
-            <a href="index" class="sidebar-brand">
+            <a href="index-admin" class="sidebar-brand">
                 <i class="gi gi-flash"></i><span class="sidebar-nav-mini-hide"><strong>IO-</strong>T</span>
             </a>
             <!-- END Brand -->
