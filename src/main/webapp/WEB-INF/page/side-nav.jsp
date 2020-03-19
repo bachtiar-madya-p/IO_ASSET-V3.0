@@ -32,7 +32,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#">Department Manager</a>
+                            <a href="asset-master">Asset Master</a>
                         </li>
                         <li>
                             <a href="#">Property Manager</a>
