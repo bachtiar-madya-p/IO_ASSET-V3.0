@@ -35,7 +35,7 @@
                             <a href="asset-master">Asset Master</a>
                         </li>
                         <li>
-                            <a href="#">Property Manager</a>
+                            <a href="asset-register">Asset Register</a>
                         </li>
                     </ul>
                 </li>
