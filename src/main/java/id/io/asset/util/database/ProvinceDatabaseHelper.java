@@ -39,4 +39,38 @@ public class ProvinceDatabaseHelper extends BaseDatabaseHelper {
         }
         return row;
     }
+    
+    //update
+    public int update(String provinceId, ProvinceModel province) {
+        log.debug(ProvinceDatabaseHelper.class.getName(), "- updateProvince");
+
+        final String sql = "UPDATE masterprovince SET  provincename= :provincename WHERE provinceid= :provinceid;";
+        int row = 0;
+        try (Handle handle = getHandle()) {
+
+            row = handle.createUpdate(sql)
+                    .bind(ConstantHelper.PROVINCE_PROVINCEID, provinceId)
+                    .bind(ConstantHelper.PROVINCE_PROVINCENAME, province.getProviincename()).execute();
+
+        } catch (SQLException ex) {
+            log.error(ProvinceDatabaseHelper.class.getName(), " - errorUpdateProvince " + ex);
+        }
+        return row;
+    }
+    
+    //delete
+    public int delete(String provinceId) {
+        log.debug(ProvinceDatabaseHelper.class.getName(), "- deleteProvince");
+
+        final String sql = "DELETE FROM masterprovince WHERE provinceid = :provinceid;";
+        int result = 0;
+        try (Handle handle = getHandle()) {
+
+            result = handle.createUpdate(sql).bind(ConstantHelper.PROVINCE_PROVINCEID, provinceId).execute();
+
+        } catch (SQLException ex) {
+            log.error(ProvinceDatabaseHelper.class.getName(), " - errorDeleteProvince " + ex);
+        }
+        return result;
+    }
 }
