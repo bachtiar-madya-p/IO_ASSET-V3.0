@@ -129,4 +129,10 @@ public class ConstantHelper {
     public static final String ASSETREGISTER_NOTE            = "note";
     public static final String ASSETREGISTER_CREATEDT        = "createdt";
     
+    //PROVINCE RESPONSE CONFIGURATION
+    public static final String PROVINCE_PROVINCEID          = "provinceid";
+    public static final String PROVINCE_PROVINCECODE        = "provincecode";
+    public static final String PROVINCE_PROVINCENAME        = "provincename";
+    public static final String PROVINCE__ISACTIVE           = "isactive";
+    
 }
