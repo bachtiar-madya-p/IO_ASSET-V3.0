@@ -135,4 +135,10 @@ public class ConstantHelper {
     public static final String PROVINCE_PROVINCENAME        = "provincename";
     public static final String PROVINCE__ISACTIVE           = "isactive";
     
+    //CITY RESPONSE CONFIGURATION
+    public static final String CITY_CITYID                      = "cityid";
+    public static final String CITY_CITYNAME                    = "cityname";
+    public static final String CITY_PROVINCEID                  = "provinceid";
+    public static final String CITY_ISACTIVE                    = "isactive";
+    
 }
