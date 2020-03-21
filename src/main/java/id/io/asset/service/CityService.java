@@ -53,4 +53,61 @@ public class CityService extends BaseService {
         return Response.status((!response.has(ConstantHelper.HTTP_CODE))
                 ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
     }
+    
+    //activate
+    @POST
+    @Path("/activate/{cityId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response activate(@PathParam("cityId") String cityId, String jsonRequest) {
+        JSONObject response = new JSONObject();
+        try {
+            return Response.ok(cityController.activate(cityId, new JSONObject(jsonRequest)).toString()).build();
+        } catch (JSONException ex) {
+            response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_INTERNAL_SERVER_ERROR);
+            response.put(ConstantHelper.HTTP_REASON, "error_activate_city");
+            response.put(ConstantHelper.HTTP_MESSAGE, "Error Activate City cause :" + ex.getMessage());
+            return Response.status((!response.has(ConstantHelper.HTTP_CODE))
+                    ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
+        }
+    }
+    
+    
+    //delete
+    @DELETE
+    @Path("/{cityId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response delete(@PathParam("cityId") String cityId) {
+        JSONObject response = cityController.delete(cityId);
+        return Response.status((!response.has(ConstantHelper.HTTP_CODE))
+                ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
+    }
+    
+    //update
+    @PUT
+    @Path("/{cityId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response update(@PathParam("cityId") String cityId, String jsonRequest) {
+        JSONObject response = new JSONObject();
+        try {
+            return Response.ok(cityController.update(cityId, new JSONObject(jsonRequest)).toString()).build();
+        } catch (JSONException ex) {
+            response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_INTERNAL_SERVER_ERROR);
+            response.put(ConstantHelper.HTTP_REASON, "error_update_city");
+            response.put(ConstantHelper.HTTP_MESSAGE, "Error Update City cause :" + ex.getMessage());
+            return Response.status((!response.has(ConstantHelper.HTTP_CODE))
+                    ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
+        }
+    }
+    
+    //list
+    @GET
+    public Response cityList(){
+        return Response.ok(cityController.cityList()).build();
+    }
+    
+    @GET
+    @Path("/{cityId}")
+    public Response cityById(@PathParam("cityId") String cityId){
+        return Response.ok(cityController.getCity(cityId)).build();
+    }
 }
