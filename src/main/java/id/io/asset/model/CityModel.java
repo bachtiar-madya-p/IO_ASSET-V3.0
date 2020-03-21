@@ -18,14 +18,21 @@ public class CityModel {
     private String cityid;
     private String cityname;
     private String provinceid;
+    private String provincecode;
+    private String provincename;
     private boolean isactive;
     
-    public CityModel (String cityid, String cityname,String provinceid, boolean isactive){
+    public CityModel (String cityid, String cityname,String provinceid,String provincecode,String provincename, boolean isactive){
         this.cityid     = cityid;
         this.cityname   = cityname;
         this.provinceid = provinceid;
+        this.provincecode   = provincecode;
+        this.provincename   = provincename;
         this.isactive   = isactive;
-    
+    }
+
+    public CityModel() {
+        
     }
     
     public String getCityid(){
@@ -50,6 +57,22 @@ public class CityModel {
     
     public void setProvinceid(String provinceid){
         this.provinceid = provinceid;
+    }
+    
+    public String getProvincecode(){
+        return provincecode;
+    }
+    
+    public void setProvincecode(String provincecode){
+        this.provincecode = provincecode;
+    }
+    
+    public String getProviincename(){
+        return provincename;
+    }
+    
+    public void setProvincename(String provincename){
+        this.provincename = provincename;
     }
     
     public boolean isIsactive() {
