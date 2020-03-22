@@ -148,4 +148,15 @@ public class ConstantHelper {
     public static final String BUILDING_CITYID              = "cityid";
     public static final String BUILDING_ISACTIVE            = "isactive";
     
+    //VENDOR RESPONSE CONFIGURATION
+    public static final String VENDOR_VENDORID          = "vendorid";
+    public static final String VENDOR_VENDORCODE        = "vendorcode";
+    public static final String VENDOR_VENDORNAME        = "vendorname";
+    public static final String VENDOR_CONTACT           = "contact";
+    public static final String VENDOR_EMAIL             = "email";
+    public static final String VENDOR_ADDRESS          = "address";
+    public static final String VENDOR_NOTE             = "note";
+    public static final String VENDOR_RATE             = "rate";
+    public static final String VENDOR_REGISTERED       = "registered";
+    
 }
