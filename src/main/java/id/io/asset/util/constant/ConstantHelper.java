@@ -141,4 +141,11 @@ public class ConstantHelper {
     public static final String CITY_PROVINCEID                  = "provinceid";
     public static final String CITY_ISACTIVE                    = "isactive";
     
+    //BUILDING RESPONSE CONFIGURATION
+    public static final String BUILDING_BUILDINGID          = "buildingid";
+    public static final String BUILDING_BUILDINGNAME        = "buildingname";
+    public static final String BUILDING_DESCRIPTION         = "description";
+    public static final String BUILDING_CITYID              = "cityid";
+    public static final String BUILDING_ISACTIVE            = "isactive";
+    
 }
