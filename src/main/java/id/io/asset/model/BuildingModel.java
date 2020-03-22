@@ -46,7 +46,7 @@ public class BuildingModel {
         return buildingname;
     }
     
-    public void setBbuildingname (String buildingname){
+    public void setBuildingname (String buildingname){
         this.buildingname = buildingname;
     }
     
