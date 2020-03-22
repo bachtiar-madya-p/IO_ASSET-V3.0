@@ -29,6 +29,10 @@ public class BuildingModel {
         this.cityid         = cityid;
         this.isactive       = isactive;
     }
+
+    public BuildingModel() {
+       
+    }
     
     public String getBuildingid (){
         return buildingid;
