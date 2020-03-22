@@ -9,6 +9,7 @@ import id.io.asset.model.BuildingModel;
 import id.io.asset.util.constant.ConstantHelper;
 import id.io.asset.util.database.BuildingDatabaseHelper;
 import id.io.asset.util.database.UUIDGeneratorHelper;
+import java.util.List;
 import java.util.UUID;
 import org.apache.http.HttpStatus;
 import org.json.JSONObject;
@@ -35,9 +36,9 @@ public class BuildingController extends BaseController {
             UUID uuid = uuidGenerator.generateUUID(json.getString(ConstantHelper.BUILDING_BUILDINGNAME));
             BuildingModel model = new BuildingModel();
             model.setBuildingid(uuid.toString());
-            model.setBbuildingname(json.getString(ConstantHelper.BUILDING_BUILDINGNAME));
+            model.setBuildingname(json.getString(ConstantHelper.BUILDING_BUILDINGNAME));
             model.setDescription(json.getString(ConstantHelper.BUILDING_DESCRIPTION));
-            model.setCityid(json.getString(ConstantHelper.BUILDING_CITYID));
+            model.setCityid(json.getString(ConstantHelper.CITY_CITYID));
             buildingDatabaseHelper.create(model);
             response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
             response.put(ConstantHelper.HTTP_REASON, "create_bulding_successful");
@@ -71,7 +72,7 @@ public class BuildingController extends BaseController {
         JSONObject response = new JSONObject();
         if (json.length() != 0) {
             BuildingModel model = new BuildingModel();
-            model.setBbuildingname(json.getString(ConstantHelper.BUILDING_BUILDINGNAME));
+            model.setBuildingname(json.getString(ConstantHelper.BUILDING_BUILDINGNAME));
             model.setDescription(json.getString(ConstantHelper.BUILDING_DESCRIPTION));
             model.setCityid(json.getString(ConstantHelper.BUILDING_CITYID));
             buildingDatabaseHelper.update(buildingId, model);
@@ -82,6 +83,33 @@ public class BuildingController extends BaseController {
             response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_BAD_REQUEST);
             response.put(ConstantHelper.HTTP_REASON, "error_update_building");
             response.put(ConstantHelper.HTTP_MESSAGE, "Error Update Building : No such Building");
+        }
+        return response;
+    }
+    
+    public BuildingModel getBuilding(String buildingId) {
+        BuildingModel building = buildingDatabaseHelper.findById(buildingId);
+        return building;
+    }
+
+    //List
+    public List<BuildingModel> buildingList() {
+        List<BuildingModel> buildingList = buildingDatabaseHelper.getList();
+        return buildingList;
+    }
+    
+    //activate
+    public JSONObject activate(String buildingId, JSONObject json) {
+        JSONObject response = new JSONObject();
+        if (json.length() != 0) {
+            buildingDatabaseHelper.activate(buildingId, json.getBoolean(ConstantHelper.BUILDING_ISACTIVE));
+            response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
+            response.put(ConstantHelper.HTTP_REASON, "activate/inactivate_building_successful");
+            response.put(ConstantHelper.HTTP_MESSAGE, "Activate/Inactivate Building Successful!");
+        } else {
+            response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_BAD_REQUEST);
+            response.put(ConstantHelper.HTTP_REASON, "error_activate/inactivate_building");
+            response.put(ConstantHelper.HTTP_MESSAGE, "Error Activate/Inactivate Building : No such Building");
         }
         return response;
     }
