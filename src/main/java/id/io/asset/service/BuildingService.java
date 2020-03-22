@@ -9,6 +9,7 @@ import id.io.asset.controller.BuildingController;
 import id.io.asset.util.constant.ConstantHelper;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -75,5 +76,34 @@ public class BuildingService extends BaseService {
             return Response.status((!response.has(ConstantHelper.HTTP_CODE))
                     ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
         }
+    }
+   
+    //activate
+    @POST
+    @Path("/activate/{buildingId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response activate(@PathParam("buildingId") String buildingId, String jsonRequest) {
+        JSONObject response = new JSONObject();
+        try {
+            return Response.ok(buildingController.activate(buildingId, new JSONObject(jsonRequest)).toString()).build();
+        } catch (JSONException ex) {
+            response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_INTERNAL_SERVER_ERROR);
+            response.put(ConstantHelper.HTTP_REASON, "error_activate_building");
+            response.put(ConstantHelper.HTTP_MESSAGE, "Error Activate Building cause :" + ex.getMessage());
+            return Response.status((!response.has(ConstantHelper.HTTP_CODE))
+                    ? HttpStatus.SC_OK : response.getInt(ConstantHelper.HTTP_CODE)).entity(response.toString()).build();
+        }
+    }
+    
+    //list
+    @GET
+    public Response buildingList(){
+        return Response.ok(buildingController.buildingList()).build();
+    }
+    
+    @GET
+    @Path("/{buildingId}")
+    public Response buildingById(@PathParam("buildingId") String buildingId){
+        return Response.ok(buildingController.getBuilding(buildingId)).build();
     }
 }
