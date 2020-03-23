@@ -33,6 +33,10 @@ public class VendorModel {
         this.rate       = rate;
         this.registered = registered;
     }
+
+    public VendorModel() {
+       
+    }
     
     public String getVendorid(){
         return vendorid;
