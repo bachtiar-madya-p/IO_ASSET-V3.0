@@ -11,7 +11,7 @@
             <%@include file="page/preloader.jsp"%>
             <!-- END Preloader -->
 
-            <div id="page-container" class="sidebar-mini sidebar-visible-lg-mini sidebar-no-animations">
+            <div id="page-container" class="sidebar-partial sidebar-visible-lg sidebar-no-animations">
                 <!-- Main Sidebar -->
                 <%@include file="page/side-nav.jsp"%>
                 <!-- END Main Sidebar -->
