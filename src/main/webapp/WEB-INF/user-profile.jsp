@@ -42,17 +42,17 @@
                         <div class="content-header">
                             <div class="header-section">
                                 <h1>
-                                    <i class="gi gi-brush"></i>User Manager<br><small></small>
+                                    <i class="gi gi-brush"></i>User Profile<br><small></small>
                                 </h1>
                             </div>
                         </div>
                         <ul class="breadcrumb breadcrumb-top">
                             <li>Managers</li>
-                            <li><a href="">User Manager</a></li>
+                            <li><a href="">User Profile</a></li>
                         </ul>
                         <!-- END Page Header -->
 
-                        <!-- Datatables Content -->
+                        <!-- Data tables Content -->
                         <div class="block full">
                             <div class="block-title">
 
@@ -63,11 +63,15 @@
                                 <table id="userManagerDT" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th hidden>#</th>
 
+                                            <th hidden>#</th>
                                             <th>Name</th>
                                             <th hidden>Username</th>
+                                            <th hidden>alias</th>
+                                            <th hidden>member id</th>
+                                            <th hidden>member code</th>
                                             <th hidden>E-Mail</th>
+                                            <th hidden>image address</th>
                                             <th hidden>Level</th>
                                             <th hidden>Department</th>
                                             <th hidden>Status</th>
@@ -81,7 +85,7 @@
 
 
                         </div>
-                        <!-- END Datatables Content -->
+                        <!-- END Data tables Content -->
 
                     </div>
                     <!-- END Page Content -->
@@ -167,10 +171,10 @@
                     </div>
 
                     <!-- Edit Item Modal -->
-                    <div class="modal fade" id="edit-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal fade" id="edit-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
 
 
-                        <div class="modal-dialog" role="document">
+                        <div class="modal-dialog" role="document" style="width: 950px">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
@@ -178,13 +182,16 @@
                                 </div>
                                 <div class="modal-body">
 
-                                    <div class="block">
+                                    <div class="block" style="width: 900px">
                                         <div class="block-title">
-
+                                            <div class="block-options pull-right">
+                                                <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="Friend Request"><i class="fa fa-plus"></i></a>
+                                                <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="Hire"><i class="fa fa-briefcase"></i></a>
+                                            </div>
                                             <h2>About <strong >User</strong> <small>&bull; <i class="fa fa-file-text text-primary"></i> <a href="javascript:void(0)" data-toggle="tooltip" title="Download Bio in PDF">Bio</a></small></h2>
                                         </div>
                                         <form data-toggle="validator" action="" method="put" class="form-horizontal" role="form">
-                                            <table class="table table-borderless table-striped">
+                                            <table class="table table-borderless table-striped" id="prof">
                                                 <tbody>
                                                     <tr>
                                                         <td>
@@ -193,9 +200,9 @@
                                                         <td>
                                                             <div class="form-group">
 
-                                                                
+
                                                                 <div class="col-sm-8">
-                                                                    <input style="border: none; background-color: #f9f9f9" type="text" name="membername" class="form-control " data-error="Please enter title." required />
+                                                                    <input style="border: none; background-color: #f9f9f9" type="text" name="membername" class="form-control " data-error="Please enter title." readonly ></input> 
                                                                 </div>                                                        
 
                                                                 <div class="help-block with-errors"></div>
@@ -210,9 +217,52 @@
                                                         <td>
                                                             <div class="form-group">                                                                
                                                                 <div class="col-lg-8">
-                                                                   <input style="border: none" name="username" class="form-control" data-error="Please enter description." required></input> 
+                                                                    <input style="border: none; background-color: white" name="username" class="form-control" data-error="Please enter description." readonly></input> 
                                                                 </div>
-                                                                
+
+                                                                <div class="help-block with-errors"></div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label class="control-label" for="title">Alias</label>
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-group">                                                                
+                                                                <div class="col-lg-8">
+                                                                    <input style="border: none; background-color: #f9f9f9" name="alias" class="form-control" data-error="Please enter description." readonly></input> 
+                                                                </div>
+
+                                                                <div class="help-block with-errors"></div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>
+                                                            <label class="control-label" for="title">Member ID</label>
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-group">                                                                
+                                                                <div class="col-lg-8">
+                                                                    <input style="border: none; width: 500px; background-color: white" name="memberid" class="form-control" data-error="Please enter description." readonly></input> 
+                                                                </div>
+
+                                                                <div class="help-block with-errors"></div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                     <tr>
+                                                        <td>
+                                                            <label class="control-label" for="title">Member Code</label>
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-group">                                                                
+                                                                <div class="col-lg-8">
+                                                                    <input style="border: none; width: 500px; background-color: #f9f9f9" name="membercode" class="form-control" data-error="Please enter description." readonly></input> 
+                                                                </div>
+
                                                                 <div class="help-block with-errors"></div>
                                                             </div>
                                                         </td>
@@ -223,9 +273,24 @@
                                                         </td>
                                                         <td>
                                                             <div class="form-group">
-                                                                
+
                                                                 <div class="col-sm-8">
-                                                                    <input style="border: none; background-color: #f9f9f9" name="email" class="form-control" data-error="Please enter description." required></input>
+                                                                    <input style="border: none; background-color: white" name="email" class="form-control" data-error="Please enter description." readonly></input>
+                                                                </div>                                                                
+                                                                <div class="help-block with-errors"></div>
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+                                                     <tr>
+                                                        <td>
+                                                            <label class="control-label " for="title">Image Address</label>
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-group">
+
+                                                                <div class="col-sm-8">
+                                                                    <input style="border: none; background-color: #f9f9f9" name="imageaddress" class="form-control" data-error="Please enter description." readonly></input>
                                                                 </div>                                                                
                                                                 <div class="help-block with-errors"></div>
                                                             </div>
@@ -238,9 +303,9 @@
                                                         </td>
                                                         <td>
                                                             <div class="form-group">
-                                                                
+
                                                                 <div class="col-sm-8">
-                                                                    <input style="border: none" name="levelid" class="form-control" data-error="Please enter description." required></input>
+                                                                    <input style="border: none; background-color: white" name="levelid" class="form-control" data-error="Please enter description." readonly></input>
                                                                 </div>                                                                
                                                                 <div class="help-block with-errors"></div>
                                                             </div>
@@ -248,15 +313,31 @@
                                                         </td>
                                                     </tr>
 
-                                                  <tr>
+                                                    <tr>
                                                         <td>
                                                             <label class="control-label " for="title">Department ID</label>
                                                         </td>
                                                         <td>
                                                             <div class="form-group">
-                                                                
+
                                                                 <div class="col-sm-8">
-                                                                    <input style="border: none; background-color: #f9f9f9" name="departmentid" class="form-control" data-error="Please enter description." required></input>
+                                                                    <input style="border: none; background-color: #f9f9f9" name="departmentid" class="form-control" data-error="Please enter description." readonly></input>
+                                                                </div>                                                                
+                                                                <div class="help-block with-errors"></div>
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>
+                                                            <label class="control-label " for="title">Status</label>
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-group">
+
+                                                                <div class="col-sm-8">
+                                                                    <input style="border: none; background-color: #2c82ba; width: 90px; text-align: center; color: white" name="status" class="form-control" data-error="Please enter description." readonly ></input>
                                                                 </div>                                                                
                                                                 <div class="help-block with-errors"></div>
                                                             </div>
