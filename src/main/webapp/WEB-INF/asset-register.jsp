@@ -199,7 +199,7 @@
                                             <div class="help-block with-errors"></div>
                                         </div>  
 
-                                        <div class="form-group">
+                                        <div class="from-group">
                                             <label class="control-label" for="title">Model:</label>
                                             <input name="model" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
