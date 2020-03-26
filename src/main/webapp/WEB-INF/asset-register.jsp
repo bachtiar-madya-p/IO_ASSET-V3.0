@@ -78,7 +78,7 @@
                                             <th>Geolocation</th>   
                                             <th>Photo</th>  
                                             <th>Note</th>  
-                                            <th class="text-center">Actions</th>
+                                            <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>                                    
