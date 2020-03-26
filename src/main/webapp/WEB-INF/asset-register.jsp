@@ -63,9 +63,7 @@
                             <div class="pull-left" >
                                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create-item">+ Register Asset</button>
                             </div>
-                            <br>
-                                
-                            </br>
+                            <br>  </br>
                             
                             <div class="table-responsive" style="padding-top: 20px" >
                                 <table id="assetRegisterDT" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
