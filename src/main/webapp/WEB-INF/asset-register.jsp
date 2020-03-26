@@ -1,7 +1,7 @@
 <%-- 
     Document   : register.jsp
     Created on : Mar 11, 2020, 11:36:34 PM
-    Author     : ALVIRA
+    Author     : A L V I R A 
 --%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
