@@ -215,7 +215,7 @@
                                             <label class="control-label" for="title">Note:</label>
                                             <input name="note" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
-                                        </div>  
+                                        </div>
 
 
                                         <div class="form-group">
