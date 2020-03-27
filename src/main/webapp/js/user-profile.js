@@ -19,6 +19,7 @@ $(document).ready(function () {
             tab_data += '<td hidden>' + value.membercode + '</td>';
             tab_data += '<td hidden>' + value.email + '</td>';
             tab_data += '<td hidden>' + value.imageaddress + '</td>';
+            tab_data += '<td hidden>' + value.description + '</td>';
             tab_data += '<td hidden>' + value.levelid + '</td>';
             tab_data += '<td hidden>' + value.departmentid + '</td>';
 //                            tab_data += '<td><span class="label label-info">'+value.isadmin+'</span></td>';
@@ -41,13 +42,14 @@ $(document).ready(function () {
 
             var mod = '';
             var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
-            var membername = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
-            var username = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
-            var alias = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
-            var memberid = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
-            var membercode = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
-            var email = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
-            var imageaddress = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").text();
+            var membername = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+            var username = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+            var alias = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+            var memberid = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+            var membercode = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+            var email = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+            var imageaddress = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+            var description = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").text();
             var levelid = $(this).parent("td").prev("td").prev("td").prev("td").text();
             var departmentid = $(this).parent("td").prev("td").prev("td").text();
             var status = $(this).parent("td").prev("td").text();
@@ -60,6 +62,7 @@ $(document).ready(function () {
             $("#edit-item").find("input[name='membercode']").val(membercode);
             $("#edit-item").find("input[name='email']").val(email);
             $("#edit-item").find("input[name='imageaddress']").val(imageaddress);
+            $("#edit-item").find("input[name='description']").val(description);
             $("#edit-item").find("input[name='levelid']").val(levelid);
             $("#edit-item").find("input[name='departmentid']").val(departmentid);
             $("#edit-item").find("input[name='status']").val(status);
