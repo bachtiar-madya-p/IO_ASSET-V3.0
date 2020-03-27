@@ -321,7 +321,7 @@
                                                             <div class="form-group">
 
                                                                 <div class="col-sm-8">
-                                                                    <input style="border: none; background-color: white" name="levelid" class="form-control" data-error="Please enter description." readonly></input>
+                                                                    <input style="border: none; background-color: #f9f9f9" name="levelid" class="form-control" data-error="Please enter description." readonly></input>
                                                                 </div>                                                                
                                                                 <div class="help-block with-errors"></div>
                                                             </div>
