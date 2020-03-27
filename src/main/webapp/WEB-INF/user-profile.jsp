@@ -72,6 +72,7 @@
                                             <th hidden>member code</th>
                                             <th hidden>E-Mail</th>
                                             <th hidden>image address</th>
+                                            <th hidden>description</th>
                                             <th hidden>Level</th>
                                             <th hidden>Department</th>
                                             <th hidden>Status</th>
@@ -291,6 +292,21 @@
 
                                                                 <div class="col-sm-8">
                                                                     <input style="border: none; background-color: #f9f9f9" name="imageaddress" class="form-control" data-error="Please enter description." readonly></input>
+                                                                </div>                                                                
+                                                                <div class="help-block with-errors"></div>
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+                                                     <tr>
+                                                        <td>
+                                                            <label class="control-label " for="title">Description</label>
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-group">
+
+                                                                <div class="col-sm-8">
+                                                                    <input style="border: none; background-color: #f9f9f9" name="description" class="form-control" data-error="Please enter description." readonly></input>
                                                                 </div>                                                                
                                                                 <div class="help-block with-errors"></div>
                                                             </div>
