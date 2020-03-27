@@ -20,16 +20,9 @@
                 <li>
                     <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="hi hi-list-alt sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Managers</span></a>
                     <ul>
-                        <li>
-                            <a href="#" class="sidebar-nav-submenu"><i class="fa fa-angle-left  sidebar-nav-indicator"></i></i> User Managers</a>
-                            <ul>
-                                <li>
-                                    <a href="user-managers">User</a>
-                                </li>
-                                <li>
-                                    <a href="user-upload">Bulk Upload</a>
-                                </li>
-                            </ul>
+                       
+                         <li>
+                            <a href="user-managers">User Managers</a>
                         </li>
                         <li>
                             <a href="asset-master">Asset Master</a>
