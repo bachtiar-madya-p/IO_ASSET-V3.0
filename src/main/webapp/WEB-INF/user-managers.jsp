@@ -67,9 +67,10 @@
                                         <tr>
                                             <th hidden>#</th>
                                             <th>#</th>
-                                            <th>Name</th>
-                                            <th>Username</th>
+                                            <th>Name</th>                                            
                                             <th>E-Mail</th>
+                                            <th>Image</th>
+                                            <th>Description</th>
                                             <th>Level</th>
                                             <th>Department</th>
                                             <th>Status</th>
