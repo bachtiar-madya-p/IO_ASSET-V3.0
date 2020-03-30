@@ -116,13 +116,6 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Member Code:</label>
-                                            <input name="membercode" class="form-control" data-error="Please enter description." required></input>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-
-
-                                        <div class="form-group">
                                             <label class="control-label" for="title">Member Name:</label>
                                             <input type="text" name="membername" class="form-control" data-error="Please enter title." required />
                                             <div class="help-block with-errors"></div>
