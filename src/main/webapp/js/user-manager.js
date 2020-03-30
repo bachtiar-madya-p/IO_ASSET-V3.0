@@ -66,19 +66,21 @@ $(document).ready(function () {
 
             });
         });
-
-        $('body').on("click", ".edit-item", function () {
-            var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
-            var membername = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
-            var username = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
-            var email = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").text();
+        /* END Create new Item */
+         $('body').on("click", ".edit-item", function () {
+            var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();    
+            var membername = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();            
+            var email = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();    
+            var imageaddress = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+            var description = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").text();
             var levelid = $(this).parent("td").prev("td").prev("td").prev("td").text();
             var departmentid = $(this).parent("td").prev("td").prev("td").text();
 
 
-            $("#edit-item").find("input[name='membername']").val(membername);
-            $("#edit-item").find("input[name='username']").val(username);
+            $("#edit-item").find("input[name='membername']").val(membername);            
             $("#edit-item").find("input[name='email']").val(email);
+            $("#edit-item").find("input[name='imageaddress']").val(imageaddress);
+            $("#edit-item").find("input[name='description']").val(description);
             $("#edit-item").find("input[name='levelid']").val(levelid);
             $("#edit-item").find("input[name='departmentid']").val(departmentid);
 
@@ -94,10 +96,17 @@ $(document).ready(function () {
                 var form_action = $("#edit-item").find("form").attr("action");
                 var membername = $("#edit-item").find("input[name='membername']").val();                
                 var email = $("#edit-item").find("input[name='email']").val();
-                var imageaddress = $("#edit-item").find("input[name='email']").val();
+                var imageaddress = $("#edit-item").find("input[name='imageaddress']").val();
+                var description = $("#edit-item").find("input[name='description']").val();
                 var levelid = $("#edit-item").find("input[name='levelid']").val();
                 var departmentid = $("#edit-item").find("input[name='departmentid']").val();
-                var tada = {"username": username};
+                var tada = {"membername": membername,
+                            "email": email,
+                            "imageaddress": imageaddress,
+                            "description": description,
+                            "levelid": levelid,
+                            "departmentid": departmentid
+                };
                 $.ajax({
 
                     dataType: 'json',
