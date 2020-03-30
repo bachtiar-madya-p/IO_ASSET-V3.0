@@ -116,7 +116,7 @@ $(document).ready(function () {
         /* Remove Item */
         $("body").on("click", ".remove-item", function () {
 
-            var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();          
+            var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();          
 
             $.ajax({
                 dataType: 'json',
