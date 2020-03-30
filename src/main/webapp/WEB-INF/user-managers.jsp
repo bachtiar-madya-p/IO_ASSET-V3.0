@@ -67,7 +67,8 @@
                                         <tr>
                                             <th hidden>#</th>
                                             <th>#</th>
-                                            <th>Name</th>                                            
+                                            <th>Name</th>
+                                            
                                             <th>E-Mail</th>
                                             <th>Image</th>
                                             <th>Description</th>
@@ -114,7 +115,9 @@
                                             <label class="control-label" for="title">Alias:</label>
                                             <input name="alias" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
-                                        </div>                                        
+                                        </div>
+
+                                   
 
 
                                         <div class="form-group">
