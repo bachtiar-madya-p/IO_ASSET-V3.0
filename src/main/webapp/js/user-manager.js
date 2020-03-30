@@ -129,7 +129,7 @@ $(document).ready(function () {
 
             });
         });
-        $('body').on('click', ".deactive-user", function () {
+       $('body').on('click', ".deactive-user", function () {
 
             if($(this).parent("td").prev("td").text()=== 'Inactive'){
                 var status = true;
@@ -139,7 +139,7 @@ $(document).ready(function () {
             }
             
 
-            var userid = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+            var userid =  $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();  
 
             var tada = {"isactive": status, "userid": userid};
             $.ajax({
