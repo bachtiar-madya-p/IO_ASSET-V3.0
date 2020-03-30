@@ -9,7 +9,7 @@ $(document).ready(function () {
         var tab_data = '';
         tabel = $.each(data, function (key, value) {
 
-           tab_data += '<tr>';
+            tab_data += '<tr>';
             tab_data += '<td hidden>' + value.userid + '</td>';
             tab_data += '<td></td>';
             tab_data += '<td>' + value.membername + '</td>';
@@ -38,7 +38,8 @@ $(document).ready(function () {
             var act = $("#create-item").find("form").attr("action", );
 
             var username = $("#create-item").find("input[name='username']").val();
-            var alias = $("#create-item").find("input[name='alias']").val();            
+            var alias = $("#create-item").find("input[name='alias']").val();
+            
             var membername = $("#create-item").find("input[name='membername']").val();
             var email = $("#create-item").find("input[name='email']").val();
             var imageaddress = $("#create-item").find("input[name='imageaddress']").val();
@@ -66,8 +67,8 @@ $(document).ready(function () {
 
             });
         });
-        /* END Create new Item */
-         $('body').on("click", ".edit-item", function () {
+
+        $('body').on("click", ".edit-item", function () {
             var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();    
             var membername = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();            
             var email = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();    
@@ -138,7 +139,7 @@ $(document).ready(function () {
 
             });
         });
-       $('body').on('click', ".deactive-user", function () {
+        $('body').on('click', ".deactive-user", function () {
 
             if($(this).parent("td").prev("td").text()=== 'Inactive'){
                 var status = true;
