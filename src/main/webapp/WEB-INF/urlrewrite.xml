@@ -39,6 +39,10 @@
         <from>^/asset-master</from>
         <to>/WEB-INF/asset-master.jsp</to>
     </rule>
+    <rule>
+        <from>^/vendor</from>
+        <to>/WEB-INF/vendor.jsp</to>
+    </rule>
 
 
 </urlrewrite>
