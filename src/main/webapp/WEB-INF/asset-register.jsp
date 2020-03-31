@@ -1,3 +1,4 @@
+
 <%-- 
     Document   : register.jsp
     Created on : Mar 11, 2020, 11:36:34 PM
@@ -41,7 +42,6 @@
 
                     <!-- Page content -->
                     <div id="page-content">
-                          
                         <!-- Page Header -->
                         <div class="content-header">
                             <div class="header-section">
@@ -55,16 +55,13 @@
                             <li><a href="">Asset Master</a></li>
                         </ul>
                         <!-- END Page Header -->
-                     
+
                         <!-- Datatables Content -->
                         <div class="block full">
                             <div class="block-title">
 
                             </div>
-                            <div class="pull-left" >
-                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create-item">+ Register Asset</button>
-                            </div>
-                            <br></br>
+                        
                             
                             <div class="table-responsive" style="padding-top: 20px" >
                                 <table id="assetRegisterDT" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">

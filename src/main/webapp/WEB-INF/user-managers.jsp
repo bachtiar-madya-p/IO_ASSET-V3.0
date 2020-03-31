@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -38,21 +39,19 @@
 
                     <!-- Page content -->
                     <div id="page-content">
-                           
                         <!-- Page Header -->
                         <div class="content-header">
                             <div class="header-section">
                                 <h1>
-                                    User Manager<br><small></small>
+                                    <i class="gi gi-brush"></i>User Manager<br><small></small>
                                 </h1>
                             </div>
                         </div>
-                         <ul class="breadcrumb breadcrumb-top">
+                        <ul class="breadcrumb breadcrumb-top">
                             <li>Managers</li>
-                            <li><a href="">Asset Master</a></li>
+                            <li><a href="">User Manager</a></li>
                         </ul>
                         <!-- END Page Header -->
-                     
 
                         <!-- Datatables Content -->
                         <div class="block full">
@@ -63,12 +62,13 @@
                                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create-item">+ Add User</button>
                             </div>
                             <br style="line-height:35px;"></br>
-                            <div class="table-responsive" >
+                            <div class="table-responsive" style="padding-top: 20px" >
                                 <table id="userManagerDT" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                     <thead>
                                         <tr>
+                                            <th hidden>#</th>
                                             <th>#</th>
-                                            <th>Nama</th>
+                                            <th>Name</th>
                                             <th>Username</th>
                                             <th>E-Mail</th>
                                             <th>Level</th>

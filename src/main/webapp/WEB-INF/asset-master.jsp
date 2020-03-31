@@ -193,7 +193,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <form data-toggle="validator" action="" method="put" >
-                                        <div class="form-group">
+                                        <div class="form-group" hidden>
                                             <label class="control-label col-sm-3" for="title">Asset Code :</label>
                                             <div class="col-sm-8">
                                                 <input name="assetcode" class="form-control" data-error="Please enter description." required></input>

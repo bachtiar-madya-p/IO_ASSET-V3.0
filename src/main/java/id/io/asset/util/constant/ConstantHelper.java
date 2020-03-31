@@ -129,4 +129,34 @@ public class ConstantHelper {
     public static final String ASSETREGISTER_NOTE            = "note";
     public static final String ASSETREGISTER_CREATEDT        = "createdt";
     
+    //PROVINCE RESPONSE CONFIGURATION
+    public static final String PROVINCE_PROVINCEID          = "provinceid";
+    public static final String PROVINCE_PROVINCECODE        = "provincecode";
+    public static final String PROVINCE_PROVINCENAME        = "provincename";
+    public static final String PROVINCE__ISACTIVE           = "isactive";
+    
+    //CITY RESPONSE CONFIGURATION
+    public static final String CITY_CITYID                      = "cityid";
+    public static final String CITY_CITYNAME                    = "cityname";
+    public static final String CITY_PROVINCEID                  = "provinceid";
+    public static final String CITY_ISACTIVE                    = "isactive";
+    
+    //BUILDING RESPONSE CONFIGURATION
+    public static final String BUILDING_BUILDINGID          = "buildingid";
+    public static final String BUILDING_BUILDINGNAME        = "buildingname";
+    public static final String BUILDING_DESCRIPTION         = "description";
+    public static final String BUILDING_CITYID              = "cityid";
+    public static final String BUILDING_ISACTIVE            = "isactive";
+    
+    //VENDOR RESPONSE CONFIGURATION
+    public static final String VENDOR_VENDORID          = "vendorid";
+    public static final String VENDOR_VENDORCODE        = "vendorcode";
+    public static final String VENDOR_VENDORNAME        = "vendorname";
+    public static final String VENDOR_CONTACT           = "contact";
+    public static final String VENDOR_EMAIL             = "email";
+    public static final String VENDOR_ADDRESS          = "address";
+    public static final String VENDOR_NOTE             = "note";
+    public static final String VENDOR_RATE             = "rate";
+    public static final String VENDOR_REGISTERED       = "registered";
+    
 }
