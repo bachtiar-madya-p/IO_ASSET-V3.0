@@ -163,7 +163,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-3" for="title">Rate :</label>
                                             <div class="col-sm-8">
-                                                <input type="number" name="rate" class="form-control" data-error="Please enter description." required></input>
+                                                <input type="number" name="rate" class="form-control" data-error="Please enter description." required onkeypress="javascript:return isNumber(event)" placeholder="Enter number"></input>
                                             </div>
                                             <div class="help-block with-errors"></div>
                                         </div>
