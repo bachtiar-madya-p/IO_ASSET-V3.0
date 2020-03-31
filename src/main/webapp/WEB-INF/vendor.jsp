@@ -66,7 +66,7 @@
                             <br></br>
 
                             <div class="table-responsive" style="padding-top: 20px" >
-                                <table id="assetMasterDT" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                                <table id="VendorDT" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th hidden>#</th>
@@ -189,7 +189,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <form data-toggle="validator" action="" method="put" class="form-horizontal" >
-                                        <div class="form-group" hidden>
+                                        <div class="form-group">
                                             <label class="control-label col-sm-3" for="title">Vendor Code :</label>
                                             <div class="col-sm-8">
                                                 <input name="vendorcode" class="form-control" data-error="Please enter description." required></input>
@@ -242,13 +242,13 @@
                                         <div class="form-group" style="padding-bottom: 20px">
                                             <label class="control-label col-sm-3" for="title">Rate :</label>
                                             <div class="col-sm-8">
-                                                <input name="rate" class="form-control" data-error="Please enter description." required></input>
+                                                <input type="number" name="rate" class="form-control" data-error="Please enter description." required onkeypress="javascript:return isNumber(event)" placeholder="Enter number"></input>
                                             </div>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
 
-                                        <div class="form-group" style="padding-left: 155px; padding-top: 250px" >
+                                        <div class="form-group" style="padding-left: 255px; " >
                                             <button type="submit" class="btn btn-info crud-submit-edit" >Submit</button>
                                         </div>
                                     </form>
