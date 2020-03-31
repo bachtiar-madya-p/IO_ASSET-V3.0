@@ -70,13 +70,13 @@
                                     <thead>
                                         <tr>
                                             <th hidden>#</th>
-                                            <th>Asset Code</th>
-                                            <th>Asset Name</th>
-                                            <th>Type</th>   
-                                            <th>Manufacture</th>   
-                                            <th>Model</th>   
-                                            <th>Vendor</th>   
+                                            <th>Vendor Code</th>
+                                            <th>Vendor Name</th>
+                                            <th>Contact</th>   
+                                            <th>E-mail</th>   
+                                            <th>Address</th>   
                                             <th>Note</th>   
+                                            <th>Rate</th>   
                                             <th class="text-center">Actions</th>
                                         </tr>
                                     </thead>
