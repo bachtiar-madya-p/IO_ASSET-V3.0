@@ -38,6 +38,12 @@
                                  <li>
                                     <a href="asset-register"><i class="gi gi-registration_mark"></i> Asset Register</a>
                                 </li>
+                                <li>
+                                    <a href="user-profile"><i class="fa fa-users"></i> User Profile</a>
+                                </li>
+                                 <li>
+                                    <a href="vendor"><i class="gi gi-factory"></i> Vendor</a>
+                                </li>
                             </ul>
                         </div>
                         <!-- END Dashboard 2 Header -->
