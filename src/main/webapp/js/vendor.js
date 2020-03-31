@@ -38,12 +38,47 @@ $(document).ready(function () {
 
         $('#assetMasterDT').append(tab_data).DataTable({responsive: true});
 
+           /* Create new Item */
+        $(".crud-submit").click(function (e) {
+            e.preventDefault();
+            var act = $("#create-item").find("form").attr("action", );
 
+            var vendorcode = $("#create-item").find("input[name='vendorcode']").val();
+            var vendorname = $("#create-item").find("input[name='vendorname']").val();
+            var contact = $("#create-item").find("input[name='contact']").val();
+            var email = $("#create-item").find("input[name='email']").val();
+            var address = $("#create-item").find("input[name='address']").val();
+            var note = $("#create-item").find("input[name='note']").val();
+            var rate = $("#create-item").find("input[name='rate']").val();
+            var tada = {"vendorcode": vendorcode,
+                "vendorname": vendorname,
+                "contact": contact,
+                "email": email,
+                "address": address,
+                "note": note,
+                "rate": rate
+            };
+            $.ajax({
+                dataType: 'json',
+                type: 'POST',
+                url: hsRestUrl() + "/vendor",
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(tada)
+            }).done(function (data) {
+                window.parent.location = window.parent.location.href;
 
-
-       
+            });
+        });
+     
 
 
     });
 });
      
+ function isNumber(evt) {
+        var iKeyCode = (evt.which) ? evt.which : evt.keyCode;
+        if (iKeyCode !== 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
+            return false;
+
+        return true;
+    }  
