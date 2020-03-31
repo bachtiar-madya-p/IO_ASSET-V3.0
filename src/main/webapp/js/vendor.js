@@ -133,11 +133,27 @@ $(document).ready(function () {
 
                     window.parent.location = window.parent.location.href;
                 });
-            });
-
+            });            
         });
+        
+        /* Remove Item */
+        $("body").on("click", ".remove-item", data, function (value) {
 
 
+            var vendorid = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+            var result = confirm("Are u sure to delete this?!");
+            if (result) {
+                $.ajax({
+                    dataType: 'json',
+                    type: 'delete',
+                    url: hsRestUrl() + "/vendor/" + vendorid,
+                    contentType: 'application/json; charset=utf-8'
+                }).done(function (data) {
+
+                    window.parent.location = window.parent.location.href;                    
+                });
+            }
+        });       
     });
 });
      
