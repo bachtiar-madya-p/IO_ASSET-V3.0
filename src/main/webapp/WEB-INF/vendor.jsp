@@ -45,13 +45,13 @@
                         <div class="content-header">
                             <div class="header-section">
                                 <h1>
-                                    <i class="gi gi-brush"></i>Asset Master<br><small></small>
+                                    <i class="gi gi-brush"></i>Vendor<br><small></small>
                                 </h1>
                             </div>
                         </div>
                         <ul class="breadcrumb breadcrumb-top">
                             <li>Managers</li>
-                            <li><a href="">Asset Master</a></li>
+                            <li><a href="">Vendor</a></li>
                         </ul>
                         <!-- END Page Header -->
 
@@ -87,9 +87,7 @@
 
 
                         </div>
-                        <div class="spinner-grow" role="status">
-                            <span class="sr-only">Loading...</span>
-                        </div>
+                      
                         <!-- END Datatables Content -->
 
                     </div>
