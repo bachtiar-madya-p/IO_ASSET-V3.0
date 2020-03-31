@@ -101,7 +101,7 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    <form data-toggle="validator" action="/user" method="POST">
+                                    <form data-toggle="validator"  method="POST">
                                         <div class="form-group">
                                             <label class="control-label" for="title">Username:</label>
                                             <input name="username" class="form-control" data-error="Please enter description." required></input>

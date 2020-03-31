@@ -60,7 +60,7 @@ $(document).ready(function () {
                 contentType: 'application/json; charset=utf-8',
                 data: JSON.stringify(tada)
             }).done(function (data) {
-//               window.parent.location = window.parent.location.href;
+               window.parent.location = window.parent.location.href;
 
             });
         });
