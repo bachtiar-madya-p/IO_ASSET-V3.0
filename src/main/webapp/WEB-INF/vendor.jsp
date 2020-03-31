@@ -285,6 +285,6 @@
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
 
     <script src="js/pages/tablesDatatables.js"></script>
-    <script type="text/javascript" src="js/asset-master.js"></script>
+    <script type="text/javascript" src="js/vendor.js"></script>
 </body>
 </html>
