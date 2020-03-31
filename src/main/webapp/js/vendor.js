@@ -36,7 +36,7 @@ $(document).ready(function () {
             tab_data += '</tr>';
         });
 
-        $('#assetMasterDT').append(tab_data).DataTable({responsive: true});
+        $('#VendorDT').append(tab_data).DataTable({responsive: true});
 
            /* Create new Item */
         $(".crud-submit").click(function (e) {
@@ -70,6 +70,72 @@ $(document).ready(function () {
             });
         });
      
+        
+        /* Edit Item */
+        $('body').on("click", ".edit-item", function (value) {
+            var vendorid = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+            var vendorcode = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+            var vendorname = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+            var contact = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+            var email = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").text();
+            var address = $(this).parent("td").prev("td").prev("td").prev("td").text();
+            var note = $(this).parent("td").prev("td").prev("td").text();
+            var rate = $(this).parent("td").prev("td").text();
+
+
+
+            $("#edit-item").find("input[name='vendorcode']").val(vendorcode);
+            $("#edit-item").find("input[name='vendorname']").val(vendorname);
+            $("#edit-item").find("input[name='contact']").val(contact);
+            $("#edit-item").find("input[name='email']").val(email);
+            $("#edit-item").find("input[name='address']").val(address);
+            $("#edit-item").find("input[name='note']").val(note);
+            $("#edit-item").find("input[name='rate']").val(rate);
+
+
+
+            $("#edit-item").find("form").attr("action", hsRestUrl() + "/vendor/" + vendorid);
+
+            /* Updated new Item */
+            $(".crud-submit-edit").click(function (e) {
+
+
+                e.preventDefault();
+
+
+                var form_action = $("#edit-item").find("form").attr("action");
+                var vendorcode = $("#edit-item").find("input[name='vendorcode']").val();
+                var vendorname = $("#edit-item").find("input[name='vendorname']").val();
+                var contact = $("#edit-item").find("input[name='contact']").val();
+                var email = $("#edit-item").find("input[name='email']").val();
+                var address = $("#edit-item").find("input[name='address']").val();
+                var note = $("#edit-item").find("input[name='note']").val();
+                var rate = $("#edit-item").find("input[name='rate']").val();
+
+                var tada = {"vendorcode": vendorcode,
+                    "vendorname": vendorname,
+                    "contact": contact,
+                    "email": email,
+                    "address": address,
+                    "note": note,
+                    "rate": rate
+                };
+                $.ajax({
+
+                    dataType: 'json',
+                    type: 'put',
+                    url: form_action,
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(tada)
+
+
+                }).done(function (data) {
+
+                    window.parent.location = window.parent.location.href;
+                });
+            });
+
+        });
 
 
     });
