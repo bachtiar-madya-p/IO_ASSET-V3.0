@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="page/css_import.jsp"%>
-        <title>Asset Master</title>
+        <title>Vendor</title>
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
         <link rel="stylesheet" href="css/bootstrap.min-3.6.css">
@@ -139,7 +139,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-3" for="title">E-mail :</label>
                                             <div class="col-sm-8">
-                                                <input type="email" name="manufacture" class="form-control" data-error="Please enter title." required />
+                                                <input type="email" name="email" class="form-control" data-error="Please enter title." required />
                                             </div>
                                             <div class="help-block with-errors"></div>
                                         </div>
@@ -163,7 +163,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-3" for="title">Rate :</label>
                                             <div class="col-sm-8">
-                                                <input name="rate" class="form-control" data-error="Please enter description." required></input>
+                                                <input type="number" name="rate" class="form-control" data-error="Please enter description." required></input>
                                             </div>
                                             <div class="help-block with-errors"></div>
                                         </div>
