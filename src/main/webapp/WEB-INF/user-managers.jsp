@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -102,7 +101,9 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    <form data-toggle="validator" action="/user" method="POST">
+
+                                    <form data-toggle="validator"  method="POST">
+
                                         <div class="form-group">
                                             <label class="control-label" for="title">Username:</label>
                                             <input name="username" class="form-control" data-error="Please enter description." required></input>
@@ -117,13 +118,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Member Code:</label>
-                                            <input name="membercode" class="form-control" data-error="Please enter description." required></input>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
 
-
-                                        <div class="form-group">
                                             <label class="control-label" for="title">Member Name:</label>
                                             <input type="text" name="membername" class="form-control" data-error="Please enter title." required />
                                             <div class="help-block with-errors"></div>
