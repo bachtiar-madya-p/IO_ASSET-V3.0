@@ -41,11 +41,12 @@
 
                     <!-- Page content -->
                     <div id="page-content">
+                      
                         <!-- Page Header -->
                         <div class="content-header">
                             <div class="header-section">
                                 <h1>
-                                    <i class="gi gi-brush"></i>Asset Master<br><small></small>
+                                    Asset Master<br><small></small>
                                 </h1>
                             </div>
                         </div>
@@ -54,6 +55,7 @@
                             <li><a href="">Asset Master</a></li>
                         </ul>
                         <!-- END Page Header -->
+                          
 
                         <!-- Datatables Content -->
                         <div class="block full">
@@ -248,7 +250,6 @@
                                             </div>
                                             <div class="help-block with-errors"></div>
                                         </div>
-
 
                                         <div class="form-group" style="padding-left: 155px; padding-top: 250px" >
                                             <button type="submit" class="btn btn-info crud-submit-edit" >Submit</button>
