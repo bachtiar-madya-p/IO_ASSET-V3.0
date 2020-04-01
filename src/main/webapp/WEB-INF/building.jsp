@@ -63,7 +63,7 @@
 
                             </div>
                             <div class="pull-left" >
-                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create-item">+ Add </button>
+                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create-item">+ Add Building</button>
                             </div>
                             <br></br>
 
@@ -72,13 +72,10 @@
                                     <thead>
                                         <tr>
                                             <th hidden>#</th>
-                                            <th>Asset Code</th>
-                                            <th>Asset Name</th>
-                                            <th>Type</th>   
-                                            <th>Manufacture</th>   
-                                            <th>Model</th>   
-                                            <th>Vendor</th>   
-                                            <th>Note</th>   
+                                            <th>Building Name</th>
+                                            <th>Description</th>
+                                            <th>City ID</th>   
+                                            <th>Status</th>                                                
                                             <th class="text-center">Actions</th>
                                         </tr>
                                     </thead>
