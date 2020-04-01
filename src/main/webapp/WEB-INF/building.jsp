@@ -72,10 +72,10 @@
                                     <thead>
                                         <tr>
                                             <th hidden>#</th>
-                                            <th>Building Name</th>
-                                            <th>Description</th>
-                                            <th>City ID</th>   
-                                            <th>Status</th>                                                
+                                            <th class="text-center">Building Name</th>
+                                            <th class="text-center">Description</th>
+                                            <th class="text-center">City ID</th>   
+                                            <th class="text-center">Status</th>                                                
                                             <th class="text-center">Actions</th>
                                         </tr>
                                     </thead>
