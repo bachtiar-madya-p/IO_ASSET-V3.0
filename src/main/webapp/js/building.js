@@ -38,7 +38,32 @@ $(document).ready(function () {
         });
 
         $('#assetMasterDT').append(tab_data).DataTable({responsive: true});
+        
+          /* Create new Item */
+        $(".crud-submit").click(function (e) {
+            e.preventDefault();
+            var act = $("#create-item").find("form").attr("action", );
 
+            var buildingname = $("#create-item").find("input[name='buildingname']").val();
+            var description = $("#create-item").find("input[name='description']").val();
+            var cityid = $("#create-item").find("input[name='cityid']").val();
+            
+            var tada = {"buildingname": buildingname,
+                "description": description,
+                "cityid": cityid
+
+            };
+            $.ajax({
+                dataType: 'json',
+                type: 'POST',
+                url: hsRestUrl() + "/building",
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(tada)
+            }).done(function (data) {
+                window.parent.location = window.parent.location.href;
+
+            });
+        });
                       
     });
 });
