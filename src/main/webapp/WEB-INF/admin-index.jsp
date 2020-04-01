@@ -39,7 +39,7 @@
                                     <a href="asset-register"><i class="gi gi-registration_mark"></i> Asset Register</a>
                                 </li>
                                 <li>
-                                    <a href="building"><i class="fa fa-building-o"></i> Building</a>
+                                    <a href="building"><i class="fa fa-building"></i> Building</a>
                                 </li>
                             </ul>
                         </div>
