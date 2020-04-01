@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="page/css_import.jsp"%>
-        <title>Asset Master</title>
+        <title>Building</title>
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
         <link rel="stylesheet" href="css/bootstrap.min-3.6.css">
@@ -46,13 +46,13 @@
                         <div class="content-header">
                             <div class="header-section">
                                 <h1>
-                                    Asset Master<br><small></small>
+                                    Building<br><small></small>
                                 </h1>
                             </div>
                         </div>
                         <ul class="breadcrumb breadcrumb-top">
                             <li>Managers</li>
-                            <li><a href="">Asset Master</a></li>
+                            <li><a href="">Building</a></li>
                         </ul>
                         <!-- END Page Header -->
                           
@@ -63,7 +63,7 @@
 
                             </div>
                             <div class="pull-left" >
-                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create-item">+ Add Asset</button>
+                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create-item">+ Add </button>
                             </div>
                             <br></br>
 
