@@ -30,6 +30,9 @@
                         <li>
                             <a href="asset-register">Asset Register</a>
                         </li>
+                        <li>
+                            <a href="building">Building</a>
+                        </li>
                     </ul>
                 </li>
                 <li>
