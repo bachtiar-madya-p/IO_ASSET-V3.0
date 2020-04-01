@@ -3,7 +3,6 @@
     Created on : Mar 11, 2020, 11:36:34 PM
     Author     : A L V I R A 
 --%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -24,7 +23,7 @@
         <link rel="stylesheet" href="https://editor.datatables.net/extensions/Editor/css/editor.dataTables.min.css">
     </head>
    <body>
-        <div id="page-wrapper">
+      <div id="page-wrapper">
             <!-- Preloader -->
             <%@include file="page/preloader.jsp"%>
             <!-- END Preloader -->
@@ -45,13 +44,13 @@
                         <div class="content-header">
                             <div class="header-section">
                                 <h1>
-                                    <i class="gi gi-brush"></i>Asset Master<br<small></small>
+                                    <i class="gi gi-brush"></i>Asset Register<br<small></small>
                                 </h1>
                             </div>
                         </div>
                         <ul class="breadcrumb breadcrumb-top">
                             <li>Managers</li>
-                            <li><a href="">Asset Master</a></li>
+                            <li><a href="">Asset Register</a></li>
                         </ul>
                         <!-- END Page Header -->
 
@@ -101,9 +100,7 @@
 
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-
-
-                                <div class="modal-header">
+                             <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                     <h4 class="modal-title" id="myModalLabel">Add Asset</h4>
                                 </div>
@@ -236,8 +233,7 @@
         <!-- END Page Container -->
     </div>
     <!-- END Page Wrapper -->
-
-    <!-- Scroll to top link, initialized in js/app.js - scrollToTop() -->
+     <!-- Scroll to top link, initialized in js/app.js - scrollToTop() -->
     <a href="#" id="to-top"><i class="fa fa-angle-double-up"></i></a>
         <%@include file="page/js_import.jsp"%>
     <script src="assets/js/pages/tablesDatatables.js"></script>
@@ -256,3 +252,5 @@
     <script type="text/javascript" src="js/asset-register.js"></script>
 </body>
 </html>
+
+    
