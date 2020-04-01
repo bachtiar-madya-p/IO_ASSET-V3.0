@@ -38,10 +38,13 @@
                                  <li>
                                     <a href="asset-register"><i class="gi gi-registration_mark"></i> Asset Register</a>
                                 </li>
+                                <li>
+                                    <a href="building"><i class="fa fa-building-o"></i> Building</a>
+                                </li>
                             </ul>
                         </div>
                         <!-- END Dashboard 2 Header -->
-
+                        
                     </div>
                     <!-- END Page Content -->
 
