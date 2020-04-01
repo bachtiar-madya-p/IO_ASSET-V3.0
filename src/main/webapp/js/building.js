@@ -38,8 +38,8 @@ $(document).ready(function () {
         });
 
         $('#assetMasterDT').append(tab_data).DataTable({responsive: true});
-        
-          /* Create new Item */
+
+        /* Create new Item */
         $(".crud-submit").click(function (e) {
             e.preventDefault();
             var act = $("#create-item").find("form").attr("action", );
@@ -47,7 +47,7 @@ $(document).ready(function () {
             var buildingname = $("#create-item").find("input[name='buildingname']").val();
             var description = $("#create-item").find("input[name='description']").val();
             var cityid = $("#create-item").find("input[name='cityid']").val();
-            
+
             var tada = {"buildingname": buildingname,
                 "description": description,
                 "cityid": cityid
@@ -64,18 +64,18 @@ $(document).ready(function () {
 
             });
         });
-        
-          /* Edit Item */
+
+        /* Edit Item */
         $('body').on("click", ".edit-item", function (value) {
             var buildingid = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
             var buildingname = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").text();
             var description = $(this).parent("td").prev("td").prev("td").prev("td").text();
-            var cityid = $(this).parent("td").prev("td").prev("td").text();       
+            var cityid = $(this).parent("td").prev("td").prev("td").text();
 
 
             $("#edit-item").find("input[name='buildingname']").val(buildingname);
             $("#edit-item").find("input[name='description']").val(description);
-            $("#edit-item").find("input[name='cityid']").val(cityid);        
+            $("#edit-item").find("input[name='cityid']").val(cityid);
 
             $("#edit-item").find("form").attr("action", hsRestUrl() + "/building/" + buildingid);
 
@@ -89,11 +89,11 @@ $(document).ready(function () {
                 var form_action = $("#edit-item").find("form").attr("action");
                 var buildingname = $("#edit-item").find("input[name='buildingname']").val();
                 var description = $("#edit-item").find("input[name='description']").val();
-                var cityid = $("#edit-item").find("input[name='cityid']").val();           
+                var cityid = $("#edit-item").find("input[name='cityid']").val();
 
                 var tada = {"buildingname": buildingname,
                     "description": description,
-                    "cityid": cityid                
+                    "cityid": cityid
                 };
                 $.ajax({
 
@@ -110,8 +110,31 @@ $(document).ready(function () {
                 });
             });
 
+            /* Remove Item */
+            $("body").on("click", ".remove-item", data, function (value) {
+
+
+                var buildingid = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+                var result = confirm("Are u sure to delete this?!");
+                if (result) {
+                    $.ajax({
+                        dataType: 'json',
+                        type: 'delete',
+                        url: hsRestUrl() + "/building/" + buildingid,
+                        contentType: 'application/json; charset=utf-8'
+                    }).done(function (data) {
+
+                        window.parent.location = window.parent.location.href;
+
+
+                    });
+                }
+
+
+            });
+
         });
-                      
+
     });
 });
      
