@@ -66,7 +66,7 @@
                             <br></br>
 
                             <div class="table-responsive" style="padding-top: 20px" >
-                                <table id="VendorDT" class="table table-vcenter table-condensed table-bordered" style="width:100%">
+                                <table id="VendorDT" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th hidden>#</th>
@@ -84,8 +84,6 @@
                                     </tbody>
                                 </table>
                             </div>
-
-
                         </div>
                       
                         <!-- END Datatables Content -->
@@ -276,11 +274,11 @@
 
         });</script>
     
-<script src="js/vendor/jquery.min-3.6.js"></script>
-<script src="js/vendor/bootstrap.min-3.6.js"></script>
-<script src="js/plugins-3.8.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-<script src="js/app-3.7.js"></script><script src="js/pages/tablesDatatables.js"></script>
+    <script src="assets/js/vendor/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
 
     
 
