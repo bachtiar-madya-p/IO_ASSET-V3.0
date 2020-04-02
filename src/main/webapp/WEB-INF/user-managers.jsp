@@ -69,7 +69,7 @@
                                             <th hidden>#</th>
                                             <th>#</th>
                                             <th>Name</th>
-                                            
+
                                             <th>E-Mail</th>
                                             <th>Image</th>
                                             <th>Description</th>
@@ -118,7 +118,7 @@
                                             <div class="help-block with-errors"></div>
                                         </div>
 
-                                   
+
 
 
                                         <div class="form-group">
@@ -147,7 +147,13 @@
 
                                         <div class="form-group">
                                             <label class="control-label" for="title">Level ID:</label>
-                                            <input name="levelid" class="form-control" data-error="Please enter description." required></input>
+                                            <select name="levelid" class="form-control" data-error="Please enter description." required list="tes" type="text">                                                
+                                                <option >Staff</option>
+                                                <option>Head Resource</option>
+                                                <option>Manager</option>
+                                                <option>System Administrator</option>
+                                                <option>74bf1239-ed86-5a0f-8296-03726aab0c0c</option>
+                                            </select>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
@@ -183,21 +189,21 @@
                                             <input type="text" name="membername" class="form-control" data-error="Please enter title." required />
                                             <div class="help-block with-errors"></div>
                                         </div>
-                                      
+
 
                                         <div class="form-group">
                                             <label class="control-label" for="title">E-mail:</label>
                                             <input name="email" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
-                                        
-                                         <div class="form-group">
+
+                                        <div class="form-group">
                                             <label class="control-label" for="title">Image Address :</label>
                                             <input name="imageaddress" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
-                                        
-                                         <div class="form-group">
+
+                                        <div class="form-group">
                                             <label class="control-label" for="title">Description</label>
                                             <input name="description" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
