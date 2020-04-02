@@ -52,7 +52,7 @@
                         </div>
                         <ul class="breadcrumb breadcrumb-top">
                             <li>Managers</li>
-                            <li><a href="">Asset Master</a></li>
+                            <li><a href="">Asset Register</a></li>
                         </ul>
                         <!-- END Page Header -->
 
