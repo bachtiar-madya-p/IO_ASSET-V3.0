@@ -55,7 +55,6 @@ public class MemberLevelController extends BaseController {
             model.setDescription(json.getString(ConstantHelper.MEMBERLEVEL_DESCRIPTION));
 
             userLevelDatabaseHelper.create(model);
-
             response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
             response.put(ConstantHelper.HTTP_REASON, "create_member_level_successful");
             response.put(ConstantHelper.HTTP_MESSAGE, "Create MemberLevel Successful!");
@@ -77,7 +76,6 @@ public class MemberLevelController extends BaseController {
             model.setDescription(json.getString(ConstantHelper.MEMBERLEVEL_DESCRIPTION));
 
             userLevelDatabaseHelper.update(levelId, model);
-
             response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
             response.put(ConstantHelper.HTTP_REASON, "update_member_level_successful");
             response.put(ConstantHelper.HTTP_MESSAGE, "Update MemberLevel Successful!");
@@ -94,7 +92,6 @@ public class MemberLevelController extends BaseController {
         if (json.length() != 0) {
 
             userLevelDatabaseHelper.activate(levelId, json.getBoolean(ConstantHelper.MEMBERLEVEL_ISACTIVE));
-
             response.put(ConstantHelper.HTTP_CODE, HttpStatus.SC_OK);
             response.put(ConstantHelper.HTTP_REASON, "activate/inactivate_member_level_successful");
             response.put(ConstantHelper.HTTP_MESSAGE, "Activate/Inactivate MemberLevel Successful!");
@@ -121,5 +118,4 @@ public class MemberLevelController extends BaseController {
         }
         return json;
     }
-
 }
