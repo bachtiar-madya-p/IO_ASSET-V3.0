@@ -153,7 +153,7 @@
 
                                         <div class="form-group">
                                             <label class="control-label" for="title">Department ID:</label>
-                                            <input name="departmentid" class="form-control" data-error="Please enter description." required></input>
+                                            <select name="departmentid" class="form-control" data-error="Please enter description." required></select>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
