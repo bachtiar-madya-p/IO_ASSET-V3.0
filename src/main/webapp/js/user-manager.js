@@ -13,7 +13,7 @@ $(document).ready(function () {
             tab_data += '<td hidden>' + value.userid + '</td>';
             tab_data += '<td></td>';
             tab_data += '<td>' + value.membername + '</td>';
-            
+
             tab_data += '<td>' + value.email + '</td>';
             tab_data += '<td >' + value.imageaddress + '</td>';
             tab_data += '<td >' + value.description + '</td>';
@@ -29,8 +29,21 @@ $(document).ready(function () {
             tab_data += '</tr>';
         });
 
-//                    $('#userManagerDT').append(tab_data).DataTable({ responsive: true});
+
         $('#userManagerDT').append(tab_data).DataTable({responsive: true});
+
+        $.getJSON(hsRestUrl() + "/member-level", function (data) {
+            var tab_data = '';
+            tabel = $.each(data, function (key, value) {
+
+                            
+                tab_data += '<option>' + value.levelname + '</option>';
+               
+            });
+
+
+            $('#LvlID').append(tab_data);
+        });
 
         /* Create new Item */
         $(".crud-submit").click(function (e) {
@@ -38,7 +51,7 @@ $(document).ready(function () {
             var act = $("#create-item").find("form").attr("action", );
 
             var username = $("#create-item").find("input[name='username']").val();
-            var alias = $("#create-item").find("input[name='alias']").val();            
+            var alias = $("#create-item").find("input[name='alias']").val();
             var membername = $("#create-item").find("input[name='membername']").val();
             var email = $("#create-item").find("input[name='email']").val();
             var imageaddress = $("#create-item").find("input[name='imageaddress']").val();
@@ -62,22 +75,22 @@ $(document).ready(function () {
                 contentType: 'application/json; charset=utf-8',
                 data: JSON.stringify(tada)
             }).done(function (data) {
-               window.parent.location = window.parent.location.href;
+                window.parent.location = window.parent.location.href;
 
             });
         });
         /* Edit Item */
         $('body').on("click", ".edit-item", function () {
-            var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();    
-            var membername = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();            
-            var email = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();    
+            var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+            var membername = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+            var email = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
             var imageaddress = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
             var description = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").text();
             var levelid = $(this).parent("td").prev("td").prev("td").prev("td").text();
             var departmentid = $(this).parent("td").prev("td").prev("td").text();
 
 
-            $("#edit-item").find("input[name='membername']").val(membername);            
+            $("#edit-item").find("input[name='membername']").val(membername);
             $("#edit-item").find("input[name='email']").val(email);
             $("#edit-item").find("input[name='imageaddress']").val(imageaddress);
             $("#edit-item").find("input[name='description']").val(description);
@@ -94,18 +107,18 @@ $(document).ready(function () {
 
 
                 var form_action = $("#edit-item").find("form").attr("action");
-                var membername = $("#edit-item").find("input[name='membername']").val();                
+                var membername = $("#edit-item").find("input[name='membername']").val();
                 var email = $("#edit-item").find("input[name='email']").val();
                 var imageaddress = $("#edit-item").find("input[name='imageaddress']").val();
                 var description = $("#edit-item").find("input[name='description']").val();
                 var levelid = $("#edit-item").find("input[name='levelid']").val();
                 var departmentid = $("#edit-item").find("input[name='departmentid']").val();
                 var tada = {"membername": membername,
-                            "email": email,
-                            "imageaddress": imageaddress,
-                            "description": description,
-                            "levelid": levelid,
-                            "departmentid": departmentid
+                    "email": email,
+                    "imageaddress": imageaddress,
+                    "description": description,
+                    "levelid": levelid,
+                    "departmentid": departmentid
                 };
                 $.ajax({
 
@@ -125,7 +138,7 @@ $(document).ready(function () {
         /* Remove Item */
         $("body").on("click", ".remove-item", function () {
 
-            var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();          
+            var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
 
             $.ajax({
                 dataType: 'json',
@@ -134,21 +147,20 @@ $(document).ready(function () {
                 contentType: 'application/json; charset=utf-8'
             }).done(function (data) {
 
-              window.parent.location = window.parent.location.href;
+                window.parent.location = window.parent.location.href;
 
             });
         });
         $('body').on('click', ".deactive-user", function () {
 
-            if($(this).parent("td").prev("td").text()=== 'Inactive'){
+            if ($(this).parent("td").prev("td").text() === 'Inactive') {
                 var status = true;
-            }
-            else{
+            } else {
                 var status = false;
             }
-            
 
-            var userid =  $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();  
+
+            var userid = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
 
             var tada = {"isactive": status, "userid": userid};
             $.ajax({
