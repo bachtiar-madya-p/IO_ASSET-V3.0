@@ -36,9 +36,9 @@ $(document).ready(function () {
             var tab_data = '';
             tabel = $.each(data, function (key, value) {
 
-                            
+
                 tab_data += '<option>' + value.levelname + '</option>';
-               
+
             });
 
 
@@ -58,6 +58,16 @@ $(document).ready(function () {
             var description = $("#create-item").find("input[name='description']").val();
             var levelid = $("#create-item").find("select[name='levelid']").val();
             var departmentid = $("#create-item").find("input[name='departmentid']").val();
+
+            
+                if (levelid === "staff") {
+                    var lvl="068f2565-a0fe-528f-80b3-783d9f40cc3e";
+                }
+                else if(levelid === "Head Resource"){
+                    var lvl="20e1e5fe-e0c1-5856-8e8f-f0a7b33634f6";
+                }
+           
+ 
             var tada = {
                 "username": username,
                 "alias": alias,
@@ -66,7 +76,7 @@ $(document).ready(function () {
                 "email": email,
                 "imageaddress": imageaddress,
                 "description": description,
-                "levelid": levelid,
+                "levelid": lvl,
                 "departmentid": departmentid};
             $.ajax({
                 dataType: 'json',
