@@ -8,12 +8,12 @@ package id.io.asset.service;
 import id.io.asset.controller.GenerateQRCode;
 import java.awt.image.BufferedImage;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.BufferedImageHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,7 +49,7 @@ public class QRCodeService extends BaseService {
         return Response.ok(BarbecueBarcodeGenerator.generateQRCodeImage(barcode));
     }
     
-    @Bean
+    @POST
     public HttpMessageConverter<BufferedImage> createImageHttpMessageConverter() {
         return new BufferedImageHttpMessageConverter();
     }
