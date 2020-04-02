@@ -13,6 +13,7 @@
   */
 package id.io.asset.util.database;
 
+import id.io.asset.model.CityModel;
 import id.io.asset.model.ProvinceModel;
 import id.io.asset.util.constant.ConstantHelper;
 import java.sql.SQLException;
@@ -33,13 +34,11 @@ public class ProvinceDatabaseHelper extends BaseDatabaseHelper {
         final String sql = "INSERT INTO masterprovince (provinceid, provincecode, provincename, isactive) VALUES(:provinceid, :provincecode, :provincename, :isactive);";
         int row = 0;
         try (Handle handle = getHandle()) {
-
             row = handle.createUpdate(sql)
                     .bind(ConstantHelper.PROVINCE_PROVINCEID, province.getProvinceid())
                     .bind(ConstantHelper.PROVINCE_PROVINCECODE, province.getProvincecode())
                     .bind(ConstantHelper.PROVINCE_PROVINCENAME, province.getProviincename())
                     .bind(ConstantHelper.PROVINCE__ISACTIVE, false).execute();
-
         } catch (SQLException ex) {
             log.error(ProvinceDatabaseHelper.class.getName(), " - errorCreateProvince " + ex);
         }
@@ -49,7 +48,6 @@ public class ProvinceDatabaseHelper extends BaseDatabaseHelper {
     //update
     public int update(String provinceId, ProvinceModel province) {
         log.debug(ProvinceDatabaseHelper.class.getName(), "- updateProvince");
-
         final String sql = "UPDATE masterprovince SET  provincename= :provincename WHERE provinceid= :provinceid;";
         int row = 0;
         try (Handle handle = getHandle()) {
@@ -57,7 +55,6 @@ public class ProvinceDatabaseHelper extends BaseDatabaseHelper {
             row = handle.createUpdate(sql)
                     .bind(ConstantHelper.PROVINCE_PROVINCEID, provinceId)
                     .bind(ConstantHelper.PROVINCE_PROVINCENAME, province.getProviincename()).execute();
-
         } catch (SQLException ex) {
             log.error(ProvinceDatabaseHelper.class.getName(), " - errorUpdateProvince " + ex);
         }
@@ -71,9 +68,7 @@ public class ProvinceDatabaseHelper extends BaseDatabaseHelper {
         final String sql = "DELETE FROM masterprovince WHERE provinceid = :provinceid;";
         int result = 0;
         try (Handle handle = getHandle()) {
-
             result = handle.createUpdate(sql).bind(ConstantHelper.PROVINCE_PROVINCEID, provinceId).execute();
-
         } catch (SQLException ex) {
             log.error(ProvinceDatabaseHelper.class.getName(), " - errorDeleteProvince " + ex);
         }
@@ -94,17 +89,13 @@ public class ProvinceDatabaseHelper extends BaseDatabaseHelper {
             log.error(MemberLevelDatabaseHelper.class.getName(), " - errorGetListUserLevel " + ex);
         }
         return province;
-
     }
     
     //list
     public List<ProvinceModel> getList() {
         List<ProvinceModel> provinceList = new ArrayList<>();
-
         log.debug(MemberLevelDatabaseHelper.class.getName(), " - getListProvince");
-
         final String sql = "SELECT provinceid, provincecode, provincename, IF(isactive, 'true', 'false') isactive FROM masterprovince;";
-
         try (Handle h = getHandle()) {
             provinceList = h.createQuery(sql).mapToBean(ProvinceModel.class).list();
         } catch (Exception ex) {
@@ -116,7 +107,6 @@ public class ProvinceDatabaseHelper extends BaseDatabaseHelper {
     //activate
     public int activate(String provinceId, boolean isActive) {
         log.debug(ProvinceDatabaseHelper.class.getName(), "- activateProvince");
-
         final String sql = "UPDATE masterprovince SET isactive = :isactive WHERE provinceid = :provinceid ;";
         int row = 0;
         try (Handle handle = getHandle()) {
@@ -124,7 +114,6 @@ public class ProvinceDatabaseHelper extends BaseDatabaseHelper {
             row = handle.createUpdate(sql)
                     .bind(ConstantHelper.PROVINCE_PROVINCEID, provinceId)
                     .bind(ConstantHelper.PROVINCE__ISACTIVE, isActive).execute();
-
         } catch (SQLException ex) {
             log.error(ProvinceDatabaseHelper.class.getName(), " - errorActivateProvince " + ex);
         }
