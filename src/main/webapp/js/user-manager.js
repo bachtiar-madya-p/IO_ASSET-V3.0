@@ -53,7 +53,7 @@ $(document).ready(function () {
 
 
                 tab_data += '<option>' + value.departmentname + '</option>';
-
+                
             });
 
 
@@ -72,7 +72,7 @@ $(document).ready(function () {
             var imageaddress = $("#create-item").find("input[name='imageaddress']").val();
             var description = $("#create-item").find("input[name='description']").val();
             var levelname = $("#create-item").find("select[name='levelid']").val();
-            var departmentname = $("#create-item").find("input[name='departmentid']").val();
+            var departmentname = $("#create-item").find("select[name='departmentid']").val();
 
             
                 if (levelname === "staff") {
@@ -87,6 +87,16 @@ $(document).ready(function () {
                 else if(levelname === "System Administrator"){
                     var levelid="fcc139c3-2b83-5141-8cfb-3fe6f02d8c16";
                 }
+                
+                 if (departmentname === "Helpdesk") {
+                    var departmentid="3f46b266-d159-5e69-8473-a50ddc65f6b7";
+                }
+                else if(departmentname === "qert"){
+                    var departmentid="7ba2415a-e5ae-540f-b679-3dfd5de68e29";
+                }
+                else if(departmentname === "System Administrator"){
+                    var departmentid="fcc139c3-2b83-5141-8cfb-3fe6f02d8c16";
+                }               
            
  
             var tada = {
