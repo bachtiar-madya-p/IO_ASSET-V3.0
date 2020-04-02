@@ -31,7 +31,8 @@ $(document).ready(function () {
 
 
         $('#userManagerDT').append(tab_data).DataTable({responsive: true});
-
+        
+        /* GetData member-level  */
         $.getJSON(hsRestUrl() + "/member-level", function (data) {
             var tab_data = '';
             tabel = $.each(data, function (key, value) {
@@ -43,6 +44,20 @@ $(document).ready(function () {
 
 
             $('#LvlID').append(tab_data);
+        });
+        
+          /* GetData depertment  */
+          $.getJSON(hsRestUrl() + "/department", function (data) {
+            var tab_data = '';
+            tabel = $.each(data, function (key, value) {
+
+
+                tab_data += '<option>' + value.departmentname + '</option>';
+
+            });
+
+
+            $('#DptID').append(tab_data);
         });
 
         /* Create new Item */
