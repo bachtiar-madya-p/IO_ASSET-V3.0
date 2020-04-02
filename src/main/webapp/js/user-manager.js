@@ -56,15 +56,21 @@ $(document).ready(function () {
             var email = $("#create-item").find("input[name='email']").val();
             var imageaddress = $("#create-item").find("input[name='imageaddress']").val();
             var description = $("#create-item").find("input[name='description']").val();
-            var levelid = $("#create-item").find("select[name='levelid']").val();
+            var levelname = $("#create-item").find("select[name='levelid']").val();
             var departmentid = $("#create-item").find("input[name='departmentid']").val();
 
             
-                if (levelid === "staff") {
-                    var lvl="068f2565-a0fe-528f-80b3-783d9f40cc3e";
+                if (levelname === "staff") {
+                    var levelid="068f2565-a0fe-528f-80b3-783d9f40cc3e";
                 }
-                else if(levelid === "Head Resource"){
-                    var lvl="20e1e5fe-e0c1-5856-8e8f-f0a7b33634f6";
+                else if(levelname === "Head Resource"){
+                    var levelid="20e1e5fe-e0c1-5856-8e8f-f0a7b33634f6";
+                }
+                else if(levelname === "Manager"){
+                    var levelid="74bf1239-ed86-5a0f-8296-03726aab0c0c";
+                }
+                else if(levelname === "System Administrator"){
+                    var levelid="fcc139c3-2b83-5141-8cfb-3fe6f02d8c16";
                 }
            
  
@@ -76,7 +82,7 @@ $(document).ready(function () {
                 "email": email,
                 "imageaddress": imageaddress,
                 "description": description,
-                "levelid": lvl,
+                "levelid": levelid,
                 "departmentid": departmentid};
             $.ajax({
                 dataType: 'json',
