@@ -147,13 +147,7 @@
 
                                         <div class="form-group">
                                             <label class="control-label" for="title">Level ID:</label>
-                                            <select name="levelid" class="form-control" data-error="Please enter description." required  type="text" id="LvlID">                                                
-                                                <option >Staff</option>
-                                                <option>Head Resource</option>
-                                                <option>Manager</option>
-                                                <option>System Administrator</option>
-                                                <option>74bf1239-ed86-5a0f-8296-03726aab0c0c</option>
-                                            </select>
+                                            <select name="levelid" class="form-control" data-error="Please enter description." required  type="text" id="LvlID"></select>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
