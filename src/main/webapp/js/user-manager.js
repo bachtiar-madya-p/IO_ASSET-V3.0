@@ -13,8 +13,10 @@ $(document).ready(function () {
             tab_data += '<td hidden>' + value.userid + '</td>';
             tab_data += '<td></td>';
             tab_data += '<td>' + value.membername + '</td>';
-            tab_data += '<td>' + value.username + '</td>';
+            
             tab_data += '<td>' + value.email + '</td>';
+            tab_data += '<td >' + value.imageaddress + '</td>';
+            tab_data += '<td >' + value.description + '</td>';
             tab_data += '<td>' + value.levelid + '</td>';
             tab_data += '<td>' + value.departmentid + '</td>';
 //                            tab_data += '<td><span class="label label-info">'+value.isadmin+'</span></td>';
@@ -36,7 +38,8 @@ $(document).ready(function () {
             var act = $("#create-item").find("form").attr("action", );
 
             var username = $("#create-item").find("input[name='username']").val();
-            var alias = $("#create-item").find("input[name='alias']").val();            
+            var alias = $("#create-item").find("input[name='alias']").val();
+            
             var membername = $("#create-item").find("input[name='membername']").val();
             var email = $("#create-item").find("input[name='email']").val();
             var imageaddress = $("#create-item").find("input[name='imageaddress']").val();
@@ -66,16 +69,16 @@ $(document).ready(function () {
         });
 
         $('body').on("click", ".edit-item", function () {
-            var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
-            var membername = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
-            var email = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").text();
+            var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();    
+            var membername = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();            
+            var email = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();    
             var imageaddress = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
-            var description = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+            var description = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").text();
             var levelid = $(this).parent("td").prev("td").prev("td").prev("td").text();
             var departmentid = $(this).parent("td").prev("td").prev("td").text();
 
 
-            $("#edit-item").find("input[name='membername']").val(membername);
+            $("#edit-item").find("input[name='membername']").val(membername);            
             $("#edit-item").find("input[name='email']").val(email);
             $("#edit-item").find("input[name='imageaddress']").val(imageaddress);
             $("#edit-item").find("input[name='description']").val(description);
@@ -92,13 +95,19 @@ $(document).ready(function () {
 
 
                 var form_action = $("#edit-item").find("form").attr("action");
-                var membername = $("#edit-item").find("input[name='membername']").val();
+                var membername = $("#edit-item").find("input[name='membername']").val();                
                 var email = $("#edit-item").find("input[name='email']").val();
                 var imageaddress = $("#edit-item").find("input[name='imageaddress']").val();
                 var description = $("#edit-item").find("input[name='description']").val();
                 var levelid = $("#edit-item").find("input[name='levelid']").val();
                 var departmentid = $("#edit-item").find("input[name='departmentid']").val();
-                var tada = {"username": username};
+                var tada = {"membername": membername,
+                            "email": email,
+                            "imageaddress": imageaddress,
+                            "description": description,
+                            "levelid": levelid,
+                            "departmentid": departmentid
+                };
                 $.ajax({
 
                     dataType: 'json',
@@ -117,7 +126,7 @@ $(document).ready(function () {
         /* Remove Item */
         $("body").on("click", ".remove-item", function () {
 
-            var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();          
+            var userId = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();          
 
             $.ajax({
                 dataType: 'json',
@@ -140,7 +149,7 @@ $(document).ready(function () {
             }
             
 
-            var userid = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
+            var userid =  $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();  
 
             var tada = {"isactive": status, "userid": userid};
             $.ajax({
@@ -156,4 +165,3 @@ $(document).ready(function () {
         });
     });
 });
-          

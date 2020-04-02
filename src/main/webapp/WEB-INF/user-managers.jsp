@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -68,8 +69,10 @@
                                             <th hidden>#</th>
                                             <th>#</th>
                                             <th>Name</th>
-                                            <th>Username</th>
+                                            
                                             <th>E-Mail</th>
+                                            <th>Image</th>
+                                            <th>Description</th>
                                             <th>Level</th>
                                             <th>Department</th>
                                             <th>Status</th>
@@ -101,9 +104,7 @@
                                 </div>
 
                                 <div class="modal-body">
-
-                                    <form data-toggle="validator"  method="POST">
-
+                                    <form data-toggle="validator" action="/user" method="POST">
                                         <div class="form-group">
                                             <label class="control-label" for="title">Username:</label>
                                             <input name="username" class="form-control" data-error="Please enter description." required></input>
@@ -117,8 +118,10 @@
                                             <div class="help-block with-errors"></div>
                                         </div>
 
-                                        <div class="form-group">
+                                   
 
+
+                                        <div class="form-group">
                                             <label class="control-label" for="title">Member Name:</label>
                                             <input type="text" name="membername" class="form-control" data-error="Please enter title." required />
                                             <div class="help-block with-errors"></div>
@@ -180,16 +183,23 @@
                                             <input type="text" name="membername" class="form-control" data-error="Please enter title." required />
                                             <div class="help-block with-errors"></div>
                                         </div>
-
-                                        <div class="form-group">
-                                            <label class="control-label" for="title">Username:</label>
-                                            <input name="username" class="form-control" data-error="Please enter description." required></input>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
+                                      
 
                                         <div class="form-group">
                                             <label class="control-label" for="title">E-mail:</label>
                                             <input name="email" class="form-control" data-error="Please enter description." required></input>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        
+                                         <div class="form-group">
+                                            <label class="control-label" for="title">Image Address :</label>
+                                            <input name="imageaddress" class="form-control" data-error="Please enter description." required></input>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        
+                                         <div class="form-group">
+                                            <label class="control-label" for="title">Description</label>
+                                            <input name="description" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
