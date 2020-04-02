@@ -38,13 +38,12 @@ $(document).ready(function () {
             var act = $("#create-item").find("form").attr("action", );
 
             var username = $("#create-item").find("input[name='username']").val();
-            var alias = $("#create-item").find("input[name='alias']").val();
-            
+            var alias = $("#create-item").find("input[name='alias']").val();            
             var membername = $("#create-item").find("input[name='membername']").val();
             var email = $("#create-item").find("input[name='email']").val();
             var imageaddress = $("#create-item").find("input[name='imageaddress']").val();
             var description = $("#create-item").find("input[name='description']").val();
-            var levelid = $("#create-item").find("input[name='levelid']").val();
+            var levelid = $("#create-item").find("select[name='levelid']").val();
             var departmentid = $("#create-item").find("input[name='departmentid']").val();
             var tada = {
                 "username": username,
