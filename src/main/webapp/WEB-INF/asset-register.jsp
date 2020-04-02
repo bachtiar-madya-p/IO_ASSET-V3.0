@@ -46,7 +46,7 @@
                         <div class="content-header">
                             <div class="header-section">
                                 <h1>
-                                    <i class="gi gi-brush"></i>Asset Master<br><small></small>
+                                    <i class="gi gi-brush"></i>Asset Register<br><small></small>
                                 </h1>
                             </div>
                         </div>
