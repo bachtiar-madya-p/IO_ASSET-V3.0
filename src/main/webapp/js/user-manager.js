@@ -57,7 +57,7 @@ $(document).ready(function () {
             var imageaddress = $("#create-item").find("input[name='imageaddress']").val();
             var description = $("#create-item").find("input[name='description']").val();
             var levelname = $("#create-item").find("select[name='levelid']").val();
-            var departmentid = $("#create-item").find("input[name='departmentid']").val();
+            var departmentname = $("#create-item").find("input[name='departmentid']").val();
 
             
                 if (levelname === "staff") {
