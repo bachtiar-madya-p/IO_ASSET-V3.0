@@ -162,9 +162,9 @@
                                             <input name="status" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
-                                          <div class="form-group">
+                                         <div class="form-group">
                                             <label class="control-label" for="title">Action </label>
-                                            <input name="action" class="form-control" data-error="Please enter description." required></input>
+                                            <input name="status" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
@@ -222,11 +222,6 @@
                                            <div class="form-group">
                                             <label class="control-label" for="title">Status </label>
                                             <input name="status" class="form-control" data-error="Please enter description." required></input>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                         <div class="form-group">
-                                            <label class="control-label" for="title">Action </label>
-                                            <input name="action" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
