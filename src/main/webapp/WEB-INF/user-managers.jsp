@@ -179,9 +179,10 @@
                         </div>
                     </div>
                     <!-- Edit Item Modal -->
-                    <div class="modal fade" id="edit-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                   <div class="modal fade" id="edit-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 
 
+                       
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -189,14 +190,13 @@
                                     <h4 class="modal-title" id="myModalLabel">Edit Item</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form data-toggle="validator" action="" method="put">
+                                 <form data-toggle="validator" action="" method="put">
                                         <div class="form-group">
                                             <label class="control-label" for="title">Member Name:</label>
                                             <input type="text" name="membername" class="form-control" data-error="Please enter title." required />
                                             <div class="help-block with-errors"></div>
                                         </div>
-
-                                        <div class="form-group">
+                                         <div class="form-group">
                                             <label class="control-label" for="title">Username:</label>
                                             <input name="username" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
