@@ -157,6 +157,17 @@
                                             <input name="departmentid" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
+                                          <div class="form-group">
+                                            <label class="control-label" for="title">Status </label>
+                                            <input name="status" class="form-control" data-error="Please enter description." required></input>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                          <div class="form-group">
+                                            <label class="control-label" for="title">Action </label>
+                                            <input name="action" class="form-control" data-error="Please enter description." required></input>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+
 
                                         <div class="form-group">
                                             <button type="submit" class="btn crud-submit btn-info">Submit</button>
@@ -208,6 +219,17 @@
                                             <input name="departmentid" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
+                                           <div class="form-group">
+                                            <label class="control-label" for="title">Status </label>
+                                            <input name="status" class="form-control" data-error="Please enter description." required></input>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                         <div class="form-group">
+                                            <label class="control-label" for="title">Action </label>
+                                            <input name="action" class="form-control" data-error="Please enter description." required></input>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+
 
 
                                         <div class="form-group">
