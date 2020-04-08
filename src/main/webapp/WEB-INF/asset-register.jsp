@@ -108,40 +108,46 @@
                                 <div class="modal-body">
                                     <form data-toggle="validator" action="/asset" method="POST">
                                         <div class="form-group">
+                                            <label class="control-label" for="title">Location:</label>
+                                            <input name="location" class="form-control" data-error="Please enter description." required></input>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+
+
+                                        <div class="form-group">
                                             <label class="control-label" for="title">Asset Code:</label>
                                             <input name="assetcode" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
-
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Asset Name:</label>
-                                            <input name="assetname" class="form-control" data-error="Please enter description." required></input>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="control-label" for="title">Type:</label>
-                                            <input name="typeid" class="form-control" data-error="Please enter description." required></input>
+                                            <label class="control-label" for="title">Building Name:</label>
+                                            <input name="buildingname" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
 
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Manufacture:</label>
-                                            <input type="text" name="manufacture" class="form-control" data-error="Please enter title." required />
+                                            <label class="control-label" for="title">Member Code:</label>
+                                            <input type="text" name="membercode" class="form-control" data-error="Please enter title." required />
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Model</label>
-                                            <input name="model" class="form-control" data-error="Please enter description." required></input>
+                                            <label class="control-label" for="title">Rate ID:</label>
+                                            <input name="rateid" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Vendor:</label>
-                                            <input name="vendor" class="form-control" data-error="Please enter description." required></input>
+                                            <label class="control-label" for="title">Geolocation:</label>
+                                            <input name="geolocation" class="form-control" data-error="Please enter description." required></input>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="control-label" for="title">Photo:</label>
+                                            <input name="phot" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
@@ -173,40 +179,46 @@
                                 <div class="modal-body">
                                     <form data-toggle="validator" action="" method="put">
                                         <div class="form-group">
+                                            <label class="control-label" for="title">Location:</label>
+                                            <input type="text" name="location" class="form-control" data-error="Please enter title." required />
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+
+                                        <div class="form-group">
                                             <label class="control-label" for="title">Asset Code:</label>
-                                            <input type="text" name="assetcode" class="form-control" data-error="Please enter title." required />
+                                            <input name="assetcode" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Asset Name:</label>
-                                            <input name="assetname" class="form-control" data-error="Please enter description." required></input>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="control-label" for="title">Type:</label>
-                                            <input name="typeid" class="form-control" data-error="Please enter description." required></input>
+                                            <label class="control-label" for="title">Building Name:</label>
+                                            <input name="buildingname" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div> 
 
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Manufacture:</label>
-                                            <input name="manufacture" class="form-control" data-error="Please enter description." required></input>
+                                            <label class="control-label" for="title">Member Code:</label>
+                                            <input name="membercode" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>  
 
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Model:</label>
-                                            <input name="model" class="form-control" data-error="Please enter description." required></input>
+                                            <label class="control-label" for="title">Rate ID:</label>
+                                            <input name="rateid" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
                                         </div>  
 
                                         <div class="form-group">
-                                            <label class="control-label" for="title">Vendor:</label>
-                                            <input name="vendor" class="form-control" data-error="Please enter description." required></input>
+                                            <label class="control-label" for="title">Geolocation:</label>
+                                            <input name="geolocation" class="form-control" data-error="Please enter description." required></input>
                                             <div class="help-block with-errors"></div>
-                                        </div>  
+                                        </div> 
+                                        
+                                        <div class="form-group">
+                                            <label class="control-label" for="title">Photo:</label>
+                                            <input name="photo" class="form-control" data-error="Please enter description." required></input>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
 
                                         <div class="form-group">
                                             <label class="control-label" for="title">Note:</label>
