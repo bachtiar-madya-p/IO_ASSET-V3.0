@@ -104,7 +104,7 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    <form data-toggle="validator" action="/user" method="POST">
+                                    <form data-toggle="validator" action="/user" method="POST" class="form-horizontal">
                                         <div class="form-group">
                                             <label class="control-label" for="title">Username:</label>
                                             <input name="username" class="form-control" data-error="Please enter description." required placeholder="Enter username here"></input>
