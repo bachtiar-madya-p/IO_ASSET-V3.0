@@ -107,14 +107,14 @@
                                     <form data-toggle="validator" action="/user" method="POST">
                                         <div class="form-group">
                                             <label class="control-label" for="title">Username:</label>
-                                            <input name="username" class="form-control" data-error="Please enter description." required></input>
+                                            <input name="username" class="form-control" data-error="Please enter description." required placeholder="Enter username here"></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
 
                                         <div class="form-group">
                                             <label class="control-label" for="title">Alias:</label>
-                                            <input name="alias" class="form-control" data-error="Please enter description." required></input>
+                                            <input name="alias" class="form-control" data-error="Please enter description." required placeholder="Enter alias"></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
@@ -123,13 +123,13 @@
 
                                         <div class="form-group">
                                             <label class="control-label" for="title">Member Name:</label>
-                                            <input type="text" name="membername" class="form-control" data-error="Please enter title." required />
+                                            <input type="text" name="membername" class="form-control" data-error="Please enter title." required placeholder="Enter your name here"/>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="control-label" for="title">E-mail:</label>
-                                            <input name="email" class="form-control" data-error="Please enter description." required></input>
+                                            <input name="email" class="form-control" data-error="Please enter description." required placeholder="example@email.com"></input>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
