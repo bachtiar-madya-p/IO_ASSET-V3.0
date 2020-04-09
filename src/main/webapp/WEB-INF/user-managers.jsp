@@ -91,23 +91,23 @@
                     </div>
                     <!-- END Page Content -->
                     <!-- Create Item Modal -->
-                    <div class="modal fade" id="create-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal fade" id="create-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
 
 
-                        <div class="modal-dialog" role="document">
+                        <div class="modal-dialog modal-dialog-centered" role="document" >
                             <div class="modal-content">
 
 
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Add User</h4>
+                                    <h4 class="modal-title" id="myModalLabel">Add <strong>User</strong></h4>
                                 </div>
 
-                                <div class="modal-body">
+                                <div class="modal-body" >
                                     <form data-toggle="validator" action="/user" method="POST" class="form-horizontal">
                                         <div class="form-group">
-                                            <label class="control-label col-sm-3" for="title" style="text-align: left">Username:</label>
-                                            <div class="col-sm-8">
+                                            <label class="control-label col-sm-3" for="title" style="text-align: left">Username</label>
+                                            <div class="col-sm-7">
                                             <input name="username" class="form-control" data-error="Please enter description." required placeholder="Enter username here"></input>
                                             </div>
                                             <div class="help-block with-errors"></div>
@@ -116,7 +116,7 @@
 
                                         <div class="form-group">
                                             <label class="control-label col-sm-3" for="title" style="text-align: left">Alias:</label>
-                                            <div class="col-sm-8">
+                                            <div class="col-sm-7">
                                             <input name="alias" class="form-control" data-error="Please enter description." required placeholder="Enter alias"></input>
                                             </div>
                                             <div class="help-block with-errors"></div>
@@ -126,55 +126,55 @@
 
 
                                         <div class="form-group">
-                                            <label class="control-label col-sm-3" for="title" style="text-align: left">Member Name:</label>
-                                            <div class="col-sm-8">
+                                            <label class="control-label col-sm-3" for="title" style="text-align: left">Member Name</label>
+                                            <div class="col-sm-7">
                                             <input type="text" name="membername" class="form-control" data-error="Please enter title." required placeholder="Enter your name here"></input>
                                             </div>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-sm-3" for="title" style="text-align: left">E-mail:</label>
-                                            <div class="col-sm-8">
+                                            <label class="control-label col-sm-3" for="title" style="text-align: left">E-mail</label>
+                                            <div class="col-sm-7">
                                             <input name="email" class="form-control" data-error="Please enter description." required placeholder="example@email.com"></input>
                                             </div>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-sm-3" for="title" style="text-align: left">Image Address:</label>
-                                            <div class="col-sm-8">
-                                            <input name="imageaddress" class="form-control" data-error="Please enter description." required></input>
+                                            <label class="control-label col-sm-3" for="title" style="text-align: left">Image Address</label>
+                                            <div class="col-sm-7">
+                                            <input name="imageaddress" class="form-control" data-error="Please enter description." required Placeholder="Enter Image Address"></input>
                                             </div>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-sm-3" for="title" style="text-align: left">Description:</label>
-                                            <div class="col-sm-8">
-                                            <input name="description" class="form-control" data-error="Please enter description." required></input>
+                                            <label class="control-label col-sm-3" for="title" style="text-align: left">Description</label>
+                                            <div class="col-sm-7">
+                                            <input name="description" class="form-control" data-error="Please enter description." required placeholder="Enter Description"></input>
                                             </div>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-sm-3" for="title" style="text-align: left">Level ID:</label>
-                                            <div class="col-sm-8">
+                                            <label class="control-label col-sm-3" for="title" style="text-align: left">Level ID</label>
+                                            <div class="col-sm-7">
                                             <select name="levelid" class="form-control" data-error="Please enter description." required  type="text" id="LvlID"></select>
                                             </div>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-sm-3" for="title" style="text-align: left">Department ID:</label>
-                                            <div class="col-sm-8">
+                                            <label class="control-label col-sm-3" for="title" style="text-align: left">Department ID</label>
+                                            <div class="col-sm-7">
                                             <select name="departmentid" class="form-control" data-error="Please enter description." required id="DptID"></select>
                                             </div>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
-                                        <div class="form-group">
-                                            <button type="submit" class="btn crud-submit btn-info">Submit</button>
+                                        <div class="form-group" style="padding-left: 260px; padding-top: 30px">
+                                            <button type="submit" class="btn crud-submit btn-info" style="width: 100px">Submit</button>
                                         </div>
 
                                     </form>
