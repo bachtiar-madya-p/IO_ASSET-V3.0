@@ -75,7 +75,7 @@
                                             <th>Description</th>
                                             <th>Level</th>
                                             <th>Department</th>
-                                            <th>Status</th>
+                                            <th class="text-center">Status</th>
                                             <th class="text-center">Actions</th>
                                         </tr>
                                     </thead>
