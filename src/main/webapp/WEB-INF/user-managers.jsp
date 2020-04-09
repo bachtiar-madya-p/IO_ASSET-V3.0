@@ -115,7 +115,7 @@
 
 
                                         <div class="form-group">
-                                            <label class="control-label col-sm-3" for="title" style="text-align: left; padding-left: 30px">Alias:</label>
+                                            <label class="control-label col-sm-3" for="title" style="text-align: left; padding-left: 30px">Alias</label>
                                             <div class="col-sm-7">
                                             <input name="alias" class="form-control" data-error="Please enter description." required placeholder="Enter alias"></input>
                                             </div>
