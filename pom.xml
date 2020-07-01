@@ -36,7 +36,7 @@ license document, but changing it is not allowed. * -->
         <!-- Library Version -->
         <jersey.version>2.28</jersey.version>
         <tuckey.version>4.0.3</tuckey.version>
-        <log4j.version>2.11.1</log4j.version>
+        <log4j.version>2.13.2</log4j.version>
         <httpclient.version>4.5.8</httpclient.version>
         <hikaricp.version>3.2.0</hikaricp.version>
         <jackson.version>2.9.9</jackson.version>
